@@ -1,0 +1,17 @@
+{
+  "savedAt": "2026-10-12T12:27:41.446Z",
+  "totalGenerations": 2,
+  "totalEpisodes": 10,
+  "virtualDays": 1,
+  "virtualYears": 0,
+  "bestFitness": 150,
+  "baselineFitness": {
+    "heuristic": 224,
+    "random": 153.5
+  },
+  "improvement": -33.035714285714285,
+  "heldOutFitness": 100,
+  "episodesPerSecond": 262.5333417344003,
+  "totalWallClockMs": 38.09039999999999,
+  "completedAt": "2026-10-12T12:27:41.445Z"
+}

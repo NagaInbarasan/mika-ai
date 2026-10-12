@@ -1,0 +1,12 @@
+{
+  "experimentName": "Accelerated Million-Year Evolution",
+  "completedAt": "2026-10-11T18:15:30.876Z",
+  "populationSize": 500,
+  "totalGenerations": 5,
+  "totalEpisodes": 5000,
+  "virtualDays": 1825000,
+  "virtualYears": 5000,
+  "bestEverFitness": 4001,
+  "overallThroughputEpsPerSec": 136,
+  "wallClockDurationSec": 36.8
+}

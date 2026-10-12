@@ -1,0 +1,441 @@
+[
+  {
+    "id": "0955f3a4-3532-4416-81eb-ead7339613ba",
+    "timestamp": "2026-10-12T12:48:12.796Z",
+    "reason": "<MIKA_Bot> [Death] MIKA died at (-418.5, 62.7, -328)! Reason: MIKA_Bot was shot by Pillager. Lost items location remembered.",
+    "death_message": "<MIKA_Bot> [Death] MIKA died at (-418.5, 62.7, -328)! Reason: MIKA_Bot was shot by Pillager. Lost items location remembered.",
+    "killer": "Pillager",
+    "damage_type": null,
+    "position": {
+      "x": -418.5,
+      "y": 62.7,
+      "z": -328
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "stone_sword",
+        "count": 1
+      },
+      {
+        "name": "arrow",
+        "count": 2
+      },
+      {
+        "name": "bone",
+        "count": 2
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 1
+      },
+      {
+        "name": "dirt",
+        "count": 4
+      },
+      {
+        "name": "chest",
+        "count": 1
+      },
+      {
+        "name": "feather",
+        "count": 1
+      },
+      {
+        "name": "dark_oak_planks",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "e1eff097-a88c-4311-a0df-49b611bb0c66",
+    "timestamp": "2026-10-12T12:47:11.729Z",
+    "reason": "MIKA_Bot was shot by Pillager",
+    "death_message": "MIKA_Bot was shot by Pillager",
+    "killer": "Pillager",
+    "damage_type": null,
+    "position": {
+      "x": -404.5,
+      "y": 80,
+      "z": -337.4
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "dark_oak_planks",
+        "count": 1
+      },
+      {
+        "name": "stick",
+        "count": 1
+      },
+      {
+        "name": "dark_oak_log",
+        "count": 11
+      },
+      {
+        "name": "furnace",
+        "count": 1
+      },
+      {
+        "name": "chest",
+        "count": 1
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "stone_sword",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 13
+      },
+      {
+        "name": "stone_axe",
+        "count": 1
+      },
+      {
+        "name": "chicken",
+        "count": 1
+      },
+      {
+        "name": "feather",
+        "count": 1
+      },
+      {
+        "name": "porkchop",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "a00a6ceb-bbcb-45b1-9d47-40985ec0f96c",
+    "timestamp": "2026-10-12T12:40:57.034Z",
+    "reason": "MIKA_Bot was shot by Skeleton",
+    "death_message": "MIKA_Bot was shot by Skeleton",
+    "killer": "Skeleton",
+    "damage_type": null,
+    "position": {
+      "x": -370.5,
+      "y": 69,
+      "z": -353.3
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "dark_oak_log",
+        "count": 44
+      },
+      {
+        "name": "chest",
+        "count": 1
+      },
+      {
+        "name": "stone_sword",
+        "count": 1
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 29
+      },
+      {
+        "name": "oak_sapling",
+        "count": 1
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "dirt",
+        "count": 5
+      },
+      {
+        "name": "stick",
+        "count": 1
+      },
+      {
+        "name": "stone_axe",
+        "count": 1
+      },
+      {
+        "name": "furnace",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "6cd911df-16d6-4220-b5e4-e83df34e5713",
+    "timestamp": "2026-10-12T12:13:19.195Z",
+    "reason": "MIKA_Bot was shot by Skeleton",
+    "death_message": "MIKA_Bot was shot by Skeleton",
+    "killer": "Skeleton",
+    "damage_type": null,
+    "position": {
+      "x": -359.5,
+      "y": 60,
+      "z": -361.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "2b0f24d2-22a3-4e94-bd6d-872476bde643",
+    "timestamp": "2026-10-12T12:13:19.139Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -360.5,
+      "y": 60,
+      "z": -359.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "f36af358-87ca-4c03-8b8b-d87e7bb71834",
+    "timestamp": "2026-10-12T12:13:19.062Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -360.5,
+      "y": 60,
+      "z": -359.6
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "6f5d24c8-b46e-484a-be55-75651cfcf5b7",
+    "timestamp": "2026-10-12T12:13:19.011Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "eb094e26-6066-451d-982e-9805639e3ec4",
+    "timestamp": "2026-10-12T12:13:18.986Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.6,
+      "y": 59,
+      "z": -359.4
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "806fa53f-8be0-40bb-ba95-3580972ac47d",
+    "timestamp": "2026-10-12T12:13:18.883Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.4
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "4eff0824-6c8b-4452-adc2-bbc94b9bffa3",
+    "timestamp": "2026-10-12T12:13:18.856Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -374,
+      "y": 62.4,
+      "z": -344
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "5c3e2ac4-54b7-4743-a6ff-a9ff46bcfa93",
+    "timestamp": "2026-10-12T12:13:18.773Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.3
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "aeeb9112-60eb-4f77-b270-4c6e6932fed6",
+    "timestamp": "2026-10-12T12:13:18.596Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -362.9,
+      "y": 70.2,
+      "z": -366.1
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "007dc39d-3f7d-49ed-8de0-c48294342da0",
+    "timestamp": "2026-10-12T12:13:18.527Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -365.5,
+      "y": 72,
+      "z": -377.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "4d66670f-53e6-4120-ab6a-9cf8eb28ffc4",
+    "timestamp": "2026-10-12T12:13:18.419Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -369.7,
+      "y": 72,
+      "z": -372.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "24dad357-7d67-4e8c-8221-7996be5aed46",
+    "timestamp": "2026-10-12T12:13:18.396Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -352.5,
+      "y": 70,
+      "z": -389.4
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "b21a79d4-4875-4140-8ce6-6905588732db",
+    "timestamp": "2026-10-12T12:13:18.303Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -377.5,
+      "y": 74,
+      "z": -363.7
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "2e23cf20-d981-46ae-a3ef-d364536477a8",
+    "timestamp": "2026-10-12T12:13:18.183Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -359.5,
+      "y": 60,
+      "z": -361.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "67c6389c-5d76-499d-8427-178a7e0c5720",
+    "timestamp": "2026-10-12T12:13:18.010Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -353.6,
+      "y": 71,
+      "z": -369.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "d9794350-cd9b-49e6-939c-093f8ea73f64",
+    "timestamp": "2026-10-12T12:13:17.885Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -352.5,
+      "y": 71,
+      "z": -373.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "1f27a5dd-7caf-464e-81ca-f8885d58bc2c",
+    "timestamp": "2026-10-12T12:13:17.854Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -366.5,
+      "y": 71,
+      "z": -376.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  }
+]

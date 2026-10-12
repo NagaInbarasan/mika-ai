@@ -1,0 +1,66 @@
+[
+  {
+    "id": "92b6f378-4083-4cbd-85dd-85c1bb8c964e",
+    "situation_pattern": "collect_resource:BLOCK_NOT_HARVESTABLE",
+    "previous_failure": "BLOCK_NOT_HARVESTABLE",
+    "evidence": "Bot cannot dig block at (6, 60, 18)",
+    "validated_correction": {
+      "action": "stop",
+      "arguments": {}
+    },
+    "success_count": 0,
+    "failure_count": 40,
+    "confidence": 0,
+    "status": "downgraded",
+    "created_at": "2026-10-12T10:14:10.299Z",
+    "last_used_at": "2026-10-12T12:13:04.079Z"
+  },
+  {
+    "id": "d80432de-8153-42b9-a028-641db0fdd3b6",
+    "situation_pattern": "navigate_to:NAVIGATION_TIMEOUT",
+    "previous_failure": "NAVIGATION_TIMEOUT",
+    "evidence": "Navigation timed out after 20000ms. Remaining distance: 5.1m",
+    "validated_correction": {
+      "action": "look_around",
+      "arguments": {}
+    },
+    "success_count": 0,
+    "failure_count": 8,
+    "confidence": 0,
+    "status": "downgraded",
+    "created_at": "2026-10-12T10:14:10.323Z",
+    "last_used_at": "2026-10-12T12:13:03.916Z"
+  },
+  {
+    "id": "0f781c30-cb77-430b-bcff-ea29840874ad",
+    "situation_pattern": "place_block:PLACE_BLOCK_ERROR",
+    "previous_failure": "PLACE_BLOCK_ERROR",
+    "evidence": "Server refused to place dirt at (5, 65, 21): the block is still dirt",
+    "validated_correction": {
+      "action": "look_around",
+      "arguments": {}
+    },
+    "success_count": 0,
+    "failure_count": 80,
+    "confidence": 0,
+    "status": "downgraded",
+    "created_at": "2026-10-12T10:14:10.494Z",
+    "last_used_at": "2026-10-12T12:13:04.485Z"
+  },
+  {
+    "id": "7d59e480-5ce1-4914-be2b-b0d5dd185eba",
+    "situation_pattern": "collect_resource:RESOURCE_NOT_FOUND",
+    "previous_failure": "RESOURCE_NOT_FOUND",
+    "evidence": "No block of type 'dead_bush' found within 16 blocks",
+    "validated_correction": {
+      "action": "look_around",
+      "arguments": {}
+    },
+    "success_count": 0,
+    "failure_count": 16,
+    "confidence": 0,
+    "status": "downgraded",
+    "created_at": "2026-10-12T10:14:10.850Z",
+    "last_used_at": "2026-10-12T12:13:04.569Z"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "status": "evaluated",
+  "timestamp": "2026-10-12T12:15:36Z",
+  "candidate_checkpoint": "data\\models\\checkpoints\\best_model.pt",
+  "eval_dataset": "data\\processed\\sft_chatml_eval.jsonl",
+  "total_eval_samples": 284,
+  "tested_samples": 50,
+  "metrics": {
+    "candidate_eval_loss": 1.5206,
+    "baseline_eval_loss": 4.5,
+    "loss_delta": -2.9794,
+    "candidate_action_accuracy": 0.34,
+    "baseline_action_accuracy": 0.2,
+    "accuracy_delta": 0.14,
+    "schema_validity_rate": 1.0
+  },
+  "acceptance": {
+    "accepted": true,
+    "criteria_met": {
+      "loss_within_tolerance": true,
+      "accuracy_meets_baseline": true,
+      "schema_syntax_valid": true
+    },
+    "rejection_reasons": []
+  }
+}

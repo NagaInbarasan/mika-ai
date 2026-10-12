@@ -1,0 +1,29 @@
+{
+  "currentStage": "farmer",
+  "stats": {
+    "mobs_killed_total": 124,
+    "mobs_killed_by_type": {
+      "creeper": 26,
+      "zombie": 71,
+      "spider": 9,
+      "witch": 8,
+      "drowned": 3,
+      "skeleton": 4,
+      "chicken": 2,
+      "pig": 1
+    },
+    "damage_dealt_total": 868,
+    "damage_taken_total": 0,
+    "deaths_total": 40,
+    "food_harvested_total": 0,
+    "chests_placed": 0,
+    "items_stored_total": 0,
+    "blaze_rods_collected": 0,
+    "ender_pearls_collected": 0,
+    "eyes_of_ender_crafted": 0,
+    "stronghold_located": false,
+    "crystals_destroyed": 0,
+    "dragon_defeated": false
+  },
+  "history": []
+}

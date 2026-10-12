@@ -1,0 +1,60 @@
+{
+  "pipeline_version": "1.0.0",
+  "timestamp": "2026-10-12T12:15:45.415Z",
+  "status": "rollback_success",
+  "phases": {},
+  "dataset_counts": {},
+  "anomalies": {},
+  "persistent_learning": {},
+  "training_metrics": null,
+  "evaluation_results": null,
+  "model_deployment": {
+    "active_version": "v1.0.0",
+    "active_model_path": "data/models/versions\\v1.0.0\\model.pt",
+    "previous_version": "v1.1.0",
+    "versions": [
+      {
+        "version": "v1.0.0",
+        "created_at": "2026-10-12T12:11:21Z",
+        "checkpoint_path": "data/models/versions\\v1.0.0\\model.pt",
+        "source_checkpoint": "data\\models\\checkpoints\\best_model.pt",
+        "eval_metrics": {
+          "candidate_eval_loss": 1.5206,
+          "baseline_eval_loss": 4.5,
+          "loss_delta": -2.9794,
+          "candidate_action_accuracy": 0.34,
+          "baseline_action_accuracy": 0.2,
+          "accuracy_delta": 0.14,
+          "schema_validity_rate": 1
+        },
+        "status": "active"
+      },
+      {
+        "version": "v1.1.0",
+        "created_at": "2026-10-12T12:15:37Z",
+        "checkpoint_path": "data/models/versions\\v1.1.0\\model.pt",
+        "source_checkpoint": "data\\models\\checkpoints\\best_model.pt",
+        "eval_metrics": {
+          "candidate_eval_loss": 1.5206,
+          "baseline_eval_loss": 4.5,
+          "loss_delta": -2.9794,
+          "candidate_action_accuracy": 0.34,
+          "baseline_action_accuracy": 0.2,
+          "accuracy_delta": 0.14,
+          "schema_validity_rate": 1
+        },
+        "status": "rolled_back"
+      }
+    ],
+    "rollback_history": [
+      {
+        "timestamp": "2026-10-12T12:15:45Z",
+        "from_version": "v1.1.0",
+        "to_version": "v1.0.0",
+        "reason": "Manual or automated rollback request"
+      }
+    ]
+  },
+  "resource_usage": {},
+  "errors": []
+}
