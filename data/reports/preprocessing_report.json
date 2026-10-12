@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-10-12T13:46:40.092Z",
+  "timestamp": "2026-10-12T16:00:38.698Z",
   "source_files": {
     "experiences": "data\\raw\\experiences.jsonl",
     "feedback": "data\\raw\\feedback.jsonl"
   },
   "metrics": {
-    "total_experience_lines_read": 3057,
-    "valid_clean_transitions": 3057,
+    "total_experience_lines_read": 4596,
+    "valid_clean_transitions": 4596,
     "invalid_records_rejected": 0,
     "syntax_errors_skipped": 0,
     "duplicate_records_skipped": 0,
@@ -15,21 +15,21 @@
     "contradictory_labels_found": 2,
     "missing_labels_found": 18,
     "metadata_corrections_applied": 187,
-    "passive_observations_filtered": 697
+    "passive_observations_filtered": 720
   },
   "specialized_datasets": {
-    "action_prediction_samples": 2360,
-    "outcome_prediction_samples": 2360,
-    "failure_recovery_samples": 949,
-    "sft_demonstration_samples": 1511,
+    "action_prediction_samples": 3876,
+    "outcome_prediction_samples": 3876,
+    "failure_recovery_samples": 2213,
+    "sft_demonstration_samples": 1765,
     "dpo_preference_pairs": 18
   },
   "episode_split": {
-    "total_episodes": 44,
-    "train_episodes_count": 35,
-    "eval_episodes_count": 9,
-    "train_records_count": 2309,
-    "eval_records_count": 748,
+    "total_episodes": 58,
+    "train_episodes_count": 46,
+    "eval_episodes_count": 12,
+    "train_records_count": 3533,
+    "eval_records_count": 1063,
     "train_episode_ids": [
       "run-1791722977560:episode-1",
       "run-1791724060426:episode-1",
@@ -58,16 +58,30 @@
       "run-1791808821034:episode-1",
       "run-1791811205555:episode-1",
       "run-1791812137970:episode-1",
+      "run-1791813914972:episode-1",
+      "run-1791817635894:episode-1",
+      "run-1791818147953:episode-1",
+      "run-1791818499188:episode-1",
+      "run-1791818613031:episode-1",
+      "run-1791818703411:episode-1",
+      "run-1791819996848:episode-1",
+      "run-1791820387991:episode-1",
+      "run-1791820447060:episode-1",
+      "run-1791820509078:episode-1",
+      "run-1791820625210:episode-1",
+      "run-1791820687037:episode-1",
+      "run-1791820746192:episode-1",
+      "run-1791820805180:episode-1",
       "swarm-1791737038906-bot-1:episode-1",
       "swarm-1791737040712-bot-2:episode-1",
       "swarm-1791737042231-bot-3:episode-1",
       "swarm-1791737043741-bot-4:episode-1",
-      "swarm-1791737864544-bot-1:episode-1",
-      "swarm-1791737866321-bot-2:episode-1",
-      "swarm-1791737867841-bot-3:episode-1",
-      "swarm-1791737869347-bot-4:episode-1"
+      "swarm-1791737864544-bot-1:episode-1"
     ],
     "eval_episode_ids": [
+      "swarm-1791737866321-bot-2:episode-1",
+      "swarm-1791737867841-bot-3:episode-1",
+      "swarm-1791737869347-bot-4:episode-1",
       "swarm-1791738644201-bot-1:episode-1",
       "swarm-1791738646854-bot-2:episode-1",
       "swarm-1791738648361-bot-3:episode-1",
@@ -79,10 +93,10 @@
       "swarm-1791739839988-bot-5:episode-1"
     ],
     "model_training_split": {
-      "train_action_samples": 1775,
-      "eval_action_samples": 585,
-      "train_sft_samples": 1155,
-      "eval_sft_samples": 356
+      "train_action_samples": 3091,
+      "eval_action_samples": 785,
+      "train_sft_samples": 1309,
+      "eval_sft_samples": 456
     }
   },
   "anomalies": {

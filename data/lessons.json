@@ -5,15 +5,15 @@
     "goal_id": "CRAFT_PLANKS",
     "situation_pattern": "CRAFT_PLANKS:craft_item",
     "failure_category": null,
-    "evidence": "Have 9/4 planks",
+    "evidence": "Have 8/4 planks",
     "correction": "Inspect surroundings and re-verify prerequisites",
-    "success_count": 7,
+    "success_count": 10,
     "failure_count": 1,
     "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:20:09.752Z",
-    "last_observed_at": "2026-10-12T13:29:10.742Z"
+    "last_observed_at": "2026-10-12T15:25:27.791Z"
   },
   {
     "id": "abc3a3c9-dca6-46b7-a82a-9f6144054ac0",
@@ -23,13 +23,13 @@
     "failure_category": null,
     "evidence": "Crafting table available",
     "correction": null,
-    "success_count": 5,
+    "success_count": 7,
     "failure_count": 0,
     "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:20:12.534Z",
-    "last_observed_at": "2026-10-12T13:29:13.600Z"
+    "last_observed_at": "2026-10-12T15:25:30.596Z"
   },
   {
     "id": "d8d9e82b-1f4b-439f-b07a-b344ebbdb080",
@@ -37,15 +37,15 @@
     "goal_id": "CRAFT_STICKS",
     "situation_pattern": "CRAFT_STICKS:craft_item",
     "failure_category": null,
-    "evidence": "Have 7/4 sticks",
+    "evidence": "Have 4/4 sticks",
     "correction": null,
-    "success_count": 5,
+    "success_count": 8,
     "failure_count": 0,
     "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:20:16.344Z",
-    "last_observed_at": "2026-10-12T13:29:08.101Z"
+    "last_observed_at": "2026-10-12T15:25:34.892Z"
   },
   {
     "id": "956bd600-0323-4d3a-9a29-c4c3e7c88486",
@@ -55,13 +55,13 @@
     "failure_category": "THREAT_INTERRUPTED",
     "evidence": "Clear of immediate danger",
     "correction": "Retreat to safety or eliminate immediate threat before resuming task",
-    "success_count": 12,
-    "failure_count": 1,
+    "success_count": 31,
+    "failure_count": 3,
     "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:20:25.481Z",
-    "last_observed_at": "2026-10-12T14:05:49.440Z"
+    "last_observed_at": "2026-10-12T15:51:29.957Z"
   },
   {
     "id": "d1fcf00a-9220-4ada-ab78-41f9fb7e0633",
@@ -71,13 +71,13 @@
     "failure_category": "THREAT_INTERRUPTED",
     "evidence": "No lost items location active",
     "correction": "Retreat to safety or eliminate immediate threat before resuming task",
-    "success_count": 5,
+    "success_count": 7,
     "failure_count": 2,
-    "confidence": 0.85,
+    "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:21:14.435Z",
-    "last_observed_at": "2026-10-12T14:05:31.365Z"
+    "last_observed_at": "2026-10-12T15:19:20.651Z"
   },
   {
     "id": "c0902de4-6433-454d-9d85-c7c7f21b0b3b",
@@ -85,15 +85,15 @@
     "goal_id": "GATHER_SHELTER_BLOCKS",
     "situation_pattern": "GATHER_SHELTER_BLOCKS:collect_resource",
     "failure_category": "UNKNOWN_ERROR",
-    "evidence": "Have 4/8 building blocks",
+    "evidence": "Have 10/8 building blocks",
     "correction": "Inspect surroundings and re-verify prerequisites",
-    "success_count": 0,
-    "failure_count": 8,
-    "confidence": 0.05,
-    "status": "disputed",
+    "success_count": 7,
+    "failure_count": 291,
+    "confidence": 0.2,
+    "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:22:18.578Z",
-    "last_observed_at": "2026-10-12T13:27:15.408Z"
+    "last_observed_at": "2026-10-12T16:11:59.789Z"
   },
   {
     "id": "433ede4c-5c48-47a0-ad83-c6403b9247d7",
@@ -101,15 +101,15 @@
     "goal_id": "GATHER_WOOD_LOGS",
     "situation_pattern": "GATHER_WOOD_LOGS:collect_resource",
     "failure_category": null,
-    "evidence": "Have 3/3 logs",
+    "evidence": "Have 2/3 logs",
     "correction": null,
-    "success_count": 9,
-    "failure_count": 0,
-    "confidence": 1,
+    "success_count": 12,
+    "failure_count": 3,
+    "confidence": 0.4,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:22:36.997Z",
-    "last_observed_at": "2026-10-12T13:28:27.085Z"
+    "last_observed_at": "2026-10-12T15:26:01.889Z"
   },
   {
     "id": "5a618991-00ee-4e41-a155-ba39d4c0242e",
@@ -135,13 +135,13 @@
     "failure_category": "UNKNOWN_ERROR",
     "evidence": "Have 0/3 cobblestone",
     "correction": "Inspect surroundings and re-verify prerequisites",
-    "success_count": 5,
-    "failure_count": 25,
-    "confidence": 0.6,
-    "status": "active",
+    "success_count": 8,
+    "failure_count": 36,
+    "confidence": 0.05,
+    "status": "disputed",
     "feedback_history": [],
     "created_at": "2026-10-12T13:23:39.407Z",
-    "last_observed_at": "2026-10-12T14:37:05.667Z"
+    "last_observed_at": "2026-10-12T15:20:28.036Z"
   },
   {
     "id": "d4220dc1-7091-4ebd-ba96-5c36f5f676ea",
@@ -199,13 +199,13 @@
     "failure_category": null,
     "evidence": "Shelter enclosure verified safe",
     "correction": null,
-    "success_count": 2,
-    "failure_count": 0,
-    "confidence": 0.85,
+    "success_count": 5,
+    "failure_count": 2,
+    "confidence": 0.9,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:29:43.105Z",
-    "last_observed_at": "2026-10-12T14:05:21.068Z"
+    "last_observed_at": "2026-10-12T15:25:25.040Z"
   },
   {
     "id": "5ee1a92c-3294-4e10-a4f5-a8f4584138ec",
@@ -215,13 +215,13 @@
     "failure_category": null,
     "evidence": "Arrived at shelter base location",
     "correction": null,
-    "success_count": 27,
+    "success_count": 100,
     "failure_count": 0,
     "confidence": 1,
     "status": "active",
     "feedback_history": [],
     "created_at": "2026-10-12T13:29:56.113Z",
-    "last_observed_at": "2026-10-12T13:31:07.665Z"
+    "last_observed_at": "2026-10-12T15:26:43.759Z"
   },
   {
     "id": "05ed1878-a0cd-43f7-9e52-70ea453a5343",
@@ -598,5 +598,107 @@
     ],
     "created_at": "2026-10-12T13:46:43.854Z",
     "last_observed_at": "2026-10-12T13:46:43.854Z"
+  },
+  {
+    "id": "147ebdfc-c7d2-4ef4-9341-451fa56854a6",
+    "pattern_key": "CRAFT_FURNACE:CRAFT_FURNACE:craft_item",
+    "goal_id": "CRAFT_FURNACE",
+    "situation_pattern": "CRAFT_FURNACE:craft_item",
+    "failure_category": null,
+    "evidence": "Furnace crafted",
+    "correction": null,
+    "success_count": 1,
+    "failure_count": 0,
+    "confidence": 0.7,
+    "status": "active",
+    "feedback_history": [],
+    "created_at": "2026-10-12T15:16:41.161Z",
+    "last_observed_at": "2026-10-12T15:16:41.161Z"
+  },
+  {
+    "id": "8c869f69-d58f-4681-9552-ac1bdb91257f",
+    "pattern_key": "GATHER_FOOD:GATHER_FOOD:collect_resource",
+    "goal_id": "GATHER_FOOD",
+    "situation_pattern": "GATHER_FOOD:collect_resource",
+    "failure_category": "UNKNOWN_ERROR",
+    "evidence": "Have 0/2 food items",
+    "correction": "Inspect surroundings and re-verify prerequisites",
+    "success_count": 0,
+    "failure_count": 386,
+    "confidence": 0.05,
+    "status": "disputed",
+    "feedback_history": [],
+    "created_at": "2026-10-12T15:16:43.922Z",
+    "last_observed_at": "2026-10-12T15:45:57.734Z"
+  },
+  {
+    "id": "37faf45a-2b51-433b-841b-15f071694a43",
+    "pattern_key": "GATHER_FOOD:GATHER_FOOD:attack_target",
+    "goal_id": "GATHER_FOOD",
+    "situation_pattern": "GATHER_FOOD:attack_target",
+    "failure_category": "UNKNOWN_ERROR",
+    "evidence": "Have 0/2 food items",
+    "correction": "Inspect surroundings and re-verify prerequisites",
+    "success_count": 0,
+    "failure_count": 6,
+    "confidence": 0.05,
+    "status": "disputed",
+    "feedback_history": [],
+    "created_at": "2026-10-12T15:17:14.697Z",
+    "last_observed_at": "2026-10-12T15:17:49.415Z"
+  },
+  {
+    "id": "88ce22f9-e721-4dd1-8c89-203e104fd99d",
+    "pattern_key": "BUILD_TWO_PLAYER_SHELTER:BUILD_TWO_PLAYER_SHELTER:build_shelter",
+    "goal_id": "BUILD_TWO_PLAYER_SHELTER",
+    "situation_pattern": "BUILD_TWO_PLAYER_SHELTER:build_shelter",
+    "failure_category": "UNKNOWN_ERROR",
+    "evidence": "Two-player shelter incomplete or unverified",
+    "correction": "Inspect surroundings and re-verify prerequisites",
+    "success_count": 0,
+    "failure_count": 98,
+    "confidence": 0.05,
+    "status": "disputed",
+    "feedback_history": [],
+    "created_at": "2026-10-12T15:47:04.470Z",
+    "last_observed_at": "2026-10-12T16:22:28.589Z"
+  },
+  {
+    "id": "914ca48e-94c5-46e5-a427-e8c9ed527d39",
+    "pattern_key": "GATHER_SHELTER_BLOCKS:CRITICAL_VITALS:CRITICAL_HEALTH_OR_HUNGER",
+    "goal_id": "GATHER_SHELTER_BLOCKS",
+    "situation_pattern": "CRITICAL_VITALS:CRITICAL_HEALTH_OR_HUNGER",
+    "failure_category": "CRITICAL_HEALTH_OR_HUNGER",
+    "evidence": "Health is critical (5.3/20 <= 8). Risk of death.",
+    "correction": {
+      "action": "retreat_and_heal",
+      "args": {}
+    },
+    "success_count": 23,
+    "failure_count": 0,
+    "confidence": 1,
+    "status": "active",
+    "feedback_history": [],
+    "created_at": "2026-10-12T16:04:50.698Z",
+    "last_observed_at": "2026-10-12T16:07:43.032Z"
+  },
+  {
+    "id": "45937cc3-05fa-4282-b594-d5b44aad9658",
+    "pattern_key": "BUILD_TWO_PLAYER_SHELTER:ACTION_FAILED:UNKNOWN_OR_UNSPECIFIED",
+    "goal_id": "BUILD_TWO_PLAYER_SHELTER",
+    "situation_pattern": "ACTION_FAILED:UNKNOWN_OR_UNSPECIFIED",
+    "failure_category": "UNKNOWN_OR_UNSPECIFIED",
+    "evidence": "OUT_OF_BUILDING_MATERIALS",
+    "correction": {
+      "action": "inspect_inventory",
+      "args": {}
+    },
+    "success_count": 1,
+    "failure_count": 0,
+    "confidence": 0.7,
+    "status": "active",
+    "feedback_history": [],
+    "created_at": "2026-10-12T16:10:44.647Z",
+    "last_observed_at": "2026-10-12T16:10:44.647Z"
   }
 ]

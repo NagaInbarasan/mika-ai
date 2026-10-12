@@ -3,6 +3,7 @@ import path from 'path';
 import { spawnSync } from 'child_process';
 import config from '../config/index.js';
 import { runPreprocessing, parseJsonlFile } from '../data/preprocess.js';
+import { runTaskAwarePreprocessing } from '../data/task-aware-preprocess.js';
 import defaultMemoryStore from '../learning/memory.js';
 
 export async function runAutonomousPipeline(options = {}) {
@@ -63,37 +64,69 @@ export async function runAutonomousPipeline(options = {}) {
 
   try {
     // ---------------------------------------------------------
-    // Phase 1: Collect & Clean Data (Validation & Anomaly Detection)
+    // Phase 1: Collect & Clean Data (Task-Aware Preprocessing & Archiving)
     // ---------------------------------------------------------
-    console.log('\n[Phase 1/6] CLEANING & VALIDATING EXPERIENCES & FEEDBACK...');
+    console.log('\n[Phase 1/6] CLEANING, ARCHIVING & TASK-AWARE PREPROCESSING EXPERIENCES...');
     const phase1Start = Date.now();
-    const preprocessReport = runPreprocessing({
-      dataDir,
-      evalRatio: options.evalRatio ?? 0.2
-    });
+    let preprocessReport;
 
-    pipelineReport.phases.preprocessing_ms = Date.now() - phase1Start;
-    pipelineReport.dataset_counts = {
-      raw_experience_lines: preprocessReport.metrics.total_experience_lines_read,
-      clean_transitions: preprocessReport.metrics.valid_clean_transitions,
-      invalid_records_rejected: preprocessReport.metrics.invalid_records_rejected,
-      raw_feedback_records: preprocessReport.metrics.feedback_records_read,
-      linked_feedback_events: preprocessReport.metrics.feedback_records_linked,
-      sft_demonstrations_samples: preprocessReport.specialized_datasets.sft_demonstration_samples,
-      action_prediction_samples: preprocessReport.specialized_datasets.action_prediction_samples,
-      dpo_preference_pairs: preprocessReport.specialized_datasets.dpo_preference_pairs,
-      train_episodes: preprocessReport.episode_split.train_episodes_count,
-      eval_episodes: preprocessReport.episode_split.eval_episodes_count,
-      train_sft_samples: preprocessReport.episode_split.model_training_split.train_sft_samples,
-      eval_sft_samples: preprocessReport.episode_split.model_training_split.eval_sft_samples
-    };
-
-    pipelineReport.anomalies = {
-      contradictory_labels_found: preprocessReport.metrics.contradictory_labels_found,
-      missing_labels_found: preprocessReport.metrics.missing_labels_found,
-      metadata_corrections_applied: preprocessReport.metrics.metadata_corrections_applied,
-      detail: preprocessReport.anomalies
-    };
+    if (options.taskAware !== false) {
+      preprocessReport = runTaskAwarePreprocessing({
+        dataDir,
+        evalRatio: options.evalRatio ?? 0.2
+      });
+      pipelineReport.phases.preprocessing_ms = Date.now() - phase1Start;
+      pipelineReport.dataset_counts = {
+        raw_experience_lines: preprocessReport.source_metrics.raw_experience_lines_read,
+        clean_transitions: preprocessReport.source_metrics.valid_clean_transitions,
+        invalid_records_rejected: preprocessReport.source_metrics.invalid_records_rejected,
+        raw_feedback_records: preprocessReport.source_metrics.feedback_records_read,
+        linked_feedback_events: preprocessReport.source_metrics.feedback_records_read,
+        sft_demonstrations_samples: preprocessReport.filtering_and_prioritization.retained_sft_demonstrations,
+        train_sft_samples: preprocessReport.splits.train_sft_samples,
+        eval_sft_samples: preprocessReport.splits.eval_sft_samples,
+        dpo_preference_pairs: preprocessReport.filtering_and_prioritization.dpo_preference_pairs_extracted,
+        failure_recovery_lessons: preprocessReport.filtering_and_prioritization.failure_recovery_lessons_preserved,
+        prioritized_breakdown: preprocessReport.filtering_and_prioritization.prioritized_breakdown,
+        removed_records: preprocessReport.filtering_and_prioritization.removed_records
+      };
+      pipelineReport.anomalies = {
+        contradictory_labels_found: preprocessReport.source_metrics.contradictory_labels_found,
+        missing_labels_found: preprocessReport.source_metrics.missing_labels_found,
+        metadata_corrections_applied: preprocessReport.source_metrics.metadata_corrections_applied
+      };
+      pipelineReport.task_aware_prioritization = {
+        archive_dir: preprocessReport.archive_manifest.archiveDir,
+        total_clusters: preprocessReport.condition_clusters_summary.total_clusters,
+        prioritized_breakdown: preprocessReport.filtering_and_prioritization.prioritized_breakdown
+      };
+    } else {
+      preprocessReport = runPreprocessing({
+        dataDir,
+        evalRatio: options.evalRatio ?? 0.2
+      });
+      pipelineReport.phases.preprocessing_ms = Date.now() - phase1Start;
+      pipelineReport.dataset_counts = {
+        raw_experience_lines: preprocessReport.metrics.total_experience_lines_read,
+        clean_transitions: preprocessReport.metrics.valid_clean_transitions,
+        invalid_records_rejected: preprocessReport.metrics.invalid_records_rejected,
+        raw_feedback_records: preprocessReport.metrics.feedback_records_read,
+        linked_feedback_events: preprocessReport.metrics.feedback_records_linked,
+        sft_demonstrations_samples: preprocessReport.specialized_datasets.sft_demonstration_samples,
+        action_prediction_samples: preprocessReport.specialized_datasets.action_prediction_samples,
+        dpo_preference_pairs: preprocessReport.specialized_datasets.dpo_preference_pairs,
+        train_episodes: preprocessReport.episode_split.train_episodes_count,
+        eval_episodes: preprocessReport.episode_split.eval_episodes_count,
+        train_sft_samples: preprocessReport.episode_split.model_training_split.train_sft_samples,
+        eval_sft_samples: preprocessReport.episode_split.model_training_split.eval_sft_samples
+      };
+      pipelineReport.anomalies = {
+        contradictory_labels_found: preprocessReport.metrics.contradictory_labels_found,
+        missing_labels_found: preprocessReport.metrics.missing_labels_found,
+        metadata_corrections_applied: preprocessReport.metrics.metadata_corrections_applied,
+        detail: preprocessReport.anomalies
+      };
+    }
 
     console.log(`[Phase 1] Complete: ${pipelineReport.dataset_counts.clean_transitions} clean transitions, ` +
                 `${pipelineReport.anomalies.contradictory_labels_found} contradictory labels identified, ` +
@@ -308,6 +341,11 @@ export async function runAutonomousPipeline(options = {}) {
     console.log(`Training Eval Loss   : ${pipelineReport.training_metrics?.best_checkpoint?.best_eval_loss ?? 'N/A'}`);
     console.log(`Evaluation Decision  : ${isAccepted ? 'ACCEPTED' : 'REJECTED'}`);
     console.log(`Active Model Version : ${pipelineReport.model_deployment?.active_version ?? 'None'}`);
+    if (pipelineReport.task_aware_prioritization) {
+      console.log(`Archived Raw Data    : ${pipelineReport.task_aware_prioritization.archive_dir}`);
+      console.log(`Condition Clusters   : ${pipelineReport.task_aware_prioritization.total_clusters}`);
+      console.log(`Method Priorities    : Primary: ${pipelineReport.task_aware_prioritization.prioritized_breakdown.primary}, Fallback: ${pipelineReport.task_aware_prioritization.prioritized_breakdown.fallback}, Deprioritized: ${pipelineReport.task_aware_prioritization.prioritized_breakdown.deprioritized}`);
+    }
     console.log(`Full Report Saved    : ${pipelineReportPath}`);
     console.log('================================================================\n');
 

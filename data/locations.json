@@ -276,19 +276,19 @@
     "type": "shelter_base",
     "name": "Emergency Shelter Base",
     "position": {
-      "x": -407,
-      "y": 70,
-      "z": -336
+      "x": -368,
+      "y": 69,
+      "z": -373
     },
     "dimension": "overworld",
     "metadata": {
       "name": "Emergency Shelter Base",
-      "safety_score": 1,
-      "is_safe": true,
-      "built_at": "2026-10-12T14:05:21.018Z"
+      "safety_score": 0.3,
+      "is_safe": false,
+      "built_at": "2026-10-12T16:25:16.470Z"
     },
     "created_at": "2026-10-12T13:29:43.033Z",
-    "updated_at": "2026-10-12T14:05:21.018Z"
+    "updated_at": "2026-10-12T16:25:16.470Z"
   },
   {
     "id": "43b1bb89-d5ce-4c36-aeab-452c5d3f515f",
@@ -347,5 +347,60 @@
     },
     "created_at": "2026-10-12T15:07:24.113Z",
     "updated_at": "2026-10-12T15:07:24.113Z"
+  },
+  {
+    "id": "b095b2ac-8e60-432f-bfa0-6365ab65ca6f",
+    "type": "lost_things",
+    "name": "Lost Items (Death Drop)",
+    "position": {
+      "x": -92.5,
+      "y": 64,
+      "z": -79.5
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "name": "Lost Items (Death Drop)",
+      "lost_items": [
+        {
+          "name": "gunpowder",
+          "count": 1
+        },
+        {
+          "name": "leaf_litter",
+          "count": 2
+        }
+      ],
+      "lost_at": "2026-10-12T16:07:44.666Z",
+      "death_id": "1fad095c-7328-4bdb-a57d-b1cf41a8fe62",
+      "reason": "<MIKA_Bot> [Death] MIKA died at (-92.5, 64, -79.5)! Reason: MIKA_Bot was shot by Skeleton. Lost items location remembered.",
+      "killer": "Skeleton",
+      "dimension": "overworld"
+    },
+    "created_at": "2026-10-12T15:20:43.923Z",
+    "updated_at": "2026-10-12T16:07:44.666Z"
+  },
+  {
+    "id": "13b2e97b-a9b7-425d-9d2f-f0286661f124",
+    "type": "two_player_shelter",
+    "name": "Secure Two-Player Shelter Base",
+    "position": {
+      "x": -368,
+      "y": 69,
+      "z": -373
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "name": "Secure Two-Player Shelter Base",
+      "score": 1,
+      "dimensions": {
+        "width": 9,
+        "length": 9,
+        "height": 3
+      },
+      "assessed_at": "2026-10-12T16:22:31.216Z",
+      "reason": "Selected optimal shelter site at (-368, 69, -373) (Score: 1.00, Flatness: 0.79, Hazards: 0)"
+    },
+    "created_at": "2026-10-12T15:51:32.550Z",
+    "updated_at": "2026-10-12T16:22:31.217Z"
   }
 ]

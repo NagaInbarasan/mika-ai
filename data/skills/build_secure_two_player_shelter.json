@@ -1,0 +1,101 @@
+{
+  "skill_id": "build_secure_two_player_shelter",
+  "name": "Build Secure Two-Player Shelter",
+  "version": "v1.3.0",
+  "purpose": "Plan, construct, verify, and remember a practical, fully-enclosed, illuminated survival shelter for two players.",
+  "supported_conditions": {
+    "terrain": [
+      "flat_grass",
+      "plains",
+      "desert",
+      "forest_clearing",
+      "terrace"
+    ],
+    "materials": [
+      "oak_planks",
+      "birch_planks",
+      "spruce_planks",
+      "cobblestone",
+      "dirt",
+      "sandstone"
+    ],
+    "light_level_target": 8,
+    "min_players_supported": 2
+  },
+  "reference_design": {
+    "footprint_external": "9x9",
+    "usable_interior": "7x7 usable floor",
+    "wall_height": 3,
+    "roof_type": "full_enclosed_ceiling",
+    "entrance_type": "single_wooden_door",
+    "workstations": [
+      "crafting_table",
+      "furnace"
+    ],
+    "storage_capacity": "2_chests_minimum",
+    "sleeping_capacity": "2_beds_reserved"
+  },
+  "material_manifest_rules": {
+    "floor_formula": "width * length",
+    "walls_formula": "2 * (width + length - 2) * height - 2 (door opening)",
+    "roof_formula": "width * length",
+    "torches_formula": "4 (corners)",
+    "replacement_buffer_percentage": 10
+  },
+  "construction_sequence": [
+    "INSPECT_AND_PLAN",
+    "MATERIAL_GATHERING",
+    "FOOTPRINT",
+    "CLEAR_OBSTRUCTIONS",
+    "FLOOR",
+    "WALLS",
+    "ROOF",
+    "DOOR",
+    "VERIFY_DOOR",
+    "LIGHTING",
+    "CRAFTING_TABLE",
+    "FURNACE",
+    "CHESTS",
+    "BEDS",
+    "FINAL_INSPECTION",
+    "COMPLETED"
+  ],
+  "placement_strategy": {
+    "pre_placement_checks": [
+      "target_is_empty",
+      "no_entity_collision",
+      "material_in_inventory",
+      "no_player_blockage"
+    ],
+    "physical_placement": "adjacent_solid_face_raycast",
+    "post_placement_verification": "query_world_blockAt",
+    "on_failure": "retry_alternate_face_or_clear_obstruction"
+  },
+  "verification_rules": {
+    "floor_completeness_min": 0.9,
+    "wall_continuity_min": 0.9,
+    "roof_enclosure_min": 0.9,
+    "door_functional_check": true,
+    "two_player_clearance_min_tiles": 4
+  },
+  "recovery_procedures": {
+    "threat_detected": "preserve_checkpoint_and_retreat_into_enclosure",
+    "missing_materials": "mark_stage_blocked_and_gather_deficits",
+    "misplaced_block": "dig_misplaced_block_and_realign"
+  },
+  "evaluation_metrics": {
+    "total_runs": 5,
+    "successful_runs": 1,
+    "completion_rate": 0.2,
+    "avg_duration_ms": 160947,
+    "total_placement_failures": 467,
+    "total_threat_interruptions": 0,
+    "total_recovery_successes": 0
+  },
+  "adaptations_and_limitations": {
+    "terrain_adaptation": "Shrinks footprint down to 7x7 if site bounds are constrained by cliffs or water.",
+    "creeper_limitation": "Dirt and wood walls offer protection against ordinary zombies and skeletons, but are vulnerable to point-blank Creeper explosions."
+  },
+  "saved_at": "2026-10-12T15:47:02.744Z",
+  "updated_at": "2026-10-12T16:22:28.531Z"
+}

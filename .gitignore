@@ -52,6 +52,7 @@ ENV/
 # Large Datasets & Raw Telemetry
 data/raw/*.jsonl
 data/processed/*.jsonl
+data/archive/
 data/evolution/checkpoints/*.json
 data/evolution/top-policies/rank-*.json
 data/models/checkpoints/*.pt

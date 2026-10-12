@@ -762,6 +762,18 @@ export function runPreprocessing(options = {}) {
   return report;
 }
 
+// Re-export task-aware preprocessing functions
+export {
+  archiveRawDatasets,
+  validateOutcomeEvidence,
+  extractConditionCluster,
+  extractMethodSignature,
+  calculateMethodProfiles,
+  rankAndPrioritizeMethods,
+  filterAndPrioritizeDataset,
+  runTaskAwarePreprocessing
+} from './task-aware-preprocess.js';
+
 // Auto-run if executed via CLI
 const isDirectCli = process.argv[1] && (
   process.argv[1].endsWith('preprocess.js') ||

@@ -43,6 +43,32 @@ export const GOAL_DEFINITIONS = {
     targetAction: 'build_shelter'
   },
 
+  BUILD_TWO_PLAYER_SHELTER: {
+    id: 'BUILD_TWO_PLAYER_SHELTER',
+    name: 'Plan, construct, and verify secure two-player survival shelter',
+    category: 'survival',
+    priorityScore: 90,
+    dependencies: ['GATHER_SHELTER_BLOCKS'],
+    checkPrerequisites: (obs) => {
+      const blockCount = countAvailableBuildingBlocks(obs);
+      if (blockCount >= 16) {
+        return { satisfied: true, missing: [] };
+      }
+      return {
+        satisfied: false,
+        missing: [`Need solid building blocks for two-player shelter (have ${blockCount}/16)`]
+      };
+    },
+    isCompleted: (obs) => {
+      const isSheltered = obs?.shelter_safety?.safe === true && obs?.shelter_safety?.two_player_capacity?.valid === true;
+      return {
+        completed: isSheltered,
+        reason: isSheltered ? 'Two-player shelter enclosure verified safe with dual capacity' : 'Two-player shelter incomplete or unverified'
+      };
+    },
+    targetAction: 'build_shelter'
+  },
+
   GATHER_SHELTER_BLOCKS: {
     id: 'GATHER_SHELTER_BLOCKS',
     name: 'Gather dirt or sand blocks for shelter',
@@ -634,6 +660,14 @@ export function normalizeGoalId(input) {
     'SHELTER': 'BUILD_EMERGENCY_SHELTER',
     'BUILD_SHELTER': 'BUILD_EMERGENCY_SHELTER',
     'EMERGENCY_SHELTER': 'BUILD_EMERGENCY_SHELTER',
+    'TWO_PLAYER_SHELTER': 'BUILD_TWO_PLAYER_SHELTER',
+    'TWO_PLAYER': 'BUILD_TWO_PLAYER_SHELTER',
+    'TWOPLAYER': 'BUILD_TWO_PLAYER_SHELTER',
+    '2P_SHELTER': 'BUILD_TWO_PLAYER_SHELTER',
+    '2P': 'BUILD_TWO_PLAYER_SHELTER',
+    'DUO_SHELTER': 'BUILD_TWO_PLAYER_SHELTER',
+    'BASE': 'BUILD_TWO_PLAYER_SHELTER',
+    'MANSION': 'BUILD_TWO_PLAYER_SHELTER',
     'WOOD': 'GATHER_WOOD_LOGS',
     'LOGS': 'GATHER_WOOD_LOGS',
     'TREE': 'GATHER_WOOD_LOGS',

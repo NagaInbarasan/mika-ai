@@ -129,29 +129,15 @@ async function main() {
     process.exit(0);
   }
 
-  // Step 2: Establish Minecraft connection
-  console.log('[Init] Step 2: Connecting to Minecraft world...');
-  let bot;
-  try {
-    bot = createBotConnection({
-      host: effectiveHost,
-      port: effectivePort,
-      goal: overrides.goal,
-      modelVersion: activeModelVersion
-    });
-  } catch (err) {
-    console.error('[Init] Failed to initiate Mineflayer bot:', err.message);
-    process.exit(1);
-  }
-
   // Graceful shutdown handling
   let isShuttingDown = false;
+  let activeBot = null;
   const handleShutdown = (signal) => {
     if (isShuttingDown) return;
     isShuttingDown = true;
     console.log(`\n[System] Received ${signal}. Shutting down MIKA cleanly...`);
-    if (bot) {
-      disconnectBot(bot, `Process terminated via ${signal}`);
+    if (activeBot) {
+      disconnectBot(activeBot, `Process terminated via ${signal}`);
     }
     setTimeout(() => {
       console.log('[System] Process complete. Goodbye!');
@@ -162,45 +148,83 @@ async function main() {
   process.on('SIGINT', () => handleShutdown('SIGINT'));
   process.on('SIGTERM', () => handleShutdown('SIGTERM'));
 
-  try {
-    console.log('[Init] Waiting for bot spawn event...');
-    await waitForSpawn(bot, 30000);
-    console.log('\n[Milestone A SUCCESS] Bot successfully connected, spawned, and logged lifecycle events!');
-    console.log('[Info] Type Ctrl+C in this terminal, or type "!stop" in Minecraft chat to disconnect the bot cleanly.');
-    console.log('[Console Ready] You can also type commands directly here: !status, !shelter, !survive, !observe, !good, !bad\n');
+  const readline = await import('readline');
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  rl.on('line', (line) => {
+    const trimmed = line.trim();
+    if (trimmed && activeBot) {
+      activeBot.emit('chat', 'Console_User', trimmed);
+    }
+  });
 
-    const readline = await import('readline');
-    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-    rl.on('line', (line) => {
-      const trimmed = line.trim();
-      if (trimmed && bot) {
-        bot.emit('chat', 'Console_User', trimmed);
+  async function startBotSession() {
+    if (isShuttingDown) return;
+    console.log('[Init] Step 2: Connecting to Minecraft world...');
+    let bot;
+    try {
+      bot = createBotConnection({
+        host: effectiveHost,
+        port: effectivePort,
+        goal: overrides.goal,
+        modelVersion: activeModelVersion
+      });
+      activeBot = bot;
+    } catch (err) {
+      console.error('[Init] Failed to initiate Mineflayer bot:', err.message);
+      if (overrides.continuous && !isShuttingDown) {
+        console.log('[Reconnect] Retrying in 5 seconds...');
+        setTimeout(startBotSession, 5000);
+        return;
+      }
+      process.exit(1);
+    }
+
+    bot.on('end', (reason) => {
+      if (isShuttingDown) return;
+      if (overrides.continuous) {
+        console.log(`[Minecraft] Connection lost (${reason || 'closed'}). Reconnecting in 5s...`);
+        setTimeout(startBotSession, 5000);
       }
     });
 
-    if (overrides.autoSurvive && bot.autonomousSurvival) {
-      const stepBudget = overrides.continuous ? 1000000 : (overrides.steps || 1000);
-      const isContinuous = !!overrides.continuous;
-      console.log(`[System] --auto flag provided. Automatically starting Autonomous Survival loop (${isContinuous ? 'Continuous mode' : `${stepBudget} steps`})...`);
-      setTimeout(() => {
-        if (bot.isReady && !bot.isAutonomous) {
-          bot.isAutonomous = true;
-          bot.autonomousSurvival.start(bot, stepBudget, isContinuous);
-        }
-      }, 1500);
+    try {
+      console.log('[Init] Waiting for bot spawn event...');
+      await waitForSpawn(bot, 35000);
+      console.log('\n[Milestone A SUCCESS] Bot successfully connected, spawned, and logged lifecycle events!');
+      console.log('[Info] Type Ctrl+C in this terminal, or type "!stop" in Minecraft chat to disconnect the bot cleanly.');
+      console.log('[Console Ready] You can also type commands directly here: !status, !shelter, !survive, !observe, !good, !bad\n');
+
+      if (overrides.autoSurvive && bot.autonomousSurvival) {
+        const stepBudget = overrides.continuous ? 1000000 : (overrides.steps || 1000);
+        const isContinuous = !!overrides.continuous;
+        console.log(`[System] --auto flag provided. Automatically starting Autonomous Survival loop (${isContinuous ? 'Continuous mode' : `${stepBudget} steps`})...`);
+        setTimeout(() => {
+          if (bot.isReady && !bot.isAutonomous) {
+            bot.isAutonomous = true;
+            bot.autonomousSurvival.start(bot, stepBudget, isContinuous);
+          }
+        }, 1500);
+      }
+    } catch (err) {
+      console.warn(`[Minecraft] Could not complete spawn: ${err.message}`);
+      if (overrides.continuous && !isShuttingDown) {
+        console.log('[Reconnect] Retrying connection in 5 seconds...');
+        setTimeout(startBotSession, 5000);
+      } else {
+        console.log('\n----------------------------------------------------');
+        console.log('To connect to your installed Minecraft world:');
+        console.log('1. Open Minecraft Java Edition (1.21.x).');
+        console.log('2. Singleplayer -> Enter any world.');
+        console.log('3. Press Esc -> Click "Open to LAN" (allow cheats: on).');
+        console.log('4. Note the LAN port shown in chat (e.g. 52341).');
+        console.log(`5. Run: node src/index.js --port <port>`);
+        console.log('   or update MC_PORT in your .env file.');
+        console.log('----------------------------------------------------\n');
+      }
     }
-  } catch (err) {
-    console.warn(`[Minecraft] Could not complete spawn: ${err.message}`);
-    console.log('\n----------------------------------------------------');
-    console.log('To connect to your installed Minecraft world:');
-    console.log('1. Open Minecraft Java Edition (1.21.x).');
-    console.log('2. Singleplayer -> Enter any world.');
-    console.log('3. Press Esc -> Click "Open to LAN" (allow cheats: on).');
-    console.log('4. Note the LAN port shown in chat (e.g. 52341).');
-    console.log(`5. Run: node src/index.js --port <port>`);
-    console.log('   or update MC_PORT in your .env file.');
-    console.log('----------------------------------------------------\n');
   }
+
+  await startBotSession();
 }
 
 main().catch(err => {

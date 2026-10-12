@@ -1,26 +1,28 @@
 {
   "status": "evaluated",
-  "timestamp": "2026-10-12T13:49:46Z",
-  "candidate_checkpoint": "data\\models\\checkpoints\\best_model.pt",
-  "eval_dataset": "data\\processed\\sft_chatml_eval.jsonl",
-  "total_eval_samples": 356,
+  "timestamp": "2026-10-12T16:04:39Z",
+  "candidate_checkpoint": "data/models/checkpoints/best_model.pt",
+  "eval_dataset": "data/processed/sft_chatml_eval.jsonl",
+  "total_eval_samples": 408,
   "tested_samples": 50,
   "metrics": {
-    "candidate_eval_loss": 1.6434,
+    "candidate_eval_loss": 1.6349,
     "baseline_eval_loss": 4.5,
-    "loss_delta": -2.8566,
-    "candidate_action_accuracy": 0.3,
+    "loss_delta": -2.8651,
+    "candidate_action_accuracy": 0.0,
     "baseline_action_accuracy": 0.2,
-    "accuracy_delta": 0.1,
+    "accuracy_delta": -0.2,
     "schema_validity_rate": 1.0
   },
   "acceptance": {
-    "accepted": true,
+    "accepted": false,
     "criteria_met": {
       "loss_within_tolerance": true,
-      "accuracy_meets_baseline": true,
+      "accuracy_meets_baseline": false,
       "schema_syntax_valid": true
     },
-    "rejection_reasons": []
+    "rejection_reasons": [
+      "Action prediction accuracy dropped: candidate 0.00% < required 18.00%"
+    ]
   }
 }

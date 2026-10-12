@@ -10,11 +10,13 @@ export class PersistentMemoryStore {
     this.strategiesFilePath = options.strategiesFilePath || path.join(config.storage.dataDir, 'strategies.json');
     this.locationsFilePath = options.locationsFilePath || path.join(config.storage.dataDir, 'locations.json');
     this.deathsFilePath = options.deathsFilePath || path.join(config.storage.dataDir, 'deaths.json');
+    this.skillsFilePath = options.skillsFilePath || path.join(config.storage.dataDir, 'skills.json');
     this.memories = [];
     this.lessons = [];
     this.strategies = [];
     this.locations = [];
     this.deathHistory = [];
+    this.skills = [];
     this.load();
   }
 
@@ -78,6 +80,18 @@ export class PersistentMemoryStore {
       console.warn(`[Memory] Error loading deaths from ${this.deathsFilePath}:`, err.message);
       this.deathHistory = [];
     }
+
+    try {
+      if (fs.existsSync(this.skillsFilePath)) {
+        const skillData = fs.readFileSync(this.skillsFilePath, 'utf-8');
+        this.skills = JSON.parse(skillData);
+      } else {
+        this.skills = [];
+      }
+    } catch (err) {
+      console.warn(`[Memory] Error loading skills from ${this.skillsFilePath}:`, err.message);
+      this.skills = [];
+    }
   }
 
   save() {
@@ -115,6 +129,50 @@ export class PersistentMemoryStore {
     } catch (err) {
       console.error(`[Memory] Error saving deaths:`, err.message);
     }
+
+    try {
+      fs.mkdirSync(path.dirname(this.skillsFilePath), { recursive: true });
+      fs.writeFileSync(this.skillsFilePath, JSON.stringify(this.skills, null, 2), 'utf-8');
+    } catch (err) {
+      console.error(`[Memory] Error saving skills:`, err.message);
+    }
+  }
+
+  /**
+   * Saves or updates a learned skill record.
+   * @param {Object} skill 
+   */
+  saveSkill(skill) {
+    if (!skill || !skill.skill_id) return null;
+    const existingIndex = this.skills.findIndex(s => s.skill_id === skill.skill_id);
+    const updated = {
+      ...skill,
+      updated_at: new Date().toISOString()
+    };
+    if (existingIndex >= 0) {
+      this.skills[existingIndex] = updated;
+    } else {
+      this.skills.push(updated);
+    }
+    this.save();
+    return updated;
+  }
+
+  /**
+   * Retrieves a learned skill record by ID.
+   * @param {string} skillId 
+   * @returns {Object|null}
+   */
+  getSkill(skillId) {
+    return this.skills.find(s => s.skill_id === skillId) || null;
+  }
+
+  /**
+   * Lists all learned skills in memory.
+   * @returns {Array<Object>}
+   */
+  listSkills() {
+    return [...this.skills];
   }
 
   /**

@@ -1,5 +1,5 @@
 {
-  "savedAt": "2026-10-12T15:06:13.673Z",
+  "savedAt": "2026-10-12T16:21:45.238Z",
   "totalGenerations": 2,
   "totalEpisodes": 10,
   "virtualDays": 1,
@@ -11,7 +11,7 @@
   },
   "improvement": -33.035714285714285,
   "heldOutFitness": 100,
-  "episodesPerSecond": 125.92333283803494,
-  "totalWallClockMs": 79.41339999999997,
-  "completedAt": "2026-10-12T15:06:13.671Z"
+  "episodesPerSecond": 247.18701180565174,
+  "totalWallClockMs": 40.45519999999999,
+  "completedAt": "2026-10-12T16:21:45.236Z"
 }

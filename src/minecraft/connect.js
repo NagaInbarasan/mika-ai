@@ -651,7 +651,7 @@ export function createBotConnection(overrides = {}) {
         bot.assignedGoal = null;
         bot.chat('[Goal Cleared] Resuming autonomous contextual priority.');
       } else if (arg === 'list') {
-        bot.chat('Available goals: shelter, wood, pickaxe, stone, tools, sword, furnace, chest, shield, food');
+        bot.chat('Available goals: shelter, two_player_shelter, wood, pickaxe, stone, tools, sword, furnace, chest, shield, food');
       } else {
         const normalized = normalizeGoalId(arg);
         if (normalized) {
@@ -665,6 +665,32 @@ export function createBotConnection(overrides = {}) {
           bot.chat(`Unknown goal: "${arg}". Type "!goal list" to see options.`);
         }
       }
+    } else if (trimmed.startsWith('!skill')) {
+      const sub = trimmed.replace(/^!skill\s*/, '').trim().toLowerCase();
+      (async () => {
+        const { defaultTwoPlayerShelterSkill, defaultSkillManager } = await import('../skills/index.js');
+        if (sub === 'shelter' || sub === 'twoplayer' || sub === '2p' || sub === 'build') {
+          bot.chat('[Skill: Two-Player Shelter] Inspecting world, planning, and executing construction...');
+          const result = await defaultTwoPlayerShelterSkill.adaptSkillToWorld(bot);
+          if (result.isComplete) {
+            defaultTwoPlayerShelterSkill.saveAsLearnedSkill(result);
+            bot.chat('[Skill Success] Two-player shelter constructed, verified, and saved to memory!');
+          } else {
+            bot.chat(`[Skill Status] Result: ${result.status} (${result.reason || result.error || 'partial'})`);
+          }
+        } else if (sub === 'list') {
+          const list = defaultSkillManager.listSkills().map(s => s.skill_id).join(', ') || 'build_secure_two_player_shelter';
+          bot.chat(`[Learned Skills] ${list}`);
+        } else {
+          bot.chat('Type "!skill shelter" to build two-player shelter or "!skill list"');
+        }
+      })();
+    } else if (trimmed === '!diagnose' || trimmed === '!problems') {
+      (async () => {
+        const { defaultProblemSolver } = await import('../diagnostics/index.js');
+        const summary = defaultProblemSolver.getSummary();
+        bot.chat(`[Diagnostics] Problems: ${summary.problemsDetected} | Resolved: ${summary.problemsResolved} (${summary.resolutionRate}) | Escalated: ${summary.escalatedCount}`);
+      })();
     } else if (trimmed === '!stage') {
       const obs = bot.collectObservation(bot);
       const status = bot.progression.getStatusSummary(obs);

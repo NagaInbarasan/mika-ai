@@ -1,10 +1,11 @@
 # MIKA — Autonomous Minecraft Learning Agent & Multi-Bot Swarm
 
-[![Tests](https://img.shields.io/badge/tests-239%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-264%20passing-brightgreen.svg)](tests/)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-blue.svg)](package.json)
 [![Python](https://img.shields.io/badge/python-3.10%2B%20%7C%20PyTorch-yellow.svg)](src/train/)
 [![Vision](https://img.shields.io/badge/vision-V1.3%20PyTorch%20%2B%20CUDA-blueviolet.svg)](src/vision/)
 [![Survival Base](https://img.shields.io/badge/survival-V1.3%20Shelter%20%26%20Storage-success.svg)](src/survival/)
+[![Preprocess](https://img.shields.io/badge/preprocessing-Task--Aware%20%26%20Prioritized-teal.svg)](src/data/)
 [![Model](https://img.shields.io/badge/active%20model-LoRA%20v1.2.0%20(Loss%201.52)-purple.svg)](data/models/)
 [![Minecraft](https://img.shields.io/badge/minecraft-1.20.x%20--%201.21.x%20Java-orange.svg)](https://www.minecraft.net/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -26,6 +27,7 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
   - [4. Fast Headless Simulation Engine](#4-fast-headless-simulation-engine)
   - [5. MIKA V1.3: Computer Vision & Visual Targeting](#5-mika-v13-computer-vision--visual-targeting)
   - [6. MIKA V1.3: Survival, Shelter, Food & Storage Master Objective](#6-mika-v13-survival-shelter-food--storage-master-objective)
+  - [7. Task-Aware Dataset Preprocessing & Method Prioritization](#7-task-aware-dataset-preprocessing--method-prioritization)
 - [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -167,6 +169,25 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
   - Enforces minimum personal survival inventory reserves (1 pickaxe, 1 sword, 1 axe, 8 torches, 16 blocks, 8 food) before depositing surplus into chests.
   - Detects full chests and manages overflow.
 
+### 7. Task-Aware Dataset Preprocessing & Method Prioritization
+- **Automated Dataset Archival (`src/data/task-aware-preprocess.js`)**:
+  - Automatically snapshots raw datasets to `data/archive/raw_backup_<timestamp>/` with SHA-256 manifests and checksum verification before any preprocessing modifications occur.
+- **Physical Game-State Outcome Verification**:
+  - Discards unverified records where actions claimed success without verifiable environmental deltas (verifies inventory deltas for gathering/crafting, arrival radius and position movement for navigation, and food/saturation deltas for eating).
+- **Condition Context Clustering**:
+  - Groups experience records into granular, comparable clusters: `Task/Goal` $\times$ `Dimension` $\times$ `TimePhase (Day/Night)` $\times$ `Weather` $\times$ `HealthBucket (Critical/Low/Healthy)` $\times$ `ThreatStatus`.
+  - Prevents unfair comparisons across dissimilar conditions (e.g. peaceful day gathering vs night mob raid).
+- **Method Profiling & Multi-Metric Ranking**:
+  - Computes attempts, verified successes, failures, duration, step counts, damage taken, and resource costs per method.
+  - Prioritizes faster methods **only when reliability ($\ge 80\%$) and safety ($\le 2.0$ damage) are maintained**.
+- **Fallback Preservation (Zero Silent Deletion)**:
+  - Top method assigned `priority: "primary"` (weight 1.0).
+  - Slower or alternative working methods assigned `priority: "fallback"` (weight 0.5) to maintain behavioral diversity.
+  - Failed attempts with diagnostic errors and linked corrections preserved in `failure_recovery.jsonl` and `dpo_pairs.jsonl`.
+- **Honest Model Evaluation Quality Gate**:
+  - Evaluates candidate models on held-out unseen episodes.
+  - Enforces that models are **never promoted solely because training loss decreased**; held-out accuracy and valid JSON schema must beat the baseline before deployment.
+
 ---
 
 ## Quick Start
@@ -244,16 +265,19 @@ npm run swarm -- --port 56677 --bots 4
 ### Training & Pipeline Commands
 
 ```bash
-# Run complete autonomous pipeline (clean -> train -> evaluate -> deploy)
+# Run complete autonomous pipeline (archive -> clean -> train -> evaluate -> deploy)
 npm run pipeline
+
+# Run task-aware dataset preprocessing & method prioritization directly
+npm run preprocess:task-aware
 
 # Run PyTorch LoRA training only
 npm run train
 
-# Evaluate candidate model vs baseline
+# Evaluate candidate model vs baseline on held-out unseen episodes
 npm run evaluate
 
-# Deploy candidate model
+# Deploy candidate model (only if quality gate passes)
 npm run deploy
 
 # Rollback to previous model version if needed
@@ -262,10 +286,10 @@ npm run rollback
 
 ### Running the Test Suite
 
-MIKA includes a comprehensive 239-test automated suite covering all foundations, combat, progression, computer vision, multi-bot swarm, and the V1.3 survival base/shelter/food/storage master objective:
+MIKA includes a comprehensive 264-test automated suite covering all foundations, combat, progression, computer vision, multi-bot swarm, V1.3 survival base/shelter, and task-aware dataset preprocessing:
 
 ```bash
-# Run complete test suite (239 tests, 21 suites)
+# Run complete test suite (264 tests, 21 suites)
 npm test
 
 # Run V1.3 Survival Base & Storage master suite (10 scenarios)

@@ -244,6 +244,28 @@ export class AutonomousSurvivalController {
       actionResult: execOutcome.result
     });
 
+    // 6b. General Problem Identification, Diagnosis, and Resolution Engine
+    if (!evaluation.goalAchieved || execOutcome.result?.status !== 'success' || (postObs.agent?.health && postObs.agent.health <= 8)) {
+      try {
+        const { defaultProblemSolver } = await import('../diagnostics/index.js');
+        const diagResult = await defaultProblemSolver.handleProblem({
+          bot,
+          action: execOutcome.action,
+          args: execOutcome.args,
+          execution: execOutcome.result,
+          outcome: evaluation,
+          preObservation: preObs,
+          postObservation: postObs,
+          currentGoal: currentGoalId
+        });
+        if (diagResult.resolved && diagResult.recoveryResult?.successfulPlan) {
+          console.log(`[Auto-Survival] Autonomous Problem Resolution: Resolved via [${diagResult.recoveryResult.successfulPlan.action}]`);
+        }
+      } catch (diagErr) {
+        console.warn(`[Auto-Survival] ProblemSolver error: ${diagErr.message}`);
+      }
+    }
+
     // 7. Track retries to prevent infinite loops
     this.tracker.recordAttempt(currentGoalId, evaluation.goalAchieved, evaluation.completionReason);
 
@@ -401,6 +423,15 @@ export class AutonomousSurvivalController {
       case 'BUILD_EMERGENCY_SHELTER': {
         const shelterRes = await defaultShelterManager.buildEmergencyShelter(bot);
         return { action: 'build_shelter', args: {}, result: shelterRes };
+      }
+
+      case 'BUILD_TWO_PLAYER_SHELTER': {
+        const { defaultTwoPlayerShelterSkill } = await import('../skills/two-player-shelter.js');
+        const execResult = await defaultTwoPlayerShelterSkill.adaptSkillToWorld(bot);
+        if (execResult.isComplete) {
+          defaultTwoPlayerShelterSkill.saveAsLearnedSkill(execResult);
+        }
+        return { action: 'build_shelter', args: { type: 'two_player' }, result: execResult };
       }
 
       case 'GATHER_SHELTER_BLOCKS': {

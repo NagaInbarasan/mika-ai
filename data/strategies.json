@@ -8,10 +8,10 @@
       "count": 2
     },
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 18,
+    "total_completions": 21,
     "best_duration_ms": 75,
-    "average_duration_ms": 736,
-    "last_duration_ms": 1000,
+    "average_duration_ms": 659,
+    "last_duration_ms": 177,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "dirt",
@@ -60,7 +60,7 @@
       }
     ],
     "created_at": "2026-10-12T13:20:09.746Z",
-    "last_used_at": "2026-10-12T13:46:59.684Z"
+    "last_used_at": "2026-10-12T15:25:27.786Z"
   },
   {
     "id": "4a1a7cac-24a7-4cf9-a486-622a6627b3b9",
@@ -70,10 +70,10 @@
       "item": "crafting_table"
     },
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 13,
+    "total_completions": 15,
     "best_duration_ms": 227,
-    "average_duration_ms": 706,
-    "last_duration_ms": 1000,
+    "average_duration_ms": 644,
+    "last_duration_ms": 231,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "dirt",
@@ -103,7 +103,7 @@
       }
     ],
     "created_at": "2026-10-12T13:20:12.529Z",
-    "last_used_at": "2026-10-12T13:46:59.711Z"
+    "last_used_at": "2026-10-12T15:25:30.591Z"
   },
   {
     "id": "fd7a628a-780c-4249-8809-bf7c7f5af36f",
@@ -113,11 +113,11 @@
       "item": "stick",
       "count": 2
     },
-    "optimal_tool": "stone_pickaxe",
-    "total_completions": 12,
-    "best_duration_ms": 223,
-    "average_duration_ms": 1154,
-    "last_duration_ms": 1000,
+    "optimal_tool": "dirt",
+    "total_completions": 15,
+    "best_duration_ms": 183,
+    "average_duration_ms": 1131,
+    "last_duration_ms": 1730,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "dirt",
@@ -165,10 +165,28 @@
         "improved_duration_ms": 269,
         "improved_tool": "stone_pickaxe",
         "improvement_reason": "Cognitive improvement: batch crafting sticks (count 2) using 9 available planks."
+      },
+      {
+        "timestamp": "2026-10-12T15:19:07.337Z",
+        "previous_action": "craft_item",
+        "previous_args": {
+          "item": "stick",
+          "count": 2
+        },
+        "previous_duration_ms": 223,
+        "previous_tool": "stone_pickaxe",
+        "improved_action": "craft_item",
+        "improved_args": {
+          "item": "stick",
+          "count": 2
+        },
+        "improved_duration_ms": 183,
+        "improved_tool": "dirt",
+        "improvement_reason": "Faster execution (183ms vs 223ms)"
       }
     ],
     "created_at": "2026-10-12T13:20:16.339Z",
-    "last_used_at": "2026-10-12T13:46:59.671Z"
+    "last_used_at": "2026-10-12T15:25:34.887Z"
   },
   {
     "id": "e2726629-aaad-4302-ae3e-d0fdb31d1354",
@@ -176,10 +194,10 @@
     "action": "retreat_and_heal",
     "args": {},
     "optimal_tool": "stone_sword",
-    "total_completions": 25,
+    "total_completions": 44,
     "best_duration_ms": 1000,
-    "average_duration_ms": 3482,
-    "last_duration_ms": 6091,
+    "average_duration_ms": 4429,
+    "last_duration_ms": 6010,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": null,
@@ -218,7 +236,7 @@
       }
     ],
     "created_at": "2026-10-12T13:20:32.806Z",
-    "last_used_at": "2026-10-12T14:05:49.435Z"
+    "last_used_at": "2026-10-12T15:51:29.953Z"
   },
   {
     "id": "61e2ec6e-3589-432d-ab9b-316a1af9e3be",
@@ -230,10 +248,10 @@
       "z": -333.5
     },
     "optimal_tool": "dirt",
-    "total_completions": 12,
+    "total_completions": 14,
     "best_duration_ms": 1000,
-    "average_duration_ms": 5425,
-    "last_duration_ms": 7621,
+    "average_duration_ms": 5849,
+    "last_duration_ms": 10702,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": null,
@@ -302,7 +320,7 @@
       }
     ],
     "created_at": "2026-10-12T13:21:32.815Z",
-    "last_used_at": "2026-10-12T14:05:31.359Z"
+    "last_used_at": "2026-10-12T15:19:20.647Z"
   },
   {
     "id": "fc0898d6-5c02-4334-ba4d-9769fa82cc2c",
@@ -314,10 +332,10 @@
       "preferred_tool": "stone_axe"
     },
     "optimal_tool": "stone_axe",
-    "total_completions": 28,
+    "total_completions": 31,
     "best_duration_ms": 1000,
-    "average_duration_ms": 6230,
-    "last_duration_ms": 1000,
+    "average_duration_ms": 6942,
+    "last_duration_ms": 11590,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": null,
@@ -384,7 +402,7 @@
       }
     ],
     "created_at": "2026-10-12T13:22:36.993Z",
-    "last_used_at": "2026-10-12T13:46:59.533Z"
+    "last_used_at": "2026-10-12T15:20:15.647Z"
   },
   {
     "id": "e6513cf6-2bcd-409e-8878-e08259010bbb",
@@ -423,10 +441,10 @@
       "preferred_tool": "stone_pickaxe"
     },
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 15,
+    "total_completions": 18,
     "best_duration_ms": 1000,
-    "average_duration_ms": 6372,
-    "last_duration_ms": 1000,
+    "average_duration_ms": 6167,
+    "last_duration_ms": 1894,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "arrow",
@@ -538,7 +556,7 @@
       }
     ],
     "created_at": "2026-10-12T13:28:43.748Z",
-    "last_used_at": "2026-10-12T13:46:59.784Z"
+    "last_used_at": "2026-10-12T15:18:39.239Z"
   },
   {
     "id": "5fb03044-2018-4360-9363-acbecce36929",
@@ -644,10 +662,10 @@
     "action": "build_shelter",
     "args": {},
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 4,
+    "total_completions": 7,
     "best_duration_ms": 1000,
-    "average_duration_ms": 2512,
-    "last_duration_ms": 2283,
+    "average_duration_ms": 3965,
+    "last_duration_ms": 6916,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "stone_pickaxe",
@@ -686,7 +704,7 @@
       }
     ],
     "created_at": "2026-10-12T13:29:43.100Z",
-    "last_used_at": "2026-10-12T14:05:21.062Z"
+    "last_used_at": "2026-10-12T15:25:25.034Z"
   },
   {
     "id": "6d8d6a6c-b5bf-409d-98d9-31d81a1b36de",
@@ -698,10 +716,10 @@
       "z": -336
     },
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 98,
+    "total_completions": 171,
     "best_duration_ms": 1,
-    "average_duration_ms": 766,
-    "last_duration_ms": 1000,
+    "average_duration_ms": 492,
+    "last_duration_ms": 1,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "stone_pickaxe",
@@ -736,7 +754,7 @@
       }
     ],
     "created_at": "2026-10-12T13:29:56.108Z",
-    "last_used_at": "2026-10-12T13:47:00.494Z"
+    "last_used_at": "2026-10-12T15:26:43.754Z"
   },
   {
     "id": "4daaacd3-5dd4-4b45-93bd-3f180248456f",
@@ -3157,11 +3175,11 @@
       "resource": "dirt"
     },
     "optimal_tool": "stone_axe",
-    "total_completions": 2,
+    "total_completions": 9,
     "best_duration_ms": 1000,
-    "average_duration_ms": 1000,
-    "last_duration_ms": 1000,
-    "confidence": 0.9,
+    "average_duration_ms": 7822,
+    "last_duration_ms": 9665,
+    "confidence": 1,
     "preconditions_summary": {
       "held_tool": "stone_axe",
       "key_items": [
@@ -3174,7 +3192,7 @@
     },
     "improvement_history": [],
     "created_at": "2026-10-12T13:46:56.606Z",
-    "last_used_at": "2026-10-12T13:46:58.095Z"
+    "last_used_at": "2026-10-12T16:11:59.782Z"
   },
   {
     "id": "670ab5e9-673c-4f58-8b81-81d8f1bc1cdd",
@@ -3306,11 +3324,11 @@
       "item": "furnace"
     },
     "optimal_tool": "stone_pickaxe",
-    "total_completions": 1,
+    "total_completions": 2,
     "best_duration_ms": 1000,
-    "average_duration_ms": 1000,
-    "last_duration_ms": 1000,
-    "confidence": 0.8,
+    "average_duration_ms": 1143,
+    "last_duration_ms": 1285,
+    "confidence": 0.9,
     "preconditions_summary": {
       "held_tool": "stone_pickaxe",
       "key_items": [
@@ -3323,7 +3341,7 @@
     },
     "improvement_history": [],
     "created_at": "2026-10-12T13:46:57.671Z",
-    "last_used_at": "2026-10-12T13:46:57.671Z"
+    "last_used_at": "2026-10-12T15:16:41.156Z"
   },
   {
     "id": "06c596a5-0c91-4f2f-9a55-225f279079f3",

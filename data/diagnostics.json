@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "diag-1791820876690-575",
+    "timestamp": "2026-10-12T16:01:16.690Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:01:16.690Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "EAT_FOOD",
+      "contributingFactors": [
+        "Edible food available in inventory"
+      ],
+      "context": {
+        "health": 5.33,
+        "food": 14,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "inventoryItemCount": 1,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 2,
+    "successfulPlan": {
+      "id": "plan_eat_inventory_food",
+      "strategy": "Consume 'bread' from inventory to restore hunger and trigger health regeneration",
+      "action": "eat_food",
+      "args": {
+        "item": "bread"
+      },
+      "confidence": 0.95,
+      "cost": "low",
+      "expectedOutcome": "Hunger restored and health regeneration begins"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 0
+  },
+  {
+    "id": "diag-1791820883844-145",
+    "timestamp": "2026-10-12T16:01:23.844Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:01:23.843Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "EAT_FOOD",
+      "contributingFactors": [
+        "Edible food available in inventory"
+      ],
+      "context": {
+        "health": 5.33,
+        "food": 14,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "inventoryItemCount": 1,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 2,
+    "successfulPlan": {
+      "id": "plan_eat_inventory_food",
+      "strategy": "Consume 'bread' from inventory to restore hunger and trigger health regeneration",
+      "action": "eat_food",
+      "args": {
+        "item": "bread"
+      },
+      "confidence": 0.95,
+      "cost": "low",
+      "expectedOutcome": "Hunger restored and health regeneration begins"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 1
+  },
+  {
+    "id": "diag-1791821090697-954",
+    "timestamp": "2026-10-12T16:04:50.697Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:04:44.645Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -334.5,
+          "y": 64,
+          "z": -322.6
+        },
+        "inventoryItemCount": 2,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6051
+  },
+  {
+    "id": "diag-1791821096846-764",
+    "timestamp": "2026-10-12T16:04:56.846Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:04:53.262Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -322.7,
+          "y": 70,
+          "z": -310.6
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 3584
+  },
+  {
+    "id": "diag-1791821102438-853",
+    "timestamp": "2026-10-12T16:05:02.438Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:04:59.408Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -310.5,
+          "y": 68,
+          "z": -298.4
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 3030
+  },
+  {
+    "id": "diag-1791821108263-389",
+    "timestamp": "2026-10-12T16:05:08.263Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:05.004Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -298.5,
+          "y": 68,
+          "z": -286.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 3259
+  },
+  {
+    "id": "diag-1791821114994-635",
+    "timestamp": "2026-10-12T16:05:14.994Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:10.819Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -286.7,
+          "y": 67,
+          "z": -274.7
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 4175
+  },
+  {
+    "id": "diag-1791821121531-422",
+    "timestamp": "2026-10-12T16:05:21.531Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:17.558Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -274.6,
+          "y": 65,
+          "z": -262.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 3973
+  },
+  {
+    "id": "diag-1791821129295-719",
+    "timestamp": "2026-10-12T16:05:29.295Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:24.104Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -262.7,
+          "y": 65,
+          "z": -250.4
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 5191
+  },
+  {
+    "id": "diag-1791821137889-269",
+    "timestamp": "2026-10-12T16:05:37.889Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:31.866Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -250.6,
+          "y": 60.5,
+          "z": -238.6
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6023
+  },
+  {
+    "id": "diag-1791821146479-266",
+    "timestamp": "2026-10-12T16:05:46.479Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:40.442Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -241.3,
+          "y": 62.4,
+          "z": -229.3
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6037
+  },
+  {
+    "id": "diag-1791821155086-542",
+    "timestamp": "2026-10-12T16:05:55.086Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:49.058Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -229.5,
+          "y": 62,
+          "z": -217.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6028
+  },
+  {
+    "id": "diag-1791821163686-411",
+    "timestamp": "2026-10-12T16:06:03.686Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:05:57.663Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -217.5,
+          "y": 60.9,
+          "z": -205.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6023
+  },
+  {
+    "id": "diag-1791821172279-100",
+    "timestamp": "2026-10-12T16:06:12.279Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:06.244Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -208.1,
+          "y": 61.9,
+          "z": -196.1
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6035
+  },
+  {
+    "id": "diag-1791821180849-953",
+    "timestamp": "2026-10-12T16:06:20.849Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:14.829Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -202,
+          "y": 62,
+          "z": -190
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6020
+  },
+  {
+    "id": "diag-1791821189441-39",
+    "timestamp": "2026-10-12T16:06:29.441Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:23.410Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -190.5,
+          "y": 61.2,
+          "z": -178.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6031
+  },
+  {
+    "id": "diag-1791821198027-99",
+    "timestamp": "2026-10-12T16:06:38.027Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:31.998Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 17,
+        "position": {
+          "x": -181.8,
+          "y": 62,
+          "z": -169.8
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6029
+  },
+  {
+    "id": "diag-1791821206612-797",
+    "timestamp": "2026-10-12T16:06:46.612Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:40.585Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -169.5,
+          "y": 60.4,
+          "z": -157.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6027
+  },
+  {
+    "id": "diag-1791821215213-259",
+    "timestamp": "2026-10-12T16:06:55.213Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:49.183Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -163.1,
+          "y": 62.8,
+          "z": -151.1
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6030
+  },
+  {
+    "id": "diag-1791821223811-162",
+    "timestamp": "2026-10-12T16:07:03.811Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:06:57.775Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -151.5,
+          "y": 60.3,
+          "z": -139.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6036
+  },
+  {
+    "id": "diag-1791821232432-607",
+    "timestamp": "2026-10-12T16:07:12.432Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:07:06.400Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -144.5,
+          "y": 61.8,
+          "z": -131.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6032
+  },
+  {
+    "id": "diag-1791821241032-622",
+    "timestamp": "2026-10-12T16:07:21.032Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:07:14.996Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -136.5,
+          "y": 61.9,
+          "z": -123.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6036
+  },
+  {
+    "id": "diag-1791821249665-8",
+    "timestamp": "2026-10-12T16:07:29.665Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:07:23.626Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -128.6,
+          "y": 62.8,
+          "z": -115.6
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 6038
+  },
+  {
+    "id": "diag-1791821257322-238",
+    "timestamp": "2026-10-12T16:07:37.322Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:07:32.229Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -116.5,
+          "y": 62,
+          "z": -103.5
+        },
+        "inventoryItemCount": 3,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 5093
+  },
+  {
+    "id": "diag-1791821263031-394",
+    "timestamp": "2026-10-12T16:07:43.031Z",
+    "problemType": "CRITICAL_VITALS",
+    "severity": "CRITICAL",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:07:39.937Z",
+      "problemType": "CRITICAL_VITALS",
+      "severity": "CRITICAL",
+      "category": "CRITICAL_HEALTH_OR_HUNGER",
+      "rootCause": "Health depleted (5.3/20) - actions halted to prevent death",
+      "confidence": 0.99,
+      "recommendedActionType": "RETREAT_AND_RECOVER",
+      "contributingFactors": [
+        "No edible food in inventory"
+      ],
+      "context": {
+        "health": 5.333334922790527,
+        "food": 16,
+        "position": {
+          "x": -104.5,
+          "y": 64,
+          "z": -91.5
+        },
+        "inventoryItemCount": 2,
+        "currentTask": "GATHER_SHELTER_BLOCKS"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_tactical_retreat_heal",
+      "strategy": "Retreat to safe perimeter (>16m) and enter defensive posture to heal",
+      "action": "retreat_and_heal",
+      "args": {},
+      "confidence": 0.88,
+      "cost": "medium",
+      "expectedOutcome": "Distance created from hostiles and health safely restored"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 3094
+  },
+  {
+    "id": "diag-1791821444646-817",
+    "timestamp": "2026-10-12T16:10:44.646Z",
+    "problemType": "ACTION_FAILED",
+    "severity": "MEDIUM",
+    "diagnosis": {
+      "hasDiagnosis": true,
+      "timestamp": "2026-10-12T16:10:44.628Z",
+      "problemType": "ACTION_FAILED",
+      "severity": "MEDIUM",
+      "category": "UNKNOWN_OR_UNSPECIFIED",
+      "rootCause": "OUT_OF_BUILDING_MATERIALS",
+      "confidence": 0.7,
+      "recommendedActionType": "FALLBACK_REFLEX",
+      "contributingFactors": [],
+      "context": {
+        "health": 20,
+        "food": 20,
+        "position": {
+          "x": -367.7,
+          "y": 69,
+          "z": -370.3
+        },
+        "inventoryItemCount": 0,
+        "currentTask": "BUILD_TWO_PLAYER_SHELTER"
+      }
+    },
+    "plansCount": 1,
+    "successfulPlan": {
+      "id": "plan_inspect_and_reset",
+      "strategy": "Inspect inventory and reset task state to clear transient failure",
+      "action": "inspect_inventory",
+      "args": {},
+      "confidence": 0.8,
+      "cost": "low",
+      "expectedOutcome": "State synchronized"
+    },
+    "resolved": true,
+    "escalated": false,
+    "durationMs": 18
+  }
+]

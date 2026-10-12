@@ -1,10 +1,218 @@
 [
   {
+    "id": "1fad095c-7328-4bdb-a57d-b1cf41a8fe62",
+    "timestamp": "2026-10-12T16:07:44.666Z",
+    "reason": "<MIKA_Bot> [Death] MIKA died at (-92.5, 64, -79.5)! Reason: MIKA_Bot was shot by Skeleton. Lost items location remembered.",
+    "death_message": "<MIKA_Bot> [Death] MIKA died at (-92.5, 64, -79.5)! Reason: MIKA_Bot was shot by Skeleton. Lost items location remembered.",
+    "killer": "Skeleton",
+    "damage_type": null,
+    "position": {
+      "x": -92.5,
+      "y": 64,
+      "z": -79.5
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "gunpowder",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "28177863-1462-4301-a0c6-1c04c914dd18",
+    "timestamp": "2026-10-12T15:30:21.489Z",
+    "reason": "MIKA_Bot was shot by Skeleton",
+    "death_message": "MIKA_Bot was shot by Skeleton",
+    "killer": "Skeleton",
+    "damage_type": null,
+    "position": {
+      "x": -304.1,
+      "y": 64,
+      "z": -316.5
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "stick",
+        "count": 8
+      },
+      {
+        "name": "dark_oak_log",
+        "count": 2
+      },
+      {
+        "name": "rotten_flesh",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": "31bad98a-d86f-484d-96a1-d9e203a5e291",
+    "timestamp": "2026-10-12T15:20:43.923Z",
+    "reason": "MIKA_Bot was slain by Zombie",
+    "death_message": "MIKA_Bot was slain by Zombie",
+    "killer": "Zombie",
+    "damage_type": null,
+    "position": {
+      "x": -360.3,
+      "y": 70,
+      "z": -370.5
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "stick",
+        "count": 8
+      },
+      {
+        "name": "leaf_litter",
+        "count": 3
+      },
+      {
+        "name": "dark_oak_log",
+        "count": 3
+      },
+      {
+        "name": "dirt",
+        "count": 7
+      },
+      {
+        "name": "bone",
+        "count": 2
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "0cb6d7e3-4025-4aa2-b3d4-41cb385cd0a6",
+    "timestamp": "2026-10-12T15:19:08.077Z",
+    "reason": "MIKA_Bot was slain by Zombie",
+    "death_message": "MIKA_Bot was slain by Zombie",
+    "killer": "Zombie",
+    "damage_type": null,
+    "position": {
+      "x": -399.5,
+      "y": 79,
+      "z": -346.3
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "oak_log",
+        "count": 1
+      },
+      {
+        "name": "stick",
+        "count": 4
+      },
+      {
+        "name": "stick",
+        "count": 4
+      },
+      {
+        "name": "dirt",
+        "count": 9
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 3
+      },
+      {
+        "name": "arrow",
+        "count": 1
+      },
+      {
+        "name": "bone",
+        "count": 2
+      },
+      {
+        "name": "cobblestone",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": "23eeb2aa-8986-4259-848a-03060fc5fef4",
+    "timestamp": "2026-10-12T15:17:56.734Z",
+    "reason": "MIKA_Bot was shot by Skeleton",
+    "death_message": "MIKA_Bot was shot by Skeleton",
+    "killer": "Skeleton",
+    "damage_type": null,
+    "position": {
+      "x": -400.2,
+      "y": 77,
+      "z": -373.5
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "dark_oak_log",
+        "count": 4
+      },
+      {
+        "name": "furnace",
+        "count": 1
+      },
+      {
+        "name": "arrow",
+        "count": 1
+      },
+      {
+        "name": "stone_sword",
+        "count": 1
+      },
+      {
+        "name": "leaf_litter",
+        "count": 43
+      },
+      {
+        "name": "stick",
+        "count": 9
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1
+      },
+      {
+        "name": "cobblestone",
+        "count": 1
+      },
+      {
+        "name": "dark_oak_planks",
+        "count": 9
+      },
+      {
+        "name": "stone_axe",
+        "count": 1
+      },
+      {
+        "name": "dirt",
+        "count": 1
+      }
+    ]
+  },
+  {
     "id": "639d5d92-6fea-4543-b3cc-c7c2506fb1e6",
     "timestamp": "2026-10-12T13:58:38.169Z",
-    "reason": "Unknown cause of death",
-    "death_message": null,
-    "killer": null,
+    "reason": "MIKA_Bot was shot by Skeleton",
+    "death_message": "MIKA_Bot was shot by Skeleton",
+    "killer": "Skeleton",
     "damage_type": null,
     "position": null,
     "dimension": "overworld",
@@ -509,81 +717,6 @@
       "x": -361.5,
       "y": 59,
       "z": -359.4
-    },
-    "dimension": "overworld",
-    "lost_items": []
-  },
-  {
-    "id": "eb512170-9854-4ca0-a4c2-a30d691594f6",
-    "timestamp": "2026-10-12T13:46:56.063Z",
-    "reason": "threat_response",
-    "death_message": null,
-    "killer": null,
-    "damage_type": null,
-    "position": {
-      "x": -374,
-      "y": 62.4,
-      "z": -344
-    },
-    "dimension": "overworld",
-    "lost_items": []
-  },
-  {
-    "id": "b019e5b5-dc0f-4c4e-a267-4ee8e63450e4",
-    "timestamp": "2026-10-12T13:46:56.009Z",
-    "reason": "threat_response",
-    "death_message": null,
-    "killer": null,
-    "damage_type": null,
-    "position": {
-      "x": -361.5,
-      "y": 59,
-      "z": -359.3
-    },
-    "dimension": "overworld",
-    "lost_items": []
-  },
-  {
-    "id": "c6bf0598-391b-45d5-bd0b-f3a53c58159c",
-    "timestamp": "2026-10-12T13:46:55.834Z",
-    "reason": "threat_response",
-    "death_message": null,
-    "killer": null,
-    "damage_type": null,
-    "position": {
-      "x": -362.9,
-      "y": 70.2,
-      "z": -366.1
-    },
-    "dimension": "overworld",
-    "lost_items": []
-  },
-  {
-    "id": "31273fd2-186f-440e-92b6-e97eacc5b76f",
-    "timestamp": "2026-10-12T13:46:55.782Z",
-    "reason": "threat_response",
-    "death_message": null,
-    "killer": null,
-    "damage_type": null,
-    "position": {
-      "x": -365.5,
-      "y": 72,
-      "z": -377.5
-    },
-    "dimension": "overworld",
-    "lost_items": []
-  },
-  {
-    "id": "6a78f7cb-9b8f-4dcb-8728-bc71cf5d5261",
-    "timestamp": "2026-10-12T13:46:55.672Z",
-    "reason": "threat_response",
-    "death_message": null,
-    "killer": null,
-    "damage_type": null,
-    "position": {
-      "x": -369.7,
-      "y": 72,
-      "z": -372.5
     },
     "dimension": "overworld",
     "lost_items": []
