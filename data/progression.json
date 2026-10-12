@@ -1,9 +1,9 @@
 {
   "currentStage": "farmer",
   "stats": {
-    "mobs_killed_total": 124,
+    "mobs_killed_total": 127,
     "mobs_killed_by_type": {
-      "creeper": 26,
+      "creeper": 29,
       "zombie": 71,
       "spider": 9,
       "witch": 8,
@@ -12,9 +12,9 @@
       "chicken": 2,
       "pig": 1
     },
-    "damage_dealt_total": 868,
+    "damage_dealt_total": 889,
     "damage_taken_total": 0,
-    "deaths_total": 40,
+    "deaths_total": 44,
     "food_harvested_total": 0,
     "chests_placed": 0,
     "items_stored_total": 0,

@@ -1,6 +1,6 @@
 [
   {
-    "id": "5e1114a3-406c-4daa-97ac-f892e52d1f7f",
+    "id": "2e55bc68-199b-43ab-9fe8-6e7f626e2204",
     "type": "shelter_base",
     "name": "Shelter Base",
     "position": {
@@ -13,11 +13,11 @@
       "is_safe": true,
       "builtBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:10:02.234Z",
-    "updated_at": "2026-10-12T12:27:42.725Z"
+    "created_at": "2026-10-12T13:12:27.975Z",
+    "updated_at": "2026-10-12T13:18:04.252Z"
   },
   {
-    "id": "871be440-a769-4588-9429-21779b2049ca",
+    "id": "58c52a24-6e89-4785-ab98-6eff2dcf0fea",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -27,14 +27,31 @@
     },
     "dimension": "overworld",
     "metadata": {
-      "registeredBy": "MIKA_Builder",
-      "category": "minerals"
+      "category": "minerals",
+      "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:10:02.238Z",
-    "updated_at": "2026-10-12T12:27:42.766Z"
+    "created_at": "2026-10-12T13:12:27.979Z",
+    "updated_at": "2026-10-12T13:18:04.282Z"
   },
   {
-    "id": "7a550d0f-50fb-4d70-b858-c4fdd6ce8bce",
+    "id": "afd941b6-925f-4978-85dd-789b12d09c09",
+    "type": "farm",
+    "name": "Crop Farm",
+    "position": {
+      "x": 12,
+      "y": 64,
+      "z": 12
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "crop": "wheat",
+      "registeredBy": "MIKA_Farmer"
+    },
+    "created_at": "2026-10-12T13:12:28.000Z",
+    "updated_at": "2026-10-12T13:18:04.228Z"
+  },
+  {
+    "id": "33d6c228-f0eb-4388-9236-353a4dabc379",
     "type": "farm",
     "name": "Crop Farm",
     "position": {
@@ -47,11 +64,11 @@
       "crop": "wheat",
       "registeredBy": "MIKA_Gatherer"
     },
-    "created_at": "2026-10-11T17:10:02.258Z",
-    "updated_at": "2026-10-11T17:10:02.283Z"
+    "created_at": "2026-10-12T13:12:28.036Z",
+    "updated_at": "2026-10-12T13:12:28.036Z"
   },
   {
-    "id": "e9c28657-f1ab-470b-a09f-635b6cf3bfd6",
+    "id": "6c632b74-5d73-4248-b544-85efdb43df11",
     "type": "crafting_table",
     "name": "Crafting_table Location",
     "position": {
@@ -63,11 +80,11 @@
     "metadata": {
       "placedBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:10:02.286Z",
-    "updated_at": "2026-10-12T12:27:42.643Z"
+    "created_at": "2026-10-12T13:12:28.041Z",
+    "updated_at": "2026-10-12T13:18:04.171Z"
   },
   {
-    "id": "6d6663e1-89f5-4b76-b709-c12477587158",
+    "id": "7ced602b-9bd0-49c4-bfaa-ca82fbb9caf6",
     "type": "resource_vein",
     "name": "Iron Ridge",
     "position": {
@@ -83,11 +100,11 @@
       ],
       "markedBy": "MIKA_Explorer"
     },
-    "created_at": "2026-10-11T17:10:02.298Z",
-    "updated_at": "2026-10-12T12:27:42.646Z"
+    "created_at": "2026-10-12T13:12:28.053Z",
+    "updated_at": "2026-10-12T13:18:04.179Z"
   },
   {
-    "id": "96e81456-dd9d-409c-9180-3d275baade52",
+    "id": "b71815f7-29fc-48e8-bb88-d0c000a40dce",
     "type": "animal_herd",
     "name": "Animal_herd Location",
     "position": {
@@ -100,11 +117,11 @@
       "type": "cow",
       "spottedBy": "MIKA_Explorer"
     },
-    "created_at": "2026-10-11T17:10:02.308Z",
-    "updated_at": "2026-10-12T12:27:42.659Z"
+    "created_at": "2026-10-12T13:12:28.067Z",
+    "updated_at": "2026-10-12T13:18:04.189Z"
   },
   {
-    "id": "e0c1826a-4a9d-4d03-898d-8fe9cb5d8d47",
+    "id": "e3f8496f-f9ff-4ba8-900f-3dc73df79f42",
     "type": "animal_herd",
     "name": "Animal_herd Location",
     "position": {
@@ -117,166 +134,11 @@
       "type": "cow",
       "spottedBy": "MIKA_Explorer"
     },
-    "created_at": "2026-10-11T17:10:02.336Z",
-    "updated_at": "2026-10-12T12:27:42.683Z"
+    "created_at": "2026-10-12T13:12:28.094Z",
+    "updated_at": "2026-10-12T13:18:04.218Z"
   },
   {
-    "id": "66b568ca-75a7-47cc-84c3-ab31d2c6e64d",
-    "type": "farm",
-    "name": "Crop Farm",
-    "position": {
-      "x": 12,
-      "y": 64,
-      "z": 12
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "crop": "wheat",
-      "registeredBy": "MIKA_Farmer"
-    },
-    "created_at": "2026-10-11T17:10:02.346Z",
-    "updated_at": "2026-10-12T12:27:42.701Z"
-  },
-  {
-    "id": "7d26b7f6-ba30-4e2e-81ec-8ed8124ae09c",
-    "type": "farm",
-    "name": "Crop Farm",
-    "position": {
-      "x": -375,
-      "y": 72,
-      "z": -372
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "crop": "wheat",
-      "registeredBy": "MIKA_Farmer"
-    },
-    "created_at": "2026-10-11T17:10:50.857Z",
-    "updated_at": "2026-10-11T17:10:50.857Z"
-  },
-  {
-    "id": "830f8e33-8e73-4c09-a889-879405e62f9e",
-    "type": "scout_marker",
-    "name": "Scout Waypoint (-353, -386)",
-    "position": {
-      "x": -353,
-      "y": 79,
-      "z": -386
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "name": "Scout Waypoint (-353, -386)",
-      "tags": [
-        "frontier",
-        "explored"
-      ],
-      "markedBy": "MIKA_Explorer"
-    },
-    "created_at": "2026-10-11T17:10:50.963Z",
-    "updated_at": "2026-10-11T17:10:50.963Z"
-  },
-  {
-    "id": "1c4d15c5-934c-4225-9389-cf07856cfbc8",
-    "type": "scout_marker",
-    "name": "Scout Waypoint (-348, -361)",
-    "position": {
-      "x": -348,
-      "y": 81,
-      "z": -361
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "name": "Scout Waypoint (-348, -361)",
-      "tags": [
-        "frontier",
-        "explored"
-      ],
-      "markedBy": "MIKA_Explorer"
-    },
-    "created_at": "2026-10-11T17:14:24.412Z",
-    "updated_at": "2026-10-11T17:14:24.412Z"
-  },
-  {
-    "id": "d777554e-a99f-4257-a7f4-e58a73ff5cea",
-    "type": "shelter_base",
-    "name": "Shelter Base",
-    "position": {
-      "x": -372,
-      "y": 70,
-      "z": -363
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "is_safe": true,
-      "builtBy": "MIKA_Builder"
-    },
-    "created_at": "2026-10-11T17:15:22.450Z",
-    "updated_at": "2026-10-11T17:15:53.702Z"
-  },
-  {
-    "id": "1e2bd000-41e7-4c71-adb4-ea40b0285212",
-    "type": "scout_marker",
-    "name": "Scout Waypoint (-337, -380)",
-    "position": {
-      "x": -337,
-      "y": 74,
-      "z": -380
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "name": "Scout Waypoint (-337, -380)",
-      "tags": [
-        "frontier",
-        "explored"
-      ],
-      "markedBy": "MIKA_Explorer"
-    },
-    "created_at": "2026-10-11T17:15:53.277Z",
-    "updated_at": "2026-10-11T17:15:53.277Z"
-  },
-  {
-    "id": "bb98355e-40af-4f44-be4a-12b1f13379fb",
-    "type": "shelter_base",
-    "name": "Emergency Shelter Base",
-    "position": {
-      "x": -445,
-      "y": 82,
-      "z": -350
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "is_safe": true,
-      "builtBy": "MIKA_Builder",
-      "name": "Emergency Shelter Base",
-      "safety_score": 1,
-      "built_at": "2026-10-12T12:50:07.469Z"
-    },
-    "created_at": "2026-10-11T17:16:46.964Z",
-    "updated_at": "2026-10-12T12:50:07.469Z"
-  },
-  {
-    "id": "a4d62f0d-6c1d-4294-81d5-c1ae6e1e932b",
-    "type": "scout_marker",
-    "name": "Scout Waypoint (-359, -374)",
-    "position": {
-      "x": -359,
-      "y": 77,
-      "z": -374
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "name": "Scout Waypoint (-359, -374)",
-      "tags": [
-        "frontier",
-        "explored"
-      ],
-      "markedBy": "MIKA_Explorer"
-    },
-    "created_at": "2026-10-11T17:18:12.963Z",
-    "updated_at": "2026-10-11T17:18:12.963Z"
-  },
-  {
-    "id": "d4a9be70-f914-4ec6-a654-8dbcbcafd87f",
+    "id": "b68a0612-244b-4bde-86f8-8dc9da6182fd",
     "type": "crafting_table",
     "name": "Crafting_table Location",
     "position": {
@@ -288,11 +150,11 @@
     "metadata": {
       "placedBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:28:51.814Z",
-    "updated_at": "2026-10-12T12:27:42.738Z"
+    "created_at": "2026-10-12T13:12:28.143Z",
+    "updated_at": "2026-10-12T13:18:04.261Z"
   },
   {
-    "id": "5e69df3e-3e30-4382-ad5f-ba2aefa80433",
+    "id": "26ae780c-4c25-41d5-981c-42b4c5b1cdcb",
     "type": "furnace",
     "name": "Furnace Location",
     "position": {
@@ -304,11 +166,11 @@
     "metadata": {
       "placedBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:28:51.853Z",
-    "updated_at": "2026-10-12T12:27:42.776Z"
+    "created_at": "2026-10-12T13:12:28.181Z",
+    "updated_at": "2026-10-12T13:18:04.293Z"
   },
   {
-    "id": "c6aead70-d170-42e4-9cb4-7258617e30bb",
+    "id": "57a430bd-df05-4382-9502-f84a10bb634d",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -321,11 +183,11 @@
       "category": "food",
       "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:28:51.868Z",
-    "updated_at": "2026-10-12T12:27:42.791Z"
+    "created_at": "2026-10-12T13:12:28.194Z",
+    "updated_at": "2026-10-12T13:18:04.306Z"
   },
   {
-    "id": "bef157dc-ea77-49bf-ae3a-a89783580577",
+    "id": "8bd0e9d5-a2b3-400d-8e60-e910cb37d353",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -338,28 +200,11 @@
       "category": "minerals",
       "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:28:51.877Z",
-    "updated_at": "2026-10-12T12:27:42.801Z"
+    "created_at": "2026-10-12T13:12:28.205Z",
+    "updated_at": "2026-10-12T13:18:04.320Z"
   },
   {
-    "id": "5078af62-3112-418e-8cad-8381583f3a00",
-    "type": "farm",
-    "name": "Crop Farm",
-    "position": {
-      "x": -355,
-      "y": 82,
-      "z": -368
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "crop": "wheat",
-      "registeredBy": "MIKA_Farmer"
-    },
-    "created_at": "2026-10-11T17:30:40.464Z",
-    "updated_at": "2026-10-11T17:30:40.464Z"
-  },
-  {
-    "id": "32fdc426-6b98-486e-bb1d-a6ad6cd430ed",
+    "id": "67caac5a-24fb-49ad-ac9d-64f63feadb21",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -372,11 +217,11 @@
       "category": "food",
       "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:44:49.245Z",
-    "updated_at": "2026-10-12T12:27:42.813Z"
+    "created_at": "2026-10-12T13:12:28.221Z",
+    "updated_at": "2026-10-12T13:18:04.332Z"
   },
   {
-    "id": "bd4d75a0-0897-4cdf-b9f6-547e58311c26",
+    "id": "069ca40e-5a8d-4dc3-aa31-44713db5e736",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -389,28 +234,11 @@
       "category": "food",
       "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-11T17:44:49.253Z",
-    "updated_at": "2026-10-12T12:27:42.822Z"
+    "created_at": "2026-10-12T13:12:28.231Z",
+    "updated_at": "2026-10-12T13:18:04.341Z"
   },
   {
-    "id": "05bf4016-8e55-4042-883b-aa3539e66477",
-    "type": "animal_herd",
-    "name": "Animal_herd Location",
-    "position": {
-      "x": 55,
-      "y": 64,
-      "z": 55
-    },
-    "dimension": "overworld",
-    "metadata": {
-      "type": "cow",
-      "spottedBy": "MIKA_Explorer"
-    },
-    "created_at": "2026-10-11T17:44:49.267Z",
-    "updated_at": "2026-10-12T12:27:42.847Z"
-  },
-  {
-    "id": "a030742d-cb0c-4f38-a509-43885eeadf5e",
+    "id": "949e4961-129d-4592-8f8e-7bdb935bbf8a",
     "type": "chest",
     "name": "Chest Location",
     "position": {
@@ -423,7 +251,24 @@
       "category": "food",
       "registeredBy": "MIKA_Builder"
     },
-    "created_at": "2026-10-12T09:45:42.463Z",
-    "updated_at": "2026-10-12T12:27:42.834Z"
+    "created_at": "2026-10-12T13:12:28.246Z",
+    "updated_at": "2026-10-12T13:18:04.353Z"
+  },
+  {
+    "id": "f27775d7-aa3b-4910-abf5-6291c8039476",
+    "type": "animal_herd",
+    "name": "Animal_herd Location",
+    "position": {
+      "x": 55,
+      "y": 64,
+      "z": 55
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "type": "cow",
+      "spottedBy": "MIKA_Explorer"
+    },
+    "created_at": "2026-10-12T13:12:28.258Z",
+    "updated_at": "2026-10-12T13:18:04.365Z"
   }
 ]

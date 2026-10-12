@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-12T13:22:25.942Z",
+  "vision_version": "V1.3",
+  "dataset_size": 2,
+  "detection_accuracy": {
+    "total_detections": 0,
+    "true_positives": 3,
+    "false_positives": 1,
+    "missed_targets": 1,
+    "precision": 0.75,
+    "recall": 0.75,
+    "false_positive_rate": 0.25
+  },
+  "task_performance": {
+    "tasks_attempted": 2,
+    "tasks_succeeded": 2,
+    "task_success_rate": 1,
+    "total_wood_harvested": 3,
+    "avg_task_duration_ms": 480
+  },
+  "resource_metrics": {
+    "avg_inference_latency_ms": 20.3,
+    "avg_gpu_vram_mb": 3.2
+  }
+}

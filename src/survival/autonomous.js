@@ -23,8 +23,9 @@ export class AutonomousSurvivalController {
    * Starts the continuous autonomous survival loop.
    * @param {import('mineflayer').Bot} bot
    * @param {number} [maxSteps=30]
+   * @param {boolean} [continuous=false]
    */
-  async start(bot, maxSteps = 30) {
+  async start(bot, maxSteps = 30, continuous = undefined) {
     if (this.isRunning) {
       if (typeof bot.chat === 'function') bot.chat('Autonomous survival loop is already running.');
       return;
@@ -32,21 +33,33 @@ export class AutonomousSurvivalController {
 
     this.isRunning = true;
     this.currentStep = 0;
-    this.maxSteps = maxSteps;
-
-    if (typeof bot.chat === 'function') {
-      bot.chat(`[Auto-Survival] Loop activated (Budget: ${maxSteps} steps). Type "!stop" or "!auto off" to pause.`);
+    this.maxSteps = maxSteps || this.maxSteps || 30;
+    if (continuous !== undefined) {
+      this.continuous = continuous;
     }
 
-    console.log(`[Auto-Survival] Starting autonomous loop (maxSteps: ${maxSteps})`);
+    if (typeof bot.chat === 'function') {
+      const modeDesc = continuous ? 'Continuous Data Gathering' : `Budget: ${maxSteps} steps`;
+      bot.chat(`[Auto-Survival] Loop activated (${modeDesc}). Type "!stop" or "!auto off" to pause.`);
+    }
 
-    while (this.isRunning && bot.isReady && this.currentStep < this.maxSteps) {
+    console.log(`[Auto-Survival] Starting autonomous loop (maxSteps: ${maxSteps}, continuous: ${continuous})`);
+
+    while (this.isRunning && bot.isReady) {
+      if (!this.continuous && this.currentStep >= this.maxSteps) {
+        break;
+      }
       this.currentStep++;
-      console.log(`\n--- [Auto-Survival Cycle #${this.currentStep}/${this.maxSteps}] ---`);
+      console.log(`\n--- [Auto-Survival Cycle #${this.currentStep}${this.continuous ? '' : `/${this.maxSteps}`}] ---`);
 
       try {
         const stepResult = await this.runSingleStep(bot);
         if (!stepResult.continued) {
+          if ((stepResult.reason === 'Bot entity not ready' || !bot.entity) && this.isRunning) {
+            console.log('[Auto-Survival] Bot entity not ready (respawning or reloading). Waiting 3s...');
+            await new Promise(r => setTimeout(r, 3000));
+            continue;
+          }
           console.log(`[Auto-Survival] Cycle concluded: ${stepResult.reason}`);
           break;
         }
@@ -61,7 +74,7 @@ export class AutonomousSurvivalController {
     const wasRunning = this.isRunning;
     this.isRunning = false;
 
-    if (wasRunning && this.currentStep >= this.maxSteps) {
+    if (wasRunning && !this.continuous && this.currentStep >= this.maxSteps) {
       if (typeof bot.chat === 'function') {
         bot.chat(`[Auto-Survival] Completed step budget (${this.maxSteps} cycles). Bot resting in safe state.`);
       }

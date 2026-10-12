@@ -1,15 +1,16 @@
 # MIKA — Autonomous Minecraft Learning Agent & Multi-Bot Swarm
 
-[![Tests](https://img.shields.io/badge/tests-221%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-228%20passing-brightgreen.svg)](tests/)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-blue.svg)](package.json)
 [![Python](https://img.shields.io/badge/python-3.10%2B%20%7C%20PyTorch-yellow.svg)](src/train/)
+[![Vision](https://img.shields.io/badge/vision-V1.3%20PyTorch%20%2B%20CUDA-blueviolet.svg)](src/vision/)
 [![Model](https://img.shields.io/badge/active%20model-LoRA%20v1.2.0%20(Loss%201.52)-purple.svg)](data/models/)
 [![Minecraft](https://img.shields.io/badge/minecraft-1.20.x%20--%201.21.x%20Java-orange.svg)](https://www.minecraft.net/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **MIKA** is an **Artificial Life (ALife) progressive learning agent and collaborative multi-bot swarm** for **Minecraft Java Edition**. 
 
-Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundational rules, sensory observation, empirical outcome verification, and adaptive learning**. It features a dual-brain architecture combining deterministic sub-second motor reflexes with fine-tuned neural models (PyTorch + LoRA) and local LLM deliberation (Qwen 3.5 via Ollama), supported by a decentralized multi-agent blackboard for team survival.
+Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundational rules, sensory observation, empirical outcome verification, computer vision, and adaptive learning**. It features a multi-system architecture combining deterministic sub-second motor reflexes, pretrained computer vision (PyTorch + CUDA), fine-tuned neural models (LoRA), local LLM deliberation (Qwen 3.5), and a decentralized multi-agent blackboard for team survival.
 
 ---
 
@@ -22,6 +23,7 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
   - [2. Multi-Agent Collaborative Swarm](#2-multi-agent-collaborative-swarm)
   - [3. End-to-End Autonomous Python Learning Pipeline](#3-end-to-end-autonomous-python-learning-pipeline)
   - [4. Fast Headless Simulation Engine](#4-fast-headless-simulation-engine)
+  - [5. MIKA V1.3: Computer Vision & Visual Targeting](#5-mika-v13-computer-vision--visual-targeting)
 - [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -113,6 +115,28 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
 
 ### 4. Fast Headless Simulation Engine
 - **Headless `SimWorld` (`src/sim/world.js`)**: Executes thousands of ticks per second without launching Minecraft, enabling rapid evolutionary policy validation and baseline benchmarking.
+
+### 5. MIKA V1.3: Computer Vision & Visual Targeting
+- **Perspective Camera Engine (`src/vision/camera.js`)**: Projects first-person frustum rays into loaded chunk voxels and entities to capture authentic screenshots at configurable frequencies (default: 1 Hz).
+- **Pretrained PyTorch Object Detector (`src/vision/detector.py`)**: Hardware-accelerated CNN feature extractor with GPU/CUDA execution (~15–25ms steady state).
+  - **Supported Object Classes**:
+    - `tree_trunk`: Oak, Birch, Spruce, Dark Oak, Acacia, Jungle wood logs.
+    - `tree_foliage`: Leaves canopy & vegetation.
+    - `ore`: Coal, Iron, Copper, Gold, Diamond embedded ores.
+    - `animal`: Cows, Pigs, Sheep, Chickens.
+    - `hostile_mob`: Zombies, Skeletons, Creepers, Spiders.
+    - `water`: Water bodies, ponds, and rivers.
+    - `structure`: Crafting tables, chests, furnaces, shelters, doors.
+- **Cross-Modal 2D-to-3D Vision Fusion (`src/vision/fusion.js`)**: Unprojects 2D screen bounding boxes into 3D world rays and cross-references with Mineflayer's voxel ground truth. Tracks True Positives, False Positives, and Missed Targets.
+- **Goal-Conditioned Target Selection (`src/vision/target-selector.js`)**: Scores candidate targets based on active goal alignment (e.g. `GATHER_WOOD_LOGS`), distance proximity ($1 / (1 + \text{dist})$), and danger safety penalties (avoids targets within 6.5m of hostile mobs).
+- **Safe Visual Targeting Controller (`src/vision/targeting.js`)**:
+  1. Rotates gaze to align with target center.
+  2. Verifies angular alignment error ($< 15^\circ$).
+  3. Verifies physical reach range ($\le 4.5$m), pathfinding closer if needed.
+  4. Executes physical block mining / interaction.
+  5. Empirically verifies environmental state change and inventory delta ($\Delta\text{wood} \ge +1$).
+- **Separate Accuracy & Task Metrics (`src/vision/logger.js`)**: Evaluates detection accuracy (Precision, Recall, False Positives, Missed Targets, VRAM, Latency) independently of task completion rates in `data/reports/vision_report.json`.
+- **Asynchronous Pipeline & Safe Fallback (`src/vision/index.js`)**: Vision inference runs asynchronously with configurable timeouts; automatically falls back to Mineflayer structured search if vision is unavailable or slow.
 
 ---
 
@@ -225,6 +249,7 @@ Type these commands directly into Minecraft chat while playing alongside MIKA:
 | :--- | :--- | :--- |
 | `!status` | Telemetry | Displays current coordinates, health, hunger, inventory, and active goal. |
 | `!observe` | Sensory | Triggers an immediate proximity and threat scan. |
+| `!vision` / `!vis` | Computer Vision | Captures perspective screenshot, detects tree trunk via PyTorch vision, and targets wood harvest. |
 | `!auto [on/off]` | Control | Toggles the autonomous survival and planning loop. |
 | `!shelter` | Survival | Instructs MIKA to construct or retreat to an emergency shelter. |
 | `!eat` | Survival | Consumes food from inventory to restore hunger and health. |

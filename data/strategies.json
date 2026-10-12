@@ -1,358 +1,191 @@
 [
   {
-    "id": "433e6a9e-d8d9-4678-b28a-1532289133da",
-    "goal_id": "GATHER_SHELTER_BLOCKS",
-    "action": "collect_resource",
-    "args": {
-      "resource": "dirt"
-    },
-    "optimal_tool": "stone_axe",
-    "total_completions": 2,
-    "best_duration_ms": 9763,
-    "average_duration_ms": 10148,
-    "last_duration_ms": 10533,
-    "confidence": 0.9,
-    "preconditions_summary": {
-      "held_tool": "stone_axe",
-      "key_items": [
-        "dark_oak_log:44",
-        "chest:1",
-        "stone_sword:1",
-        "wooden_pickaxe:1",
-        "leaf_litter:28"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:36:58.243Z",
-    "last_used_at": "2026-10-12T12:49:58.901Z"
-  },
-  {
-    "id": "52a7db27-4df2-4d25-881c-f314bc94e28e",
-    "goal_id": "RETURN_TO_SHELTER_BASE",
-    "action": "navigate_to",
-    "args": {
-      "x": -371,
-      "y": 68,
-      "z": -354
-    },
-    "optimal_tool": "dirt",
-    "total_completions": 44,
-    "best_duration_ms": 1,
-    "average_duration_ms": 104,
-    "last_duration_ms": 23,
-    "confidence": 1,
-    "preconditions_summary": {
-      "held_tool": "dirt",
-      "key_items": [
-        "dark_oak_log:44",
-        "chest:1",
-        "stone_sword:1",
-        "wooden_pickaxe:1",
-        "leaf_litter:29"
-      ]
-    },
-    "improvement_history": [
-      {
-        "timestamp": "2026-10-12T12:37:30.966Z",
-        "previous_action": "navigate_to",
-        "previous_args": {
-          "x": -371,
-          "y": 68,
-          "z": -354
-        },
-        "previous_duration_ms": 2,
-        "previous_tool": "dirt",
-        "improved_action": "navigate_to",
-        "improved_args": {
-          "x": -371,
-          "y": 68,
-          "z": -354
-        },
-        "improved_duration_ms": 1,
-        "improved_tool": "dirt",
-        "improvement_reason": "Faster execution (1ms vs 2ms)"
-      }
-    ],
-    "created_at": "2026-10-12T12:37:06.224Z",
-    "last_used_at": "2026-10-12T12:51:13.116Z"
-  },
-  {
-    "id": "3f5fa213-1542-4779-8b0b-e12e20697130",
-    "goal_id": "GATHER_WOOD_LOGS",
-    "action": "collect_resource",
-    "args": {
-      "resource": "wood",
-      "count": 3,
-      "preferred_tool": "stone_axe"
-    },
-    "optimal_tool": "stone_axe",
-    "total_completions": 10,
-    "best_duration_ms": 4407,
-    "average_duration_ms": 16048,
-    "last_duration_ms": 13009,
-    "confidence": 1,
-    "preconditions_summary": {
-      "held_tool": "dirt",
-      "key_items": [
-        "dark_oak_log:44",
-        "chest:1",
-        "stone_sword:1",
-        "wooden_pickaxe:1",
-        "leaf_litter:29"
-      ]
-    },
-    "improvement_history": [
-      {
-        "timestamp": "2026-10-12T12:41:56.976Z",
-        "previous_action": "collect_resource",
-        "previous_args": {
-          "resource": "wood",
-          "count": 3
-        },
-        "previous_duration_ms": 20478,
-        "previous_tool": "dirt",
-        "improved_action": "collect_resource",
-        "improved_args": {
-          "resource": "wood",
-          "count": 3
-        },
-        "improved_duration_ms": 15671,
-        "improved_tool": "dirt",
-        "improvement_reason": "Faster execution (15671ms vs 20478ms)"
-      },
-      {
-        "timestamp": "2026-10-12T12:44:06.310Z",
-        "previous_action": "collect_resource",
-        "previous_args": {
-          "resource": "wood",
-          "count": 3
-        },
-        "previous_duration_ms": 15671,
-        "previous_tool": "dirt",
-        "improved_action": "collect_resource",
-        "improved_args": {
-          "resource": "wood",
-          "count": 3,
-          "preferred_tool": "stone_axe"
-        },
-        "improved_duration_ms": 9047,
-        "improved_tool": null,
-        "improvement_reason": "Cognitive improvement: equipped stone_axe (superior to past tool 'dirt') for faster wood harvesting."
-      },
-      {
-        "timestamp": "2026-10-12T12:44:43.154Z",
-        "previous_action": "collect_resource",
-        "previous_args": {
-          "resource": "wood",
-          "count": 3,
-          "preferred_tool": "stone_axe"
-        },
-        "previous_duration_ms": 9047,
-        "previous_tool": "dirt",
-        "improved_action": "collect_resource",
-        "improved_args": {
-          "resource": "wood",
-          "count": 3,
-          "preferred_tool": "stone_axe"
-        },
-        "improved_duration_ms": 4407,
-        "improved_tool": "stone_axe",
-        "improvement_reason": "Cognitive improvement: equipped stone_axe (superior to past tool 'dirt') for faster wood harvesting."
-      }
-    ],
-    "created_at": "2026-10-12T12:40:53.719Z",
-    "last_used_at": "2026-10-12T12:50:23.032Z"
-  },
-  {
-    "id": "c23115a5-6c6b-4460-b122-058ad16744b8",
-    "goal_id": "RECOVER_LOST_ITEMS",
-    "action": "navigate_to",
-    "args": {
-      "x": -370.5,
-      "y": 69,
-      "z": -353.3
-    },
-    "optimal_tool": null,
-    "total_completions": 3,
-    "best_duration_ms": 8220,
-    "average_duration_ms": 13910,
-    "last_duration_ms": 15577,
-    "confidence": 1,
-    "preconditions_summary": {
-      "held_tool": null,
-      "key_items": []
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:41:07.463Z",
-    "last_used_at": "2026-10-12T12:48:57.478Z"
-  },
-  {
-    "id": "634feefb-c9dd-4ce6-9540-b88c18df12f8",
+    "id": "76e4644a-5413-426e-8b39-0b0ce2a5c068",
     "goal_id": "CRAFT_PLANKS",
     "action": "craft_item",
     "args": {
       "item": "planks",
       "count": 2
     },
-    "optimal_tool": "stone_axe",
-    "total_completions": 4,
-    "best_duration_ms": 142,
-    "average_duration_ms": 547,
-    "last_duration_ms": 635,
+    "optimal_tool": "dirt",
+    "total_completions": 3,
+    "best_duration_ms": 134,
+    "average_duration_ms": 419,
+    "last_duration_ms": 134,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "dirt",
       "key_items": [
-        "dirt:1",
-        "dark_oak_log:1"
+        "leaf_litter:7",
+        "dirt:6",
+        "dark_oak_log:3"
       ]
     },
-    "improvement_history": [
-      {
-        "timestamp": "2026-10-12T12:42:51.979Z",
-        "previous_action": "craft_item",
-        "previous_args": {
-          "item": "planks",
-          "count": 2
-        },
-        "previous_duration_ms": 142,
-        "previous_tool": "dirt",
-        "improved_action": "craft_item",
-        "improved_args": {
-          "item": "planks",
-          "count": 2
-        },
-        "improved_duration_ms": 186,
-        "improved_tool": "wooden_pickaxe",
-        "improvement_reason": "Upgraded tool from 'dirt' to 'wooden_pickaxe'"
-      },
-      {
-        "timestamp": "2026-10-12T12:44:17.379Z",
-        "previous_action": "craft_item",
-        "previous_args": {
-          "item": "planks",
-          "count": 2
-        },
-        "previous_duration_ms": 142,
-        "previous_tool": "wooden_pickaxe",
-        "improved_action": "craft_item",
-        "improved_args": {
-          "item": "planks",
-          "count": 2
-        },
-        "improved_duration_ms": 635,
-        "improved_tool": "stone_axe",
-        "improvement_reason": "Upgraded tool from 'wooden_pickaxe' to 'stone_axe'"
-      }
-    ],
-    "created_at": "2026-10-12T12:41:35.494Z",
-    "last_used_at": "2026-10-12T12:44:17.379Z"
+    "improvement_history": [],
+    "created_at": "2026-10-12T13:20:09.746Z",
+    "last_used_at": "2026-10-12T13:23:33.885Z"
   },
   {
-    "id": "2fe96b04-870a-465e-b12d-c8f3efae6e8e",
+    "id": "4a1a7cac-24a7-4cf9-a486-622a6627b3b9",
     "goal_id": "CRAFT_CRAFTING_TABLE",
     "action": "craft_item",
     "args": {
       "item": "crafting_table"
     },
-    "optimal_tool": "stone_pickaxe",
+    "optimal_tool": "dirt",
     "total_completions": 3,
-    "best_duration_ms": 257,
-    "average_duration_ms": 261,
-    "last_duration_ms": 276,
+    "best_duration_ms": 230,
+    "average_duration_ms": 236,
+    "last_duration_ms": 243,
     "confidence": 1,
     "preconditions_summary": {
       "held_tool": "dirt",
       "key_items": [
         "dark_oak_planks:4",
-        "dirt:1"
+        "dark_oak_planks:4",
+        "leaf_litter:7",
+        "dirt:6"
       ]
     },
-    "improvement_history": [
-      {
-        "timestamp": "2026-10-12T12:42:54.781Z",
-        "previous_action": "craft_item",
-        "previous_args": {
-          "item": "crafting_table"
-        },
-        "previous_duration_ms": 261,
-        "previous_tool": "dirt",
-        "improved_action": "craft_item",
-        "improved_args": {
-          "item": "crafting_table"
-        },
-        "improved_duration_ms": 257,
-        "improved_tool": "wooden_pickaxe",
-        "improvement_reason": "Upgraded tool from 'dirt' to 'wooden_pickaxe'"
-      },
-      {
-        "timestamp": "2026-10-12T12:43:45.236Z",
-        "previous_action": "craft_item",
-        "previous_args": {
-          "item": "crafting_table"
-        },
-        "previous_duration_ms": 257,
-        "previous_tool": "wooden_pickaxe",
-        "improved_action": "craft_item",
-        "improved_args": {
-          "item": "crafting_table"
-        },
-        "improved_duration_ms": 276,
-        "improved_tool": "stone_pickaxe",
-        "improvement_reason": "Upgraded tool from 'wooden_pickaxe' to 'stone_pickaxe'"
-      }
-    ],
-    "created_at": "2026-10-12T12:41:38.602Z",
-    "last_used_at": "2026-10-12T12:43:45.235Z"
+    "improvement_history": [],
+    "created_at": "2026-10-12T13:20:12.529Z",
+    "last_used_at": "2026-10-12T13:23:27.236Z"
   },
   {
-    "id": "2355ac4c-88a5-4817-a289-43691db01607",
+    "id": "fd7a628a-780c-4249-8809-bf7c7f5af36f",
     "goal_id": "CRAFT_STICKS",
     "action": "craft_item",
     "args": {
       "item": "stick",
       "count": 1
     },
-    "optimal_tool": "wooden_pickaxe",
+    "optimal_tool": "dirt",
     "total_completions": 2,
-    "best_duration_ms": 171,
-    "average_duration_ms": 231,
-    "last_duration_ms": 171,
+    "best_duration_ms": 1244,
+    "average_duration_ms": 1314,
+    "last_duration_ms": 1384,
     "confidence": 0.9,
+    "preconditions_summary": {
+      "held_tool": "dirt",
+      "key_items": [
+        "dark_oak_log:1",
+        "dark_oak_planks:4",
+        "crafting_table:1",
+        "leaf_litter:7",
+        "dirt:6"
+      ]
+    },
+    "improvement_history": [],
+    "created_at": "2026-10-12T13:20:16.339Z",
+    "last_used_at": "2026-10-12T13:23:31.183Z"
+  },
+  {
+    "id": "e2726629-aaad-4302-ae3e-d0fdb31d1354",
+    "goal_id": "SURVIVE_IMMEDIATE_THREAT",
+    "action": "retreat_and_heal",
+    "args": {},
+    "optimal_tool": "dark_oak_planks",
+    "total_completions": 8,
+    "best_duration_ms": 4777,
+    "average_duration_ms": 5531,
+    "last_duration_ms": 5136,
+    "confidence": 1,
     "preconditions_summary": {
       "held_tool": null,
       "key_items": [
-        "dark_oak_log:2",
-        "dark_oak_planks:8",
-        "dirt:4",
-        "leaf_litter:4"
+        "dark_oak_log:1",
+        "dark_oak_planks:2",
+        "stick:4",
+        "leaf_litter:7",
+        "dirt:6"
       ]
     },
     "improvement_history": [
       {
-        "timestamp": "2026-10-12T12:42:49.235Z",
-        "previous_action": "craft_item",
-        "previous_args": {
-          "item": "stick",
-          "count": 1
-        },
-        "previous_duration_ms": 231,
+        "timestamp": "2026-10-12T13:21:23.157Z",
+        "previous_action": "retreat_and_heal",
+        "previous_args": {},
+        "previous_duration_ms": 4777,
         "previous_tool": null,
-        "improved_action": "craft_item",
-        "improved_args": {
-          "item": "stick",
-          "count": 1
-        },
-        "improved_duration_ms": 171,
-        "improved_tool": "wooden_pickaxe",
-        "improvement_reason": "Upgraded tool from 'unarmed' to 'wooden_pickaxe'"
+        "improved_action": "retreat_and_heal",
+        "improved_args": {},
+        "improved_duration_ms": 6175,
+        "improved_tool": "dark_oak_planks",
+        "improvement_reason": "Upgraded tool from 'unarmed' to 'dark_oak_planks'"
       }
     ],
-    "created_at": "2026-10-12T12:42:16.536Z",
-    "last_used_at": "2026-10-12T12:42:49.235Z"
+    "created_at": "2026-10-12T13:20:32.806Z",
+    "last_used_at": "2026-10-12T13:23:24.432Z"
   },
   {
-    "id": "15b19e0b-6c8e-4c04-8610-99bb2c368ca2",
+    "id": "61e2ec6e-3589-432d-ab9b-316a1af9e3be",
+    "goal_id": "RECOVER_LOST_ITEMS",
+    "action": "navigate_to",
+    "args": {
+      "x": -411.8,
+      "y": 85,
+      "z": -342.5
+    },
+    "optimal_tool": null,
+    "total_completions": 3,
+    "best_duration_ms": 7089,
+    "average_duration_ms": 10735,
+    "last_duration_ms": 12540,
+    "confidence": 1,
+    "preconditions_summary": {
+      "held_tool": null,
+      "key_items": []
+    },
+    "improvement_history": [],
+    "created_at": "2026-10-12T13:21:32.815Z",
+    "last_used_at": "2026-10-12T13:22:59.750Z"
+  },
+  {
+    "id": "fc0898d6-5c02-4334-ba4d-9769fa82cc2c",
+    "goal_id": "GATHER_WOOD_LOGS",
+    "action": "collect_resource",
+    "args": {
+      "resource": "wood",
+      "count": 3
+    },
+    "optimal_tool": "dark_oak_log",
+    "total_completions": 4,
+    "best_duration_ms": 10774,
+    "average_duration_ms": 10974,
+    "last_duration_ms": 10809,
+    "confidence": 1,
+    "preconditions_summary": {
+      "held_tool": null,
+      "key_items": [
+        "crafting_table:1",
+        "leaf_litter:16"
+      ]
+    },
+    "improvement_history": [
+      {
+        "timestamp": "2026-10-12T13:24:19.443Z",
+        "previous_action": "collect_resource",
+        "previous_args": {
+          "resource": "wood",
+          "count": 3
+        },
+        "previous_duration_ms": 10774,
+        "previous_tool": null,
+        "improved_action": "collect_resource",
+        "improved_args": {
+          "resource": "wood",
+          "count": 3
+        },
+        "improved_duration_ms": 10917,
+        "improved_tool": "dark_oak_log",
+        "improvement_reason": "Upgraded tool from 'unarmed' to 'dark_oak_log'"
+      }
+    ],
+    "created_at": "2026-10-12T13:22:36.993Z",
+    "last_used_at": "2026-10-12T13:24:40.438Z"
+  },
+  {
+    "id": "e6513cf6-2bcd-409e-8878-e08259010bbb",
     "goal_id": "CRAFT_WOODEN_PICKAXE",
     "action": "craft_item",
     "args": {
@@ -360,273 +193,22 @@
     },
     "optimal_tool": null,
     "total_completions": 1,
-    "best_duration_ms": 339,
-    "average_duration_ms": 339,
-    "last_duration_ms": 339,
+    "best_duration_ms": 393,
+    "average_duration_ms": 393,
+    "last_duration_ms": 393,
     "confidence": 0.8,
     "preconditions_summary": {
       "held_tool": null,
       "key_items": [
-        "dark_oak_log:2",
         "dark_oak_planks:6",
         "stick:4",
-        "dirt:4",
-        "leaf_litter:4"
+        "arrow:1",
+        "leaf_litter:23",
+        "bone:2"
       ]
     },
     "improvement_history": [],
-    "created_at": "2026-10-12T12:42:19.442Z",
-    "last_used_at": "2026-10-12T12:42:19.442Z"
-  },
-  {
-    "id": "0ef56e5e-9fcf-438a-b2db-5e5186f95dc7",
-    "goal_id": "MINE_STONE",
-    "action": "collect_resource",
-    "args": {
-      "resource": "stone",
-      "count": 3,
-      "preferred_tool": "stone_pickaxe"
-    },
-    "optimal_tool": "stone_pickaxe",
-    "total_completions": 5,
-    "best_duration_ms": 6508,
-    "average_duration_ms": 7974,
-    "last_duration_ms": 6943,
-    "confidence": 1,
-    "preconditions_summary": {
-      "held_tool": "dark_oak_planks",
-      "key_items": [
-        "wooden_pickaxe:1",
-        "dark_oak_log:2",
-        "dirt:7",
-        "leaf_litter:4",
-        "stick:2"
-      ]
-    },
-    "improvement_history": [
-      {
-        "timestamp": "2026-10-12T12:43:10.842Z",
-        "previous_action": "collect_resource",
-        "previous_args": {
-          "resource": "stone",
-          "count": 3
-        },
-        "previous_duration_ms": 8666,
-        "previous_tool": "dark_oak_planks",
-        "improved_action": "collect_resource",
-        "improved_args": {
-          "resource": "stone",
-          "count": 3,
-          "preferred_tool": "stone_pickaxe"
-        },
-        "improved_duration_ms": 6508,
-        "improved_tool": null,
-        "improvement_reason": "Cognitive improvement: upgraded to stone_pickaxe (superior to previous 'dark_oak_planks') for cobblestone collection."
-      },
-      {
-        "timestamp": "2026-10-12T12:43:23.373Z",
-        "previous_action": "collect_resource",
-        "previous_args": {
-          "resource": "stone",
-          "count": 3,
-          "preferred_tool": "stone_pickaxe"
-        },
-        "previous_duration_ms": 6508,
-        "previous_tool": "dark_oak_planks",
-        "improved_action": "collect_resource",
-        "improved_args": {
-          "resource": "stone",
-          "count": 3,
-          "preferred_tool": "stone_pickaxe"
-        },
-        "improved_duration_ms": 7012,
-        "improved_tool": "stone_pickaxe",
-        "improvement_reason": "Cognitive improvement: upgraded to stone_pickaxe (superior to previous 'dark_oak_planks') for cobblestone collection."
-      }
-    ],
-    "created_at": "2026-10-12T12:42:46.499Z",
-    "last_used_at": "2026-10-12T12:43:42.387Z"
-  },
-  {
-    "id": "1c45b52e-1904-4439-bd72-a80b20598e36",
-    "goal_id": "CRAFT_STONE_TOOLS",
-    "action": "craft_item",
-    "args": {
-      "item": "stone_pickaxe"
-    },
-    "optimal_tool": "wooden_pickaxe",
-    "total_completions": 1,
-    "best_duration_ms": 1598,
-    "average_duration_ms": 1598,
-    "last_duration_ms": 1598,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": "wooden_pickaxe",
-      "key_items": [
-        "dark_oak_planks:5",
-        "crafting_table:1",
-        "wooden_pickaxe:1",
-        "dirt:7",
-        "leaf_litter:7"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:42:58.934Z",
-    "last_used_at": "2026-10-12T12:42:58.934Z"
-  },
-  {
-    "id": "7195f554-b5b2-4599-8d67-40f1103c2a8c",
-    "goal_id": "CRAFT_STONE_SWORD",
-    "action": "craft_item",
-    "args": {
-      "item": "stone_sword"
-    },
-    "optimal_tool": null,
-    "total_completions": 1,
-    "best_duration_ms": 294,
-    "average_duration_ms": 294,
-    "last_duration_ms": 294,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": null,
-      "key_items": [
-        "dark_oak_planks:5",
-        "stick:4",
-        "stone_pickaxe:1",
-        "wooden_pickaxe:1",
-        "dirt:7"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:43:01.781Z",
-    "last_used_at": "2026-10-12T12:43:01.781Z"
-  },
-  {
-    "id": "45c90d32-0a23-40e0-b290-b14463369eff",
-    "goal_id": "CRAFT_STONE_AXE",
-    "action": "craft_item",
-    "args": {
-      "item": "stone_axe"
-    },
-    "optimal_tool": "stone_pickaxe",
-    "total_completions": 1,
-    "best_duration_ms": 384,
-    "average_duration_ms": 384,
-    "last_duration_ms": 384,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": "stone_pickaxe",
-      "key_items": [
-        "dark_oak_planks:5",
-        "stick:3",
-        "stone_sword:1",
-        "wooden_pickaxe:1",
-        "stone_pickaxe:1"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:43:13.790Z",
-    "last_used_at": "2026-10-12T12:43:13.790Z"
-  },
-  {
-    "id": "38f56c7a-d6bc-4abe-b800-98c3ba908ec3",
-    "goal_id": "CRAFT_FURNACE",
-    "action": "craft_item",
-    "args": {
-      "item": "furnace"
-    },
-    "optimal_tool": "stone_pickaxe",
-    "total_completions": 1,
-    "best_duration_ms": 1700,
-    "average_duration_ms": 1700,
-    "last_duration_ms": 1700,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": "stone_pickaxe",
-      "key_items": [
-        "dark_oak_planks:1",
-        "stick:1",
-        "stone_axe:1",
-        "stone_sword:1",
-        "crafting_table:1"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:43:49.486Z",
-    "last_used_at": "2026-10-12T12:43:49.486Z"
-  },
-  {
-    "id": "f784e1e6-56d4-4751-985b-4ccd7cd25823",
-    "goal_id": "CRAFT_CHEST",
-    "action": "craft_item",
-    "args": {
-      "item": "chest"
-    },
-    "optimal_tool": "stone_axe",
-    "total_completions": 1,
-    "best_duration_ms": 550,
-    "average_duration_ms": 550,
-    "last_duration_ms": 550,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": "stone_axe",
-      "key_items": [
-        "dark_oak_planks:9",
-        "stick:1",
-        "dark_oak_log:1",
-        "stone_sword:1",
-        "cobblestone:1"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:44:28.333Z",
-    "last_used_at": "2026-10-12T12:44:28.333Z"
-  },
-  {
-    "id": "25c04940-738a-4d71-9231-9fba7aa170d1",
-    "goal_id": "SURVIVE_IMMEDIATE_THREAT",
-    "action": "retreat_and_heal",
-    "args": {},
-    "optimal_tool": "stone_sword",
-    "total_completions": 3,
-    "best_duration_ms": 6429,
-    "average_duration_ms": 6741,
-    "last_duration_ms": 6962,
-    "confidence": 1,
-    "preconditions_summary": {
-      "held_tool": "stone_sword",
-      "key_items": [
-        "dark_oak_planks:1",
-        "stick:1",
-        "dark_oak_log:11",
-        "furnace:1",
-        "chest:1"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:47:08.744Z",
-    "last_used_at": "2026-10-12T12:47:58.804Z"
-  },
-  {
-    "id": "932d9837-711a-492d-a021-135c52f2a0d7",
-    "goal_id": "BUILD_EMERGENCY_SHELTER",
-    "action": "build_shelter",
-    "args": {},
-    "optimal_tool": "dirt",
-    "total_completions": 1,
-    "best_duration_ms": 6035,
-    "average_duration_ms": 6035,
-    "last_duration_ms": 6035,
-    "confidence": 0.8,
-    "preconditions_summary": {
-      "held_tool": "dirt",
-      "key_items": [
-        "leaf_litter:7",
-        "dirt:10"
-      ]
-    },
-    "improvement_history": [],
-    "created_at": "2026-10-12T12:50:07.479Z",
-    "last_used_at": "2026-10-12T12:50:07.479Z"
+    "created_at": "2026-10-12T13:23:36.836Z",
+    "last_used_at": "2026-10-12T13:23:36.836Z"
   }
 ]

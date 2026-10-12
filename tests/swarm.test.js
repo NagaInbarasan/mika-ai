@@ -232,7 +232,7 @@ test('SwarmRolePlanner: Gatherer fulfills resource request and drops items for t
 
 test('SwarmRolePlanner: Builder crafts shelter with blocks and registers it', () => {
   const planner = new SwarmRolePlanner();
-  const bb = new SwarmBlackboard();
+  const bb = new SwarmBlackboard({ autoHydrate: false });
   const bus = new SwarmMessageBus();
 
   const builderBot = { username: 'MIKA_Builder' };

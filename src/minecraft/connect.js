@@ -18,6 +18,7 @@ import { selectContextualGoal, getSurvivalStatusReport } from '../survival/prior
 import { evaluateGoalOutcome } from '../learning/evaluate.js';
 import { executeSafeCraft } from '../survival/crafting.js';
 import { defaultAutonomousController } from '../survival/autonomous.js';
+import { MikaVisionEngine } from '../vision/index.js';
 
 /**
  * Creates and initializes a Mineflayer bot connection.
@@ -99,6 +100,7 @@ export function createBotConnection(overrides = {}) {
   bot.progression = defaultProgression;
   bot.shelterManager = defaultShelterManager;
   bot.autonomousSurvival = defaultAutonomousController;
+  bot.vision = new MikaVisionEngine();
   bot.lastKnownPosition = null;
   bot.lastKnownInventory = [];
   bot.lastAttacker = null;
@@ -433,6 +435,17 @@ export function createBotConnection(overrides = {}) {
       } else {
         bot.chat(`Cannot see player ${username}! Make sure you are within render distance.`);
       }
+    } else if (trimmed === '!vision' || trimmed === '!visualtree' || trimmed === '!vis') {
+      bot.chat('[Vision V1.3] Scanning camera viewport for tree trunks...');
+      bot.vision.executeVisualTreeHarvest(bot).then(res => {
+        if (res.success) {
+          bot.chat(`[Vision V1.3: SUCCESS] Harvested trunk (Delta: +${res.outcome.delta || 1} wood). Latency: ${res.inferenceLatencyMs}ms`);
+        } else {
+          bot.chat(`[Vision V1.3: FAILED] ${res.outcome?.reason || res.reason || 'Could not harvest tree'}`);
+        }
+      }).catch(err => {
+        bot.chat(`[Vision Error] ${err.message}`);
+      });
     } else if (trimmed === '!wood' || trimmed === '!tree') {
       bot.chat('Locating nearest tree and navigating to harvest wood logs...');
       bot.actions.execute({

@@ -26,6 +26,11 @@ function parseArgs() {
       i++;
     } else if (args[i] === '--skip-llm' || args[i] === '--no-qwen') {
       overrides.skipLlm = true;
+    } else if (args[i] === '--steps' && args[i + 1]) {
+      overrides.steps = parseInt(args[i + 1], 10);
+      i++;
+    } else if (args[i] === '--continuous' || args[i] === '--keep-running') {
+      overrides.continuous = true;
     }
   }
   return overrides;
@@ -141,11 +146,13 @@ async function main() {
     });
 
     if (overrides.autoSurvive && bot.autonomousSurvival) {
-      console.log('[System] --auto flag provided. Automatically starting Autonomous Survival loop...');
+      const stepBudget = overrides.continuous ? 1000000 : (overrides.steps || 1000);
+      const isContinuous = !!overrides.continuous;
+      console.log(`[System] --auto flag provided. Automatically starting Autonomous Survival loop (${isContinuous ? 'Continuous mode' : `${stepBudget} steps`})...`);
       setTimeout(() => {
         if (bot.isReady && !bot.isAutonomous) {
           bot.isAutonomous = true;
-          bot.autonomousSurvival.start(bot, 150);
+          bot.autonomousSurvival.start(bot, stepBudget, isContinuous);
         }
       }, 1500);
     }
