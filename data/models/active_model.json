@@ -1,7 +1,7 @@
 {
-  "active_version": "v1.2.0",
-  "model_path": "data/models/versions\\v1.2.0\\model.pt",
+  "active_version": "v1.3.0",
+  "model_path": "data/models/versions\\v1.3.0\\model.pt",
   "status": "operational",
   "fallback_to_baseline": true,
-  "updated_at": "2026-10-12T12:15:58Z"
+  "updated_at": "2026-10-12T13:49:47Z"
 }

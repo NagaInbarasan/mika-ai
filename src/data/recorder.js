@@ -8,6 +8,7 @@ export class ExperienceRecorder {
     this.runId = options.runId || `run-${Date.now()}`;
     this.episodeId = options.episodeId || `episode-1`;
     this.step = 0;
+    this.modelVersion = options.modelVersion || config.ollama.model;
     this.experiencesPath = options.experiencesPath || config.storage.experiencesPath;
     this.feedbackPath = options.feedbackPath || config.storage.feedbackPath;
 
@@ -75,8 +76,8 @@ export class ExperienceRecorder {
         correction_verified: null
       }),
       model: {
-        provider: 'ollama',
-        model_id: config.ollama.model,
+        provider: this.modelVersion.startsWith('v') ? 'neural_lora' : 'ollama',
+        model_id: recordData.model_id || this.modelVersion,
         prompt_version: '1.0'
       }
     };

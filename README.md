@@ -1,9 +1,10 @@
 # MIKA — Autonomous Minecraft Learning Agent & Multi-Bot Swarm
 
-[![Tests](https://img.shields.io/badge/tests-228%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-239%20passing-brightgreen.svg)](tests/)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-blue.svg)](package.json)
 [![Python](https://img.shields.io/badge/python-3.10%2B%20%7C%20PyTorch-yellow.svg)](src/train/)
 [![Vision](https://img.shields.io/badge/vision-V1.3%20PyTorch%20%2B%20CUDA-blueviolet.svg)](src/vision/)
+[![Survival Base](https://img.shields.io/badge/survival-V1.3%20Shelter%20%26%20Storage-success.svg)](src/survival/)
 [![Model](https://img.shields.io/badge/active%20model-LoRA%20v1.2.0%20(Loss%201.52)-purple.svg)](data/models/)
 [![Minecraft](https://img.shields.io/badge/minecraft-1.20.x%20--%201.21.x%20Java-orange.svg)](https://www.minecraft.net/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -24,6 +25,7 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
   - [3. End-to-End Autonomous Python Learning Pipeline](#3-end-to-end-autonomous-python-learning-pipeline)
   - [4. Fast Headless Simulation Engine](#4-fast-headless-simulation-engine)
   - [5. MIKA V1.3: Computer Vision & Visual Targeting](#5-mika-v13-computer-vision--visual-targeting)
+  - [6. MIKA V1.3: Survival, Shelter, Food & Storage Master Objective](#6-mika-v13-survival-shelter-food--storage-master-objective)
 - [Quick Start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -138,6 +140,33 @@ Rather than relying on brittle, hardcoded scripts, MIKA is built on **foundation
 - **Separate Accuracy & Task Metrics (`src/vision/logger.js`)**: Evaluates detection accuracy (Precision, Recall, False Positives, Missed Targets, VRAM, Latency) independently of task completion rates in `data/reports/vision_report.json`.
 - **Asynchronous Pipeline & Safe Fallback (`src/vision/index.js`)**: Vision inference runs asynchronously with configurable timeouts; automatically falls back to Mineflayer structured search if vision is unavailable or slow.
 
+### 6. MIKA V1.3: Survival, Shelter, Food & Storage Master Objective
+- **Persistent Task Manager (`src/tasks/task-manager.js`)**:
+  - Implements an 8-state formal lifecycle state machine: `PLANNED`, `READY`, `IN_PROGRESS`, `BLOCKED`, `INTERRUPTED`, `VERIFYING`, `COMPLETED`, `FAILED`.
+  - Checkpoint tracking preserves progress when threats occur (e.g. wall block 14/28 placed).
+  - Interruption stack pauses tasks on Tier 1/2 threats and seamlessly resumes them from exact checkpoints once danger clears, preventing task abandonment.
+  - Anti-stagnation protection detects rapid oscillation/thrashing and enforces tactical backoff cooldowns.
+- **Permanent Base Shelter System (`src/survival/base-shelter.js`)**:
+  - **Phase A (Site Assessment)**: Inspects local terrain for flatness, proximity to renewable trees/stone, and absence of hazards (lava, cacti, cliffs). Records coordinates and selection score in persistent memory.
+  - **Phase B (Blueprint Planning)**: Generates expandable 5×5 / 7×7 rectangular shelter layouts with solid floor, walls, 1×2 door opening, roof, and interior utility slots for crafting table, furnace, chest, bed, and lighting.
+  - **Phase C (Phased Verified Construction)**: Sequentially builds Floor $\to$ Walls $\to$ Entrance $\to$ Roof $\to$ Lighting, verifying physical block presence in the Minecraft world after each step.
+- **Crafting Knowledge & Tool Progression (`src/crafting/knowledge.js`)**:
+  - Discovers and executes recipes via Mineflayer, resolving 2×2 player crafting vs 3×3 crafting table requirements.
+  - Automatically resolves multi-step missing ingredient trees (e.g. wood logs $\to$ planks $\to$ sticks $\to$ stone pickaxe).
+  - Upgrades tool tiers automatically (Stone > Wood) as soon as cobblestone is available.
+  - Verifies post-craft inventory deltas empirically ($\Delta\text{item} \ge +1$).
+- **Food Reserves & Furnace Cooking (`src/survival/food-manager.js`)**:
+  - Detects food edibility and cookability.
+  - Manages 3-tier food reserves: Carried reserve (min 6–8 items), Emergency reserve (4 items), and Base storage.
+  - Operates furnaces with available fuels (coal, charcoal, planks, logs, sticks) to cook raw meat into cooked food with inventory delta verification.
+- **Sheep Search & Bed Crafting (`src/survival/bed-manager.js`)**:
+  - Scans entities for sheep within 32m to harvest wool.
+  - If no sheep are nearby, gracefully transitions task to `BLOCKED` (`reason: 'no_sheep_nearby'`) so base construction continues unhindered without infinite search or freezing.
+- **Categorized Storage Organization (`src/storage/organization.js`)**:
+  - Organizes items into 7 logical categories: `BUILDING`, `FOOD`, `TOOLS`, `WEAPONS_ARMOR`, `RESOURCES`, `VALUABLES`, `MISC`.
+  - Enforces minimum personal survival inventory reserves (1 pickaxe, 1 sword, 1 axe, 8 torches, 16 blocks, 8 food) before depositing surplus into chests.
+  - Detects full chests and manages overflow.
+
 ---
 
 ## Quick Start
@@ -233,10 +262,21 @@ npm run rollback
 
 ### Running the Test Suite
 
-MIKA includes a comprehensive 221-test automated suite covering all foundations, combat, progression, swarm coordination, and learning memory:
+MIKA includes a comprehensive 239-test automated suite covering all foundations, combat, progression, computer vision, multi-bot swarm, and the V1.3 survival base/shelter/food/storage master objective:
 
 ```bash
+# Run complete test suite (239 tests, 21 suites)
 npm test
+
+# Run V1.3 Survival Base & Storage master suite (10 scenarios)
+npm run test:v13
+
+# Run live in-game verification on active Minecraft server (port 56677)
+npm run test:v13:live
+
+# Run Computer Vision object detection tests
+npm run test:vision
+npm run test:vision:live
 ```
 
 ---

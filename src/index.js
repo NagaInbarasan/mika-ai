@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import config from './config/index.js';
 import { checkQwenAvailable, testQwenConnection } from './planner/qwen.js';
 import { createBotConnection, disconnectBot, waitForSpawn } from './minecraft/connect.js';
@@ -31,6 +33,14 @@ function parseArgs() {
       i++;
     } else if (args[i] === '--continuous' || args[i] === '--keep-running') {
       overrides.continuous = true;
+    } else if (args[i] === '--goal' && args[i + 1]) {
+      overrides.goal = args[i + 1];
+      i++;
+    } else if (args[i].startsWith('--goal=')) {
+      overrides.goal = args[i].slice(7);
+    } else if (args[i] === '--model-version' && args[i + 1]) {
+      overrides.modelVersion = args[i + 1];
+      i++;
     }
   }
   return overrides;
@@ -68,11 +78,29 @@ async function main() {
     return;
   }
 
+  let activeModelVersion = overrides.modelVersion;
+  if (!activeModelVersion) {
+    try {
+      const activeModelPath = path.resolve(process.cwd(), 'data/models/active_model.json');
+      if (fs.existsSync(activeModelPath)) {
+        const raw = JSON.parse(fs.readFileSync(activeModelPath, 'utf8'));
+        activeModelVersion = raw.active_version || 'v1.3.0';
+      }
+    } catch (_) {
+      activeModelVersion = 'v1.3.0';
+    }
+  }
+  if (!activeModelVersion) activeModelVersion = 'v1.3.0';
+
   console.log('====================================================');
   console.log('  MIKA Minecraft ALife Autonomous Simulation Bot    ');
   console.log('====================================================');
   console.log(`Minecraft Target : ${effectiveHost}:${effectivePort} (${config.minecraft.version || 'auto-detect'})`);
   console.log(`Bot Username     : ${config.minecraft.username}`);
+  console.log(`Active Model     : ${activeModelVersion}`);
+  if (overrides.goal) {
+    console.log(`Target Goal      : ${overrides.goal}`);
+  }
   console.log(`LLM Planner      : ${overrides.skipLlm ? 'SKIPPED (Deterministic Reflex / Rules)' : `${config.ollama.model} @ ${config.ollama.host}`}`);
   console.log('====================================================\n');
 
@@ -105,7 +133,12 @@ async function main() {
   console.log('[Init] Step 2: Connecting to Minecraft world...');
   let bot;
   try {
-    bot = createBotConnection({ host: effectiveHost, port: effectivePort });
+    bot = createBotConnection({
+      host: effectiveHost,
+      port: effectivePort,
+      goal: overrides.goal,
+      modelVersion: activeModelVersion
+    });
   } catch (err) {
     console.error('[Init] Failed to initiate Mineflayer bot:', err.message);
     process.exit(1);

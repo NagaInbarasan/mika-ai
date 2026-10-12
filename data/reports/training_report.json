@@ -1,7 +1,7 @@
 {
   "status": "success",
-  "timestamp": "2026-10-12T12:14:00Z",
-  "total_duration_seconds": 36.86,
+  "timestamp": "2026-10-12T13:47:58Z",
+  "total_duration_seconds": 54.2,
   "device": "cuda",
   "peak_vram_mb": 494.81,
   "hyperparameters": {
@@ -22,34 +22,34 @@
     "trainable_percent": 20.131
   },
   "dataset_metrics": {
-    "train_samples": 894,
-    "eval_samples": 284
+    "train_samples": 1155,
+    "eval_samples": 356
   },
   "training_history": [
     {
       "epoch": 1,
-      "train_loss": 2.7341,
-      "eval_loss": 1.9828,
-      "duration_seconds": 8.07,
+      "train_loss": 2.5831,
+      "eval_loss": 1.9974,
+      "duration_seconds": 17.59,
       "peak_vram_mb": 494.81
     },
     {
       "epoch": 2,
-      "train_loss": 1.6119,
-      "eval_loss": 1.6491,
-      "duration_seconds": 8.36,
+      "train_loss": 1.5952,
+      "eval_loss": 1.8093,
+      "duration_seconds": 8.19,
       "peak_vram_mb": 494.81
     },
     {
       "epoch": 3,
-      "train_loss": 1.338,
-      "eval_loss": 1.5206,
-      "duration_seconds": 8.29,
+      "train_loss": 1.3478,
+      "eval_loss": 1.6434,
+      "duration_seconds": 8.57,
       "peak_vram_mb": 494.81
     }
   ],
   "best_checkpoint": {
     "path": "data\\models\\checkpoints\\best_model.pt",
-    "best_eval_loss": 1.5206
+    "best_eval_loss": 1.6434
   }
 }

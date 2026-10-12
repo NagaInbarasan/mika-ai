@@ -14,7 +14,7 @@
       "builtBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:27.975Z",
-    "updated_at": "2026-10-12T13:18:04.252Z"
+    "updated_at": "2026-10-12T15:06:15.552Z"
   },
   {
     "id": "58c52a24-6e89-4785-ab98-6eff2dcf0fea",
@@ -31,7 +31,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:27.979Z",
-    "updated_at": "2026-10-12T13:18:04.282Z"
+    "updated_at": "2026-10-12T15:06:15.588Z"
   },
   {
     "id": "afd941b6-925f-4978-85dd-789b12d09c09",
@@ -48,7 +48,7 @@
       "registeredBy": "MIKA_Farmer"
     },
     "created_at": "2026-10-12T13:12:28.000Z",
-    "updated_at": "2026-10-12T13:18:04.228Z"
+    "updated_at": "2026-10-12T15:06:15.525Z"
   },
   {
     "id": "33d6c228-f0eb-4388-9236-353a4dabc379",
@@ -81,7 +81,7 @@
       "placedBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.041Z",
-    "updated_at": "2026-10-12T13:18:04.171Z"
+    "updated_at": "2026-10-12T15:06:15.468Z"
   },
   {
     "id": "7ced602b-9bd0-49c4-bfaa-ca82fbb9caf6",
@@ -101,7 +101,7 @@
       "markedBy": "MIKA_Explorer"
     },
     "created_at": "2026-10-12T13:12:28.053Z",
-    "updated_at": "2026-10-12T13:18:04.179Z"
+    "updated_at": "2026-10-12T15:06:15.472Z"
   },
   {
     "id": "b71815f7-29fc-48e8-bb88-d0c000a40dce",
@@ -118,7 +118,7 @@
       "spottedBy": "MIKA_Explorer"
     },
     "created_at": "2026-10-12T13:12:28.067Z",
-    "updated_at": "2026-10-12T13:18:04.189Z"
+    "updated_at": "2026-10-12T15:06:15.486Z"
   },
   {
     "id": "e3f8496f-f9ff-4ba8-900f-3dc73df79f42",
@@ -135,7 +135,7 @@
       "spottedBy": "MIKA_Explorer"
     },
     "created_at": "2026-10-12T13:12:28.094Z",
-    "updated_at": "2026-10-12T13:18:04.218Z"
+    "updated_at": "2026-10-12T15:06:15.513Z"
   },
   {
     "id": "b68a0612-244b-4bde-86f8-8dc9da6182fd",
@@ -151,7 +151,7 @@
       "placedBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.143Z",
-    "updated_at": "2026-10-12T13:18:04.261Z"
+    "updated_at": "2026-10-12T15:06:15.563Z"
   },
   {
     "id": "26ae780c-4c25-41d5-981c-42b4c5b1cdcb",
@@ -167,7 +167,7 @@
       "placedBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.181Z",
-    "updated_at": "2026-10-12T13:18:04.293Z"
+    "updated_at": "2026-10-12T15:06:15.600Z"
   },
   {
     "id": "57a430bd-df05-4382-9502-f84a10bb634d",
@@ -184,7 +184,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.194Z",
-    "updated_at": "2026-10-12T13:18:04.306Z"
+    "updated_at": "2026-10-12T15:06:15.613Z"
   },
   {
     "id": "8bd0e9d5-a2b3-400d-8e60-e910cb37d353",
@@ -201,7 +201,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.205Z",
-    "updated_at": "2026-10-12T13:18:04.320Z"
+    "updated_at": "2026-10-12T15:06:15.623Z"
   },
   {
     "id": "67caac5a-24fb-49ad-ac9d-64f63feadb21",
@@ -218,7 +218,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.221Z",
-    "updated_at": "2026-10-12T13:18:04.332Z"
+    "updated_at": "2026-10-12T15:06:15.639Z"
   },
   {
     "id": "069ca40e-5a8d-4dc3-aa31-44713db5e736",
@@ -235,7 +235,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.231Z",
-    "updated_at": "2026-10-12T13:18:04.341Z"
+    "updated_at": "2026-10-12T15:06:15.648Z"
   },
   {
     "id": "949e4961-129d-4592-8f8e-7bdb935bbf8a",
@@ -252,7 +252,7 @@
       "registeredBy": "MIKA_Builder"
     },
     "created_at": "2026-10-12T13:12:28.246Z",
-    "updated_at": "2026-10-12T13:18:04.353Z"
+    "updated_at": "2026-10-12T15:06:15.660Z"
   },
   {
     "id": "f27775d7-aa3b-4910-abf5-6291c8039476",
@@ -269,6 +269,83 @@
       "spottedBy": "MIKA_Explorer"
     },
     "created_at": "2026-10-12T13:12:28.258Z",
-    "updated_at": "2026-10-12T13:18:04.365Z"
+    "updated_at": "2026-10-12T15:06:15.673Z"
+  },
+  {
+    "id": "6f7a2a6f-747d-4b70-b738-5973a51f64c6",
+    "type": "shelter_base",
+    "name": "Emergency Shelter Base",
+    "position": {
+      "x": -407,
+      "y": 70,
+      "z": -336
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "name": "Emergency Shelter Base",
+      "safety_score": 1,
+      "is_safe": true,
+      "built_at": "2026-10-12T14:05:21.018Z"
+    },
+    "created_at": "2026-10-12T13:29:43.033Z",
+    "updated_at": "2026-10-12T14:05:21.018Z"
+  },
+  {
+    "id": "43b1bb89-d5ce-4c36-aeab-452c5d3f515f",
+    "type": "farm",
+    "name": "Crop Farm",
+    "position": {
+      "x": 10,
+      "y": 64,
+      "z": 20
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "crop": "carrots",
+      "registeredBy": "MIKA_Farmer"
+    },
+    "created_at": "2026-10-12T13:58:38.147Z",
+    "updated_at": "2026-10-12T13:58:38.147Z"
+  },
+  {
+    "id": "f1c0c56d-f278-4c5b-8e00-6088f2e23e68",
+    "type": "food",
+    "name": "Food Supply",
+    "position": {
+      "x": 30,
+      "y": 64,
+      "z": 40
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "food_type": "sweet_berries",
+      "discoveredBy": "MIKA_Explorer"
+    },
+    "created_at": "2026-10-12T13:58:38.156Z",
+    "updated_at": "2026-10-12T13:58:38.156Z"
+  },
+  {
+    "id": "e11db650-b4a7-4dad-bd09-ee75a55791b0",
+    "type": "shelter_base",
+    "name": "MIKA Main Survival Base",
+    "position": {
+      "x": -366,
+      "y": 79,
+      "z": -375
+    },
+    "dimension": "overworld",
+    "metadata": {
+      "name": "MIKA Main Survival Base",
+      "score": 1,
+      "assessed_at": "2026-10-12T15:07:24.113Z",
+      "dimensions": {
+        "width": 5,
+        "length": 5,
+        "height": 3
+      },
+      "reason": "Selected site at (-366, 79, -375) (Score: 1.00, Flatness: 0.53, Hazards: 0)"
+    },
+    "created_at": "2026-10-12T15:07:24.113Z",
+    "updated_at": "2026-10-12T15:07:24.113Z"
   }
 ]

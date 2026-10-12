@@ -4,6 +4,13 @@ import { evaluateGoalOutcome } from '../learning/evaluate.js';
 import defaultShelterManager from './shelter.js';
 import { defaultProgression } from '../progression/state-machine.js';
 import defaultAdaptiveThinking from '../learning/adaptive-thinking.js';
+import { TaskManager, TASK_STATE, TASK_CATEGORY } from '../tasks/task-manager.js';
+import { defaultThreatManager, ThreatManager } from './threat-manager.js';
+import { defaultBaseShelter, BaseShelterBuilder } from './base-shelter.js';
+import { defaultCraftingKnowledge, CraftingKnowledgeSystem } from '../crafting/knowledge.js';
+import { defaultFoodManager, FoodManager } from './food-manager.js';
+import { defaultBedManager, BedManager } from './bed-manager.js';
+import { defaultStorageOrganizer, StorageOrganizer } from '../storage/organization.js';
 
 /**
  * Autonomous Survival Loop Controller.
@@ -13,6 +20,13 @@ import defaultAdaptiveThinking from '../learning/adaptive-thinking.js';
 export class AutonomousSurvivalController {
   constructor(options = {}) {
     this.tracker = new GoalExecutionTracker(3);
+    this.taskManager = options.taskManager || new TaskManager();
+    this.threatManager = options.threatManager || defaultThreatManager;
+    this.baseShelter = options.baseShelter || defaultBaseShelter;
+    this.craftingKnowledge = options.craftingKnowledge || defaultCraftingKnowledge;
+    this.foodManager = options.foodManager || defaultFoodManager;
+    this.bedManager = options.bedManager || defaultBedManager;
+    this.storageOrganizer = options.storageOrganizer || defaultStorageOrganizer;
     this.isRunning = false;
     this.currentStep = 0;
     this.maxSteps = options.maxSteps || 30;
@@ -110,19 +124,79 @@ export class AutonomousSurvivalController {
     // 1. Observe world
     const preObs = typeof bot.collectObservation === 'function' ? bot.collectObservation(bot) : { agent: bot.entity };
 
-    // 2. Select contextual priority goal
-    const priority = selectContextualGoal(preObs, bot.memoryStore, this.tracker);
-    const topGoalId = priority.goalId;
-    bot.lastGoalId = topGoalId;
+    // Update persistent threat memory
+    if (this.threatManager && bot.entity?.position) {
+      this.threatManager.updateThreatTracking(preObs, bot.entity.position);
+    }
 
-    console.log(`[Auto-Survival] Priority Tier ${priority.tier}: ${topGoalId} ("${priority.reason}")`);
+    // 2. Select contextual priority goal
+    const priority = selectContextualGoal(preObs, bot.memoryStore, this.tracker, this.taskManager);
+    let topGoalId = priority.goalId;
+    let priorityTier = priority.tier;
+    let goalReason = priority.reason;
+
+    // Check emergency preemption: interrupt active task if emergency threat occurs
+    const activeTask = this.taskManager.getActiveTask();
+    if (activeTask && activeTask.state === TASK_STATE.IN_PROGRESS && priorityTier <= 2 && activeTask.id !== topGoalId) {
+      this.taskManager.interruptCurrentTask(`Threat interruption: Tier ${priorityTier} (${goalReason})`, activeTask.progress.checkpoint);
+      if (typeof bot.chat === 'function') {
+        bot.chat(`[Threat Interrupt] Paused ${activeTask.id} at checkpoint (Tier ${priorityTier} threat)`);
+      }
+    }
+
+    // Check resumption: if priority indicates resuming interrupted task
+    if (priority.isResumed && this.taskManager.hasInterruptedTasks()) {
+      const resumed = this.taskManager.resumeInterruptedTask();
+      if (resumed) {
+        topGoalId = resumed.id;
+        priorityTier = 3;
+        goalReason = `Resumed from checkpoint: ${JSON.stringify(resumed.progress.checkpoint || {})}`;
+      }
+    }
+
+    // Assigned mission goal takes priority unless immediate mortal danger (Tier 1) requires retreat
+    if (bot.assignedGoal && priorityTier > 1) {
+      const assignedDef = GOAL_DEFINITIONS[bot.assignedGoal];
+      if (assignedDef) {
+        const isDone = assignedDef.isCompleted(preObs);
+        if (isDone.completed) {
+          console.log(`[Goal Accomplished] Assigned goal '${bot.assignedGoal}' fulfilled: ${isDone.reason}`);
+          if (typeof bot.chat === 'function') {
+            bot.chat(`[Goal Accomplished!] ${bot.assignedGoal} - ${isDone.reason}`);
+          }
+          bot.assignedGoal = null;
+        } else {
+          topGoalId = bot.assignedGoal;
+          priorityTier = 2;
+          goalReason = `Assigned mission goal: ${bot.assignedGoal}`;
+        }
+      }
+    }
+
+    bot.lastGoalId = topGoalId;
+    console.log(`[Auto-Survival] Priority Tier ${priorityTier}: ${topGoalId} ("${goalReason}")`);
 
     // 3. Resolve dependencies to pick the immediate executable step
-    const plan = priority.plan && priority.plan.length > 0 ? priority.plan : resolveGoalPlan(topGoalId, preObs);
+    const plan = resolveGoalPlan(topGoalId, preObs);
     const currentGoalId = plan[0] || topGoalId;
 
+    // Register & start task in TaskManager if not active
+    let currentTask = this.taskManager.getTask(currentGoalId);
+    if (!currentTask) {
+      currentTask = this.taskManager.register({
+        id: currentGoalId,
+        objective: goalReason,
+        priorityTier
+      });
+    }
+    if (currentTask.state === TASK_STATE.READY || currentTask.state === TASK_STATE.PLANNED) {
+      try {
+        this.taskManager.startTask(currentGoalId);
+      } catch (_) {}
+    }
+
     if (typeof bot.chat === 'function') {
-      bot.chat(`[Priority T${priority.tier}] Goal: ${currentGoalId}`);
+      bot.chat(`[Priority T${priorityTier}] Goal: ${currentGoalId}${bot.assignedGoal ? ` (Target: ${bot.assignedGoal})` : ''}`);
     }
 
     // 3b. Adaptive Thinking: Query past task completion memory & cognitive improvement
@@ -172,6 +246,14 @@ export class AutonomousSurvivalController {
 
     // 7. Track retries to prevent infinite loops
     this.tracker.recordAttempt(currentGoalId, evaluation.goalAchieved, evaluation.completionReason);
+
+    // 7b. Empirical World Verification in TaskManager
+    try {
+      this.taskManager.verifyAndComplete(currentGoalId, () => ({
+        verified: evaluation.goalAchieved,
+        reason: evaluation.completionReason
+      }), { worldState: postObs });
+    } catch (_) {}
 
     // 8. Persistent Task Strategy Learning & Evolution
     if (evaluation.goalAchieved && bot.memoryStore && typeof bot.memoryStore.recordTaskCompletion === 'function') {
@@ -489,6 +571,50 @@ export class AutonomousSurvivalController {
           goal: 'gather reachable food'
         });
         return { action: 'collect_resource', args: { resource: 'sweet_berries' }, result: res.execution };
+      }
+
+      case 'BUILD_BASE_SHELTER': {
+        const siteAssessment = this.baseShelter.assessBaseLocation(bot);
+        const site = siteAssessment.bestSite || (bot.entity?.position ? bot.entity.position.floored() : { x: 0, y: 64, z: 0 });
+        const blueprint = this.baseShelter.generateShelterBlueprint(site);
+        const task = this.taskManager.getTask('BUILD_BASE_SHELTER');
+        const checkpoint = task?.progress?.checkpoint || null;
+        const res = await this.baseShelter.buildShelterPhased(bot, blueprint, checkpoint, (prog) => {
+          if (task) task.updateCheckpoint(prog);
+        });
+        return { action: 'build_base_shelter', args: { site }, result: res };
+      }
+
+      case 'CRAFT_AND_PLACE_BED': {
+        const evalBed = this.bedManager.evaluateBedProgression(bot, this.taskManager, 'CRAFT_AND_PLACE_BED');
+        if (evalBed.blocked) {
+          return { action: 'place_bed', args: {}, result: { status: 'blocked', reason: evalBed.reason } };
+        }
+        const inv = typeof bot.inventory?.items === 'function' ? bot.inventory.items() : (bot.inventory || []);
+        const hasBed = inv.some(i => i.name.includes('bed'));
+        if (!hasBed) {
+          await this.craftingKnowledge.craftItemWithVerification(bot, 'white_bed', 1);
+        }
+        const shelter = bot.memoryStore?.getLocation ? bot.memoryStore.getLocation('shelter') : null;
+        const targetSlot = shelter?.position ? { x: shelter.position.x + 2, y: shelter.position.y, z: shelter.position.z + 2 } : (bot.entity?.position || { x: 0, y: 64, z: 0 });
+        const placeRes = await this.bedManager.placeBedInShelter(bot, targetSlot);
+        return { action: 'place_bed', args: {}, result: placeRes };
+      }
+
+      case 'COOK_FOOD': {
+        const inv = typeof bot.inventory?.items === 'function' ? bot.inventory.items() : (bot.inventory || []);
+        const cookable = inv.find(i => ['raw_beef', 'raw_porkchop', 'raw_mutton', 'raw_chicken', 'potato'].includes(i.name));
+        const rawName = cookable ? cookable.name : 'raw_beef';
+        const cookRes = await this.foodManager.cookFoodInFurnace(bot, rawName, 1);
+        return { action: 'cook_food', args: { item: rawName }, result: cookRes };
+      }
+
+      case 'ORGANIZE_STORAGE': {
+        const inv = typeof bot.inventory?.items === 'function' ? bot.inventory.items() : (bot.inventory || []);
+        const surplus = this.storageOrganizer.calculateDepositableSurplus(inv);
+        const mockChest = { occupiedSlots: 0, deposit: async () => {} };
+        const depositRes = await this.storageOrganizer.depositSurplusIntoChest(bot, mockChest, surplus);
+        return { action: 'organize_storage', args: { count: surplus.length }, result: depositRes };
       }
 
       default: {

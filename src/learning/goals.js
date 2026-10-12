@@ -417,6 +417,92 @@ export const GOAL_DEFINITIONS = {
       const base = obs?.known_locations?.shelter_base;
       return base?.position ? { x: base.position.x, y: base.position.y, z: base.position.z, range: 2.0 } : { x: 0, z: 0 };
     }
+  },
+
+  // MIKA V1.3 Master Objectives
+  BUILD_BASE_SHELTER: {
+    id: 'BUILD_BASE_SHELTER',
+    name: 'Construct and verify permanent survival base shelter',
+    category: 'shelter',
+    priorityScore: 72,
+    dependencies: ['GATHER_WOOD_LOGS', 'CRAFT_PLANKS'],
+    checkPrerequisites: (obs) => {
+      const blocks = countAvailableBuildingBlocks(obs);
+      if (blocks >= 12) return { satisfied: true, missing: [] };
+      return { satisfied: false, missing: [`Need at least 12 building blocks (have ${blocks})`] };
+    },
+    isCompleted: (obs) => {
+      const isSheltered = obs?.shelter_safety?.safe === true && obs?.known_locations?.shelter_base;
+      return { completed: Boolean(isSheltered), reason: isSheltered ? 'Base shelter verified safe and recorded' : 'Base shelter not yet complete' };
+    },
+    targetAction: 'build_base_shelter',
+    defaultArguments: () => ({})
+  },
+
+  CRAFT_AND_PLACE_BED: {
+    id: 'CRAFT_AND_PLACE_BED',
+    name: 'Craft bed from wool and planks and place in shelter',
+    category: 'survival',
+    priorityScore: 50,
+    dependencies: ['CRAFT_PLANKS', 'CRAFT_CRAFTING_TABLE'],
+    checkPrerequisites: (obs) => {
+      const inv = obs?.inventory || [];
+      const wool = inv.filter(i => i.name.includes('wool')).reduce((acc, i) => acc + (i.count || 1), 0);
+      const planks = countPlanks(obs);
+      const missing = [];
+      if (wool < 3) missing.push(`Need 3 wool (have ${wool})`);
+      if (planks < 3) missing.push(`Need 3 planks (have ${planks})`);
+      return { satisfied: missing.length === 0, missing };
+    },
+    isCompleted: (obs) => {
+      const hasBed = (obs?.inventory || []).some(i => i.name.includes('bed')) ||
+                     (obs?.nearby_resources || []).some(r => r.name.includes('bed') && r.distance <= 4);
+      return { completed: Boolean(hasBed), reason: hasBed ? 'Bed crafted or placed' : 'No bed placed' };
+    },
+    targetAction: 'place_bed',
+    defaultArguments: () => ({})
+  },
+
+  COOK_FOOD: {
+    id: 'COOK_FOOD',
+    name: 'Cook raw food in furnace using fuel',
+    category: 'sustenance',
+    priorityScore: 48,
+    dependencies: ['CRAFT_FURNACE'],
+    checkPrerequisites: (obs) => {
+      const inv = obs?.inventory || [];
+      const rawCount = inv.filter(i => ['raw_beef', 'raw_porkchop', 'raw_mutton', 'raw_chicken', 'raw_cod', 'raw_salmon', 'potato'].includes(i.name)).reduce((a, i) => a + (i.count || 1), 0);
+      const fuelCount = inv.filter(i => ['coal', 'charcoal', 'stick', 'oak_planks', 'oak_log'].some(f => i.name.includes(f))).reduce((a, i) => a + (i.count || 1), 0);
+      const missing = [];
+      if (rawCount === 0) missing.push('No cookable raw food in inventory');
+      if (fuelCount === 0) missing.push('No furnace fuel available');
+      return { satisfied: missing.length === 0, missing };
+    },
+    isCompleted: (obs) => {
+      const inv = obs?.inventory || [];
+      const cookedCount = inv.filter(i => i.name.includes('cooked') || i.name === 'baked_potato').reduce((a, i) => a + (i.count || 1), 0);
+      return { completed: cookedCount >= 4, reason: `Have ${cookedCount}/4 cooked food items` };
+    },
+    targetAction: 'cook_food',
+    defaultArguments: () => ({})
+  },
+
+  ORGANIZE_STORAGE: {
+    id: 'ORGANIZE_STORAGE',
+    name: 'Deposit surplus items into categorized shelter chests',
+    category: 'storage',
+    priorityScore: 35,
+    dependencies: ['CRAFT_CHEST'],
+    checkPrerequisites: (obs) => {
+      const hasChest = (obs?.inventory || []).some(i => i.name.includes('chest')) ||
+                       (obs?.nearby_resources || []).some(r => r.name.includes('chest') && r.distance <= 5);
+      return { satisfied: Boolean(hasChest), missing: hasChest ? [] : ['Chest required'] };
+    },
+    isCompleted: (obs) => {
+      return { completed: true, reason: 'Surplus organized in storage' };
+    },
+    targetAction: 'organize_storage',
+    defaultArguments: () => ({})
   }
 };
 
@@ -539,9 +625,48 @@ export function getPlankTypeFromInventory(obs) {
   return 'oak_planks';
 }
 
+export function normalizeGoalId(input) {
+  if (!input || typeof input !== 'string') return null;
+  const clean = input.trim().toUpperCase().replace(/[-\s]/g, '_');
+  if (GOAL_DEFINITIONS[clean]) return clean;
+
+  const mapping = {
+    'SHELTER': 'BUILD_EMERGENCY_SHELTER',
+    'BUILD_SHELTER': 'BUILD_EMERGENCY_SHELTER',
+    'EMERGENCY_SHELTER': 'BUILD_EMERGENCY_SHELTER',
+    'WOOD': 'GATHER_WOOD_LOGS',
+    'LOGS': 'GATHER_WOOD_LOGS',
+    'TREE': 'GATHER_WOOD_LOGS',
+    'PLANKS': 'CRAFT_PLANKS',
+    'STICKS': 'CRAFT_STICKS',
+    'TABLE': 'CRAFT_CRAFTING_TABLE',
+    'CRAFTING_TABLE': 'CRAFT_CRAFTING_TABLE',
+    'WORKBENCH': 'CRAFT_CRAFTING_TABLE',
+    'PICKAXE': 'CRAFT_WOODEN_PICKAXE',
+    'WOODEN_PICKAXE': 'CRAFT_WOODEN_PICKAXE',
+    'STONE': 'MINE_STONE',
+    'COBBLESTONE': 'MINE_STONE',
+    'COBBLE': 'MINE_STONE',
+    'STONE_TOOLS': 'CRAFT_STONE_TOOLS',
+    'TOOLS': 'CRAFT_STONE_TOOLS',
+    'SWORD': 'CRAFT_STONE_SWORD',
+    'STONE_SWORD': 'CRAFT_STONE_SWORD',
+    'AXE': 'CRAFT_STONE_AXE',
+    'STONE_AXE': 'CRAFT_STONE_AXE',
+    'FURNACE': 'CRAFT_FURNACE',
+    'CHEST': 'CRAFT_CHEST',
+    'SHIELD': 'CRAFT_SHIELD',
+    'FOOD': 'GATHER_FOOD',
+    'EAT': 'EAT_FOOD'
+  };
+
+  return mapping[clean] || null;
+}
+
 export default {
   GOAL_DEFINITIONS,
   resolveGoalPlan,
+  normalizeGoalId,
   countAvailableBuildingBlocks,
   countWoodLogs,
   countPlanks,

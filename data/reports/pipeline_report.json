@@ -1,17 +1,530 @@
 {
   "pipeline_version": "1.0.0",
-  "timestamp": "2026-10-12T12:15:45.415Z",
-  "status": "rollback_success",
-  "phases": {},
-  "dataset_counts": {},
-  "anomalies": {},
-  "persistent_learning": {},
-  "training_metrics": null,
-  "evaluation_results": null,
+  "timestamp": "2026-10-12T13:46:38.675Z",
+  "status": "completed_deployed",
+  "phases": {
+    "preprocessing_ms": 1416,
+    "persistent_learning_ms": 20428,
+    "training_ms": 58652,
+    "evaluation_ms": 108300,
+    "deployment_ms": 179
+  },
+  "dataset_counts": {
+    "raw_experience_lines": 3057,
+    "clean_transitions": 3057,
+    "invalid_records_rejected": 0,
+    "raw_feedback_records": 23,
+    "linked_feedback_events": 23,
+    "sft_demonstrations_samples": 1511,
+    "action_prediction_samples": 2360,
+    "dpo_preference_pairs": 18,
+    "train_episodes": 35,
+    "eval_episodes": 9,
+    "train_sft_samples": 1155,
+    "eval_sft_samples": 356
+  },
+  "anomalies": {
+    "contradictory_labels_found": 2,
+    "missing_labels_found": 18,
+    "metadata_corrections_applied": 187,
+    "detail": {
+      "contradictions": [
+        {
+          "event_id": "4354f991-e4fc-4094-92a1-03945817a2c2",
+          "type": "success_marked_negative",
+          "reason": "Successful action 'collect_resource' has negative human feedback",
+          "execution_status": "success",
+          "feedback_labels": [
+            "negative",
+            "negative"
+          ]
+        },
+        {
+          "event_id": "bd900524-e5c9-4097-ae62-adfcaf0b7362",
+          "type": "success_marked_negative",
+          "reason": "Successful action 'collect_resource' has negative human feedback",
+          "execution_status": "success",
+          "feedback_labels": [
+            "negative"
+          ]
+        }
+      ],
+      "missing_labels": [
+        {
+          "event_id": "8b7ea977-3f7b-4cb6-9757-ab8314abe713",
+          "related_event_id": "030ed532-6481-4581-86a0-cb2146164b03",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "e7e7ed81-5d9a-4038-bc6c-736fcb4570a7",
+          "related_event_id": "dcbe4f32-4f38-46dc-b915-38a6fcd60283",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "8001697c-c563-4fb5-9121-d4aec9ef9cee",
+          "related_event_id": "73c28a30-8098-4a79-b794-072966b2aa7a",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "34222780-bace-45c7-b29a-1535a736bace",
+          "related_event_id": "40ca709e-765f-40b1-8a19-a4b9bbf6004e",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "23937ec7-63fc-4ac6-adb7-ce1b659f5324",
+          "related_event_id": "1bdd4458-6926-4261-b147-4c3b376533b7",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "f633c591-42de-48a7-b365-e4f16a9761a5",
+          "related_event_id": "50e3654f-f326-409b-ae2f-a4e43167c9f6",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "59a08285-6e82-4689-a22e-43551a07a65f",
+          "related_event_id": "3fbc7d35-ebe5-46ad-b307-9343501441e6",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "d048df24-babc-4cb9-a44a-4d17d939853d",
+          "related_event_id": "3319c18a-5308-4632-9910-c82a24d82b69",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "9047af8d-1c13-4ed0-8661-68a5ccd8c919",
+          "related_event_id": "fcc4515b-a93a-4998-9cb1-7986834220bc",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "f304bab7-e56a-4758-bbe5-bb81285a996e",
+          "related_event_id": "69f1a28e-947c-4dcc-8eda-d635d5091e30",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "240a4550-f57e-4c08-b40c-3b9f19125f6f",
+          "related_event_id": "484714d0-5fba-4e25-9fbb-1c31b5d6dea4",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "7b85b855-e3ac-48c1-b2da-da92ec21b17e",
+          "related_event_id": "1a4d85e8-9fbf-4445-aa34-35c269935e44",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "88f6da67-d2c4-4301-9022-b9c4c55773e6",
+          "related_event_id": "af5be27c-4ac6-4c3b-b5f3-aa40ad528292",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "cbdabba7-6f13-4c9f-889f-bd2c3086c9ff",
+          "related_event_id": "f8cecbd6-a67a-4070-873d-f4b62f5c32de",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "30ff339f-13ea-4029-b87f-27ce22727220",
+          "related_event_id": "be7e041e-46a5-4f16-a75d-5bbed96e6420",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "6e467763-3f92-4051-b211-352595dd88d2",
+          "related_event_id": "f4d5b350-16cc-494c-b986-7a655b5b78a8",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "02309279-96f5-4fd8-b749-46d09f10d0b4",
+          "related_event_id": "10a6d0f9-f32f-4aeb-81ff-0485403c3c06",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        },
+        {
+          "event_id": "57cd7cb6-8d3f-4e2f-87d2-f74ed8bd4c6b",
+          "related_event_id": "c9f56135-1e89-4da6-817f-c58fc49916c6",
+          "source": "feedback",
+          "reason": "Feedback record has missing or null label",
+          "feedback_text": null
+        }
+      ],
+      "metadata_corrections": [
+        {
+          "event_id": "62202249-9088-4305-b817-d53de8805815",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "36bc6715-71bf-4f98-a53e-2fe2ab21473a",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "4fb7034a-56f2-4cb6-a4d6-eeb85c8e39de",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "62299926-cef2-4af1-8e98-801297516aa2",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "fcd5aa50-444f-4e4a-888e-70ea548dba5c",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "e96c7280-e084-4447-9f0e-29272862534c",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "4c09e2eb-1927-46ba-9239-5fb847d2f301",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "03323de3-296f-4308-be51-fe019d9dc8d3",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "753068d7-aaba-4692-85d3-f598db409ecc",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "a6e2b411-6e2f-4ea9-b8f7-a0a56bd3b58a",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "742c90cb-d199-455e-a3ba-53aede9bd50c",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "8b19ce4d-825c-4b1b-990b-4ea55b465ee5",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "d0bab299-4a02-4bb2-860b-f483b49512d0",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "aecdb4e6-4971-4385-a61a-c4933eb11401",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "ee1d0a89-2eeb-4d7c-957c-991967f14b68",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "e4c630f9-2ebb-4479-9576-272d0cb2d04e",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "66d3a9c0-257e-4695-be69-93263ee28cb8",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "624ec9b3-4eb8-4a41-9ec3-eee124a874d1",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "b6283b71-83b7-43b5-b888-1e03a59677cc",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "35740db5-6bf9-480a-95ae-9e589737f46f",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "5d3e475f-6be3-4d56-b029-068deab0fe3a",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "344e6d63-6839-484e-9a9a-2e549ef636e4",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "5f1901c6-ebcf-43d2-bfad-cf10cc12991e",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "ab27d21a-d8a8-4dc6-ad6d-231976b9b8d4",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "bb7f5c5a-537c-4cb4-96ee-32d4b54af89b",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "ce4d08ad-8237-4120-a030-468e7f78aa0e",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "e8081456-0f2d-4d4c-a148-d4574864865b",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "8ce77e20-b512-432b-a7a6-d21618dd7f64",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "8d84b0a2-687d-4197-8bca-b7e3995610b6",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "ed2ab617-3214-44d3-9c95-fc2aecad9189",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "f8d49556-f4fc-472c-bf3c-0cd8495d91f4",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "d384d7e1-e405-48c7-b919-0f6601de4300",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "984f5ac9-afa5-4aa4-84c2-f09b7841d04d",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "a7260fb7-82d9-49ca-a211-207099828f35",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "d3abd4db-3e83-47f7-b5f4-3c2b6e44c5d1",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "91e24fec-f2e4-4dbf-b40b-798d4463c7d1",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "855d6070-a543-4952-9e2d-bf99c10e4519",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "6ed7a349-964a-400b-b1fb-44ceff7d4117",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "6aac3879-9290-40ee-91c7-6e8a60ad2037",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "52c950a3-ff5d-4e21-ba7f-a7454283079e",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "5ccc7600-11f9-4ab1-bb41-27bccadb46d8",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "d5ee92df-5be2-4d4f-8494-ce1726efe533",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "0e5d492a-30c3-498b-8a81-099cfa80b151",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "b2069496-8390-45b3-afa0-85d7fb185d29",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "95dcd96a-fb68-41d9-8233-52a7bc53ce91",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "703655b8-7c58-4bb7-8aac-6bac06d1a761",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "e942b90c-47a7-49b1-9964-259d16eb9c2c",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "5f7f83b8-7109-4c8d-839c-ad2b235c9736",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "b0a0fed1-0703-4505-845a-cae2a159dda9",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        },
+        {
+          "event_id": "c50bb010-6692-4a72-a604-e7e36fbdd397",
+          "field": "learning.failure_detected",
+          "reason": "Enforced failure_detected=true for failed execution"
+        }
+      ]
+    }
+  },
+  "persistent_learning": {
+    "correctionsIngested": 18,
+    "lessonsLearned": 22,
+    "strategiesUpdated": 1225,
+    "deathsIngested": 153,
+    "totalMemories": 4,
+    "totalLessons": 36,
+    "totalStrategies": 80
+  },
+  "training_metrics": {
+    "status": "success",
+    "timestamp": "2026-10-12T13:47:58Z",
+    "total_duration_seconds": 54.2,
+    "device": "cuda",
+    "peak_vram_mb": 494.81,
+    "hyperparameters": {
+      "epochs": 3,
+      "batch_size": 8,
+      "learning_rate": 0.001,
+      "lora_r": 8,
+      "lora_alpha": 16,
+      "lora_dropout": 0.05,
+      "max_seq_len": 512,
+      "d_model": 128,
+      "num_layers": 4
+    },
+    "lora_parameters": {
+      "replaced_layers": 20,
+      "trainable_params": 133632,
+      "total_params": 663808,
+      "trainable_percent": 20.131
+    },
+    "dataset_metrics": {
+      "train_samples": 1155,
+      "eval_samples": 356
+    },
+    "training_history": [
+      {
+        "epoch": 1,
+        "train_loss": 2.5831,
+        "eval_loss": 1.9974,
+        "duration_seconds": 17.59,
+        "peak_vram_mb": 494.81
+      },
+      {
+        "epoch": 2,
+        "train_loss": 1.5952,
+        "eval_loss": 1.8093,
+        "duration_seconds": 8.19,
+        "peak_vram_mb": 494.81
+      },
+      {
+        "epoch": 3,
+        "train_loss": 1.3478,
+        "eval_loss": 1.6434,
+        "duration_seconds": 8.57,
+        "peak_vram_mb": 494.81
+      }
+    ],
+    "best_checkpoint": {
+      "path": "data\\models\\checkpoints\\best_model.pt",
+      "best_eval_loss": 1.6434
+    }
+  },
+  "evaluation_results": {
+    "status": "evaluated",
+    "timestamp": "2026-10-12T13:49:46Z",
+    "candidate_checkpoint": "data\\models\\checkpoints\\best_model.pt",
+    "eval_dataset": "data\\processed\\sft_chatml_eval.jsonl",
+    "total_eval_samples": 356,
+    "tested_samples": 50,
+    "metrics": {
+      "candidate_eval_loss": 1.6434,
+      "baseline_eval_loss": 4.5,
+      "loss_delta": -2.8566,
+      "candidate_action_accuracy": 0.3,
+      "baseline_action_accuracy": 0.2,
+      "accuracy_delta": 0.1,
+      "schema_validity_rate": 1
+    },
+    "acceptance": {
+      "accepted": true,
+      "criteria_met": {
+        "loss_within_tolerance": true,
+        "accuracy_meets_baseline": true,
+        "schema_syntax_valid": true
+      },
+      "rejection_reasons": []
+    }
+  },
   "model_deployment": {
-    "active_version": "v1.0.0",
-    "active_model_path": "data/models/versions\\v1.0.0\\model.pt",
-    "previous_version": "v1.1.0",
+    "active_version": "v1.3.0",
+    "active_model_path": "data/models/versions\\v1.3.0\\model.pt",
+    "previous_version": "v1.2.0",
     "versions": [
       {
         "version": "v1.0.0",
@@ -27,7 +540,7 @@
           "accuracy_delta": 0.14,
           "schema_validity_rate": 1
         },
-        "status": "active"
+        "status": "archived"
       },
       {
         "version": "v1.1.0",
@@ -44,6 +557,38 @@
           "schema_validity_rate": 1
         },
         "status": "rolled_back"
+      },
+      {
+        "version": "v1.2.0",
+        "created_at": "2026-10-12T12:15:58Z",
+        "checkpoint_path": "data/models/versions\\v1.2.0\\model.pt",
+        "source_checkpoint": "data/models/checkpoints/best_model.pt",
+        "eval_metrics": {
+          "candidate_eval_loss": 1.5206,
+          "baseline_eval_loss": 4.5,
+          "loss_delta": -2.9794,
+          "candidate_action_accuracy": 0.34,
+          "baseline_action_accuracy": 0.2,
+          "accuracy_delta": 0.14,
+          "schema_validity_rate": 1
+        },
+        "status": "archived"
+      },
+      {
+        "version": "v1.3.0",
+        "created_at": "2026-10-12T13:49:47Z",
+        "checkpoint_path": "data/models/versions\\v1.3.0\\model.pt",
+        "source_checkpoint": "data\\models\\checkpoints\\best_model.pt",
+        "eval_metrics": {
+          "candidate_eval_loss": 1.6434,
+          "baseline_eval_loss": 4.5,
+          "loss_delta": -2.8566,
+          "candidate_action_accuracy": 0.3,
+          "baseline_action_accuracy": 0.2,
+          "accuracy_delta": 0.1,
+          "schema_validity_rate": 1
+        },
+        "status": "active"
       }
     ],
     "rollback_history": [
@@ -55,6 +600,10 @@
       }
     ]
   },
-  "resource_usage": {},
+  "resource_usage": {
+    "total_duration_ms": 189015,
+    "total_duration_seconds": 189.02,
+    "peak_vram_mb": 494.81
+  },
   "errors": []
 }

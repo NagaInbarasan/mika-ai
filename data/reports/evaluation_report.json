@@ -1,17 +1,17 @@
 {
   "status": "evaluated",
-  "timestamp": "2026-10-12T12:15:36Z",
+  "timestamp": "2026-10-12T13:49:46Z",
   "candidate_checkpoint": "data\\models\\checkpoints\\best_model.pt",
   "eval_dataset": "data\\processed\\sft_chatml_eval.jsonl",
-  "total_eval_samples": 284,
+  "total_eval_samples": 356,
   "tested_samples": 50,
   "metrics": {
-    "candidate_eval_loss": 1.5206,
+    "candidate_eval_loss": 1.6434,
     "baseline_eval_loss": 4.5,
-    "loss_delta": -2.9794,
-    "candidate_action_accuracy": 0.34,
+    "loss_delta": -2.8566,
+    "candidate_action_accuracy": 0.3,
     "baseline_action_accuracy": 0.2,
-    "accuracy_delta": 0.14,
+    "accuracy_delta": 0.1,
     "schema_validity_rate": 1.0
   },
   "acceptance": {

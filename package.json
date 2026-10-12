@@ -21,6 +21,8 @@
     "evolve:benchmark": "node src/evolution/index.js --benchmark",
     "evolve:resume": "node src/evolution/index.js --resume data/evolution/checkpoints/latest.json",
     "test": "node --test tests/**/*.test.js",
+    "test:v13": "node --test tests/v13-survival-master.test.js",
+    "test:v13:live": "node scripts/test-live-v13-base.js",
     "test:vision": "node --test tests/vision.test.js",
     "test:vision:live": "node scripts/test-live-vision.js",
     "test:evolution": "node --test tests/world.test.js tests/policy.test.js tests/evolution.test.js tests/runner.test.js tests/evolution-cli.test.js tests/minecraft-adapter.test.js"

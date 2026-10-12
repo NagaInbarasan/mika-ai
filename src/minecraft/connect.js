@@ -19,6 +19,7 @@ import { evaluateGoalOutcome } from '../learning/evaluate.js';
 import { executeSafeCraft } from '../survival/crafting.js';
 import { defaultAutonomousController } from '../survival/autonomous.js';
 import { MikaVisionEngine } from '../vision/index.js';
+import { normalizeGoalId, GOAL_DEFINITIONS } from '../learning/goals.js';
 
 /**
  * Creates and initializes a Mineflayer bot connection.
@@ -68,8 +69,11 @@ export function createBotConnection(overrides = {}) {
 
   // Attach observation collector and experience recorder
   bot.collectObservation = collectObservation;
+  bot.activeModelVersion = overrides.modelVersion || 'v1.3.0';
+  bot.assignedGoal = overrides.goal ? (normalizeGoalId(overrides.goal) || overrides.goal) : null;
   bot.recorder = new ExperienceRecorder({
-    runId: overrides.runId || `run-${Date.now()}`
+    runId: overrides.runId || `run-${Date.now()}`,
+    modelVersion: bot.activeModelVersion
   });
   bot.lastEventId = null;
 
@@ -194,9 +198,18 @@ export function createBotConnection(overrides = {}) {
     const pos = bot.entity ? bot.entity.position : { x: 0, y: 0, z: 0 };
     console.log(`[Minecraft] Bot spawned into world at (${pos.x.toFixed(1)}, ${pos.y.toFixed(1)}, ${pos.z.toFixed(1)})`);
     console.log(`[Minecraft] Health: ${bot.health}/20 | Food: ${bot.food}/20 | GameMode: ${bot.game.gameMode}`);
+    console.log(`[Minecraft] Active Model: ${bot.activeModelVersion || 'v1.3.0'} | Goal: ${bot.assignedGoal || 'Autonomous Survival'}`);
     bot.isReady = true;
 
-    // Automatically snapshot initial world state after 1 second (let chunks stabilize)
+    // Announce active version and goal in Minecraft chat
+    setTimeout(() => {
+      if (typeof bot.chat === 'function') {
+        const goalDesc = bot.assignedGoal ? `Goal: ${bot.assignedGoal}` : 'Autonomous Survival';
+        bot.chat(`[MIKA ${bot.activeModelVersion || 'v1.3.0'}] Online & ready! Model: ${bot.activeModelVersion || 'v1.3.0'} | ${goalDesc}`);
+      }
+    }, 1000);
+
+    // Automatically snapshot initial world state after 1.5 seconds (let chunks stabilize)
     setTimeout(() => {
       if (bot.isReady && bot.recorder && bot.collectObservation) {
         const obs = bot.collectObservation(bot);
@@ -204,7 +217,7 @@ export function createBotConnection(overrides = {}) {
           minecraft_version: bot.version,
           dimension: obs.environment.dimension,
           observation_before: obs,
-          goal: 'initial spawn observation',
+          goal: bot.assignedGoal || 'initial spawn observation',
           available_actions: ['observe', 'inspect_inventory', 'look_around']
         });
         console.log(`[Observation] Logged initial spawn observation (Step #${bot.recorder.step})`);
@@ -213,7 +226,7 @@ export function createBotConnection(overrides = {}) {
       // Auto-resume autonomous survival loop if bot was previously autonomous (e.g. after respawn)
       if (bot.isReady && bot.isAutonomous && bot.autonomousSurvival && !bot.autonomousSurvival.isRunning) {
         console.log('[Auto-Survival] Resuming autonomous loop post-spawn...');
-        bot.autonomousSurvival.start(bot, 150);
+        bot.autonomousSurvival.start(bot, 1000, true);
       }
     }, 1500);
   });
@@ -627,6 +640,29 @@ export function createBotConnection(overrides = {}) {
         bot.isAutonomous = true;
         if (bot.autonomousSurvival) {
           bot.autonomousSurvival.start(bot, stepBudget);
+        }
+      }
+    } else if (trimmed.startsWith('!goal')) {
+      const arg = trimmed.replace(/^!goal\s*/, '').trim();
+      if (!arg || arg === 'status') {
+        const cur = bot.assignedGoal || 'None (Autonomous Survival)';
+        bot.chat(`[Active Goal] ${cur}`);
+      } else if (arg === 'clear' || arg === 'reset' || arg === 'none' || arg === 'off') {
+        bot.assignedGoal = null;
+        bot.chat('[Goal Cleared] Resuming autonomous contextual priority.');
+      } else if (arg === 'list') {
+        bot.chat('Available goals: shelter, wood, pickaxe, stone, tools, sword, furnace, chest, shield, food');
+      } else {
+        const normalized = normalizeGoalId(arg);
+        if (normalized) {
+          bot.assignedGoal = normalized;
+          bot.isAutonomous = true;
+          if (bot.autonomousSurvival && !bot.autonomousSurvival.isRunning) {
+            bot.autonomousSurvival.start(bot, 1000, true);
+          }
+          bot.chat(`[Goal Set] Assigned goal: ${normalized}. Planning and executing prerequisites...`);
+        } else {
+          bot.chat(`Unknown goal: "${arg}". Type "!goal list" to see options.`);
         }
       }
     } else if (trimmed === '!stage') {

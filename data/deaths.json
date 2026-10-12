@@ -1,10 +1,77 @@
 [
   {
-    "id": "91e1735e-c9e6-430b-9940-bfd7e2a5e065",
-    "timestamp": "2026-10-12T13:22:45.125Z",
-    "reason": "<MIKA_Bot> [Death] MIKA died at (-420.4, 81, -356.4)! Reason: MIKA_Bot was shot by Skeleton. Lost items location remembered.",
-    "death_message": "<MIKA_Bot> [Death] MIKA died at (-420.4, 81, -356.4)! Reason: MIKA_Bot was shot by Skeleton. Lost items location remembered.",
-    "killer": "Skeleton",
+    "id": "639d5d92-6fea-4543-b3cc-c7c2506fb1e6",
+    "timestamp": "2026-10-12T13:58:38.169Z",
+    "reason": "Unknown cause of death",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": null,
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "1054b71f-49d5-403e-bc01-3e0f2b561a4a",
+    "timestamp": "2026-10-12T13:46:59.320Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -410.3,
+      "y": 78,
+      "z": -333.5
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "stick",
+        "count": 2,
+        "slot": 9
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1,
+        "slot": 10
+      },
+      {
+        "name": "dark_oak_planks",
+        "count": 5,
+        "slot": 11
+      },
+      {
+        "name": "arrow",
+        "count": 1,
+        "slot": 36
+      },
+      {
+        "name": "leaf_litter",
+        "count": 23,
+        "slot": 37
+      },
+      {
+        "name": "bone",
+        "count": 2,
+        "slot": 38
+      },
+      {
+        "name": "dirt",
+        "count": 5,
+        "slot": 39
+      },
+      {
+        "name": "dark_oak_log",
+        "count": 17,
+        "slot": 40
+      }
+    ]
+  },
+  {
+    "id": "9a61c435-f37f-4e8f-a080-0b32f4f0cbb4",
+    "timestamp": "2026-10-12T13:46:59.019Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
     "damage_type": null,
     "position": {
       "x": -420.4,
@@ -15,24 +82,27 @@
     "lost_items": [
       {
         "name": "crafting_table",
-        "count": 1
+        "count": 1,
+        "slot": 9
       },
       {
         "name": "leaf_litter",
-        "count": 16
+        "count": 16,
+        "slot": 36
       },
       {
         "name": "dark_oak_log",
-        "count": 3
+        "count": 3,
+        "slot": 37
       }
     ]
   },
   {
-    "id": "8c6191bd-f875-40b4-9693-e4dc6fab459d",
-    "timestamp": "2026-10-12T13:21:44.877Z",
-    "reason": "MIKA_Bot was shot by Skeleton",
-    "death_message": "MIKA_Bot was shot by Skeleton",
-    "killer": "Skeleton",
+    "id": "5b118d69-0717-4f8e-9d4c-0a350b318234",
+    "timestamp": "2026-10-12T13:46:58.876Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
     "damage_type": null,
     "position": {
       "x": -426.5,
@@ -43,28 +113,32 @@
     "lost_items": [
       {
         "name": "rotten_flesh",
-        "count": 2
+        "count": 2,
+        "slot": 36
       },
       {
         "name": "stick",
-        "count": 4
+        "count": 4,
+        "slot": 37
       },
       {
         "name": "dark_oak_planks",
-        "count": 4
+        "count": 4,
+        "slot": 38
       },
       {
         "name": "egg",
-        "count": 1
+        "count": 1,
+        "slot": 39
       }
     ]
   },
   {
-    "id": "324b9315-d9a8-49b5-a30f-2bcc3716eb45",
-    "timestamp": "2026-10-12T13:21:17.780Z",
-    "reason": "MIKA_Bot was shot by Skeleton",
-    "death_message": "MIKA_Bot was shot by Skeleton",
-    "killer": "Skeleton",
+    "id": "34f89df7-ce78-472e-93d5-6b3bd4262e67",
+    "timestamp": "2026-10-12T13:46:58.779Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
     "damage_type": null,
     "position": {
       "x": -411.8,
@@ -75,28 +149,32 @@
     "lost_items": [
       {
         "name": "leaf_litter",
-        "count": 11
+        "count": 11,
+        "slot": 36
       },
       {
         "name": "egg",
-        "count": 1
+        "count": 1,
+        "slot": 37
       },
       {
         "name": "dark_oak_planks",
-        "count": 2
+        "count": 2,
+        "slot": 38
       },
       {
         "name": "stick",
-        "count": 4
+        "count": 4,
+        "slot": 39
       }
     ]
   },
   {
-    "id": "64afa866-79ba-4035-8eee-fbe16969a7f5",
-    "timestamp": "2026-10-12T13:20:46.127Z",
-    "reason": "MIKA_Bot was slain by Zombie",
-    "death_message": "MIKA_Bot was slain by Zombie",
-    "killer": "Zombie",
+    "id": "92e86089-e758-491a-bdcb-4da91bfc237a",
+    "timestamp": "2026-10-12T13:46:58.732Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
     "damage_type": null,
     "position": {
       "x": -412.5,
@@ -107,20 +185,407 @@
     "lost_items": [
       {
         "name": "dark_oak_planks",
-        "count": 2
+        "count": 2,
+        "slot": 10
       },
       {
         "name": "stick",
-        "count": 4
+        "count": 4,
+        "slot": 11
       },
       {
         "name": "leaf_litter",
-        "count": 7
+        "count": 7,
+        "slot": 36
       },
       {
         "name": "dirt",
-        "count": 6
+        "count": 6,
+        "slot": 37
       }
     ]
+  },
+  {
+    "id": "c7da0cd5-6676-4b7d-a3f9-56dd34160bdf",
+    "timestamp": "2026-10-12T13:46:57.994Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -418.5,
+      "y": 62.7,
+      "z": -328
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "stone_sword",
+        "count": 1,
+        "slot": 9
+      },
+      {
+        "name": "arrow",
+        "count": 2,
+        "slot": 36
+      },
+      {
+        "name": "bone",
+        "count": 2,
+        "slot": 37
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1,
+        "slot": 38
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1,
+        "slot": 39
+      },
+      {
+        "name": "leaf_litter",
+        "count": 1,
+        "slot": 40
+      },
+      {
+        "name": "dirt",
+        "count": 4,
+        "slot": 41
+      },
+      {
+        "name": "chest",
+        "count": 1,
+        "slot": 42
+      },
+      {
+        "name": "feather",
+        "count": 1,
+        "slot": 43
+      },
+      {
+        "name": "dark_oak_planks",
+        "count": 1,
+        "slot": 44
+      }
+    ]
+  },
+  {
+    "id": "60558b4c-ac39-4823-aba5-4f6d676fca47",
+    "timestamp": "2026-10-12T13:46:57.871Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -404.5,
+      "y": 80,
+      "z": -337.4
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "dark_oak_planks",
+        "count": 1,
+        "slot": 9
+      },
+      {
+        "name": "stick",
+        "count": 1,
+        "slot": 10
+      },
+      {
+        "name": "dark_oak_log",
+        "count": 11,
+        "slot": 11
+      },
+      {
+        "name": "furnace",
+        "count": 1,
+        "slot": 14
+      },
+      {
+        "name": "chest",
+        "count": 1,
+        "slot": 15
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1,
+        "slot": 36
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1,
+        "slot": 37
+      },
+      {
+        "name": "stone_sword",
+        "count": 1,
+        "slot": 38
+      },
+      {
+        "name": "leaf_litter",
+        "count": 13,
+        "slot": 39
+      },
+      {
+        "name": "stone_axe",
+        "count": 1,
+        "slot": 40
+      },
+      {
+        "name": "chicken",
+        "count": 1,
+        "slot": 41
+      },
+      {
+        "name": "feather",
+        "count": 1,
+        "slot": 42
+      },
+      {
+        "name": "porkchop",
+        "count": 1,
+        "slot": 43
+      }
+    ]
+  },
+  {
+    "id": "1776c485-384b-4d00-a61c-c1b312742e89",
+    "timestamp": "2026-10-12T13:46:57.244Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -370.5,
+      "y": 69,
+      "z": -353.3
+    },
+    "dimension": "overworld",
+    "lost_items": [
+      {
+        "name": "dark_oak_log",
+        "count": 44,
+        "slot": 12
+      },
+      {
+        "name": "chest",
+        "count": 1,
+        "slot": 13
+      },
+      {
+        "name": "stone_sword",
+        "count": 1,
+        "slot": 36
+      },
+      {
+        "name": "wooden_pickaxe",
+        "count": 1,
+        "slot": 37
+      },
+      {
+        "name": "leaf_litter",
+        "count": 29,
+        "slot": 38
+      },
+      {
+        "name": "oak_sapling",
+        "count": 1,
+        "slot": 39
+      },
+      {
+        "name": "stone_pickaxe",
+        "count": 1,
+        "slot": 40
+      },
+      {
+        "name": "dirt",
+        "count": 5,
+        "slot": 41
+      },
+      {
+        "name": "stick",
+        "count": 1,
+        "slot": 42
+      },
+      {
+        "name": "stone_axe",
+        "count": 1,
+        "slot": 43
+      },
+      {
+        "name": "furnace",
+        "count": 1,
+        "slot": 44
+      }
+    ]
+  },
+  {
+    "id": "e671cca8-c4fe-48f3-b70a-4eb18e84be09",
+    "timestamp": "2026-10-12T13:46:56.380Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -359.5,
+      "y": 60,
+      "z": -361.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "00b859d3-7bfc-4322-91b4-338ed1a9022c",
+    "timestamp": "2026-10-12T13:46:56.331Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -360.5,
+      "y": 60,
+      "z": -359.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "cb520e26-37b5-44db-ae55-aad4b62dc273",
+    "timestamp": "2026-10-12T13:46:56.259Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -360.5,
+      "y": 60,
+      "z": -359.6
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "9296a1e3-f5b0-43eb-8896-f2bc93d3fdc7",
+    "timestamp": "2026-10-12T13:46:56.211Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "d060c0de-9994-4161-a59b-0bc0599c3f7b",
+    "timestamp": "2026-10-12T13:46:56.185Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.6,
+      "y": 59,
+      "z": -359.4
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "3ebe8e19-af2b-496a-8e8d-d25f1e6789ce",
+    "timestamp": "2026-10-12T13:46:56.090Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.4
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "eb512170-9854-4ca0-a4c2-a30d691594f6",
+    "timestamp": "2026-10-12T13:46:56.063Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -374,
+      "y": 62.4,
+      "z": -344
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "b019e5b5-dc0f-4c4e-a267-4ee8e63450e4",
+    "timestamp": "2026-10-12T13:46:56.009Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -361.5,
+      "y": 59,
+      "z": -359.3
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "c6bf0598-391b-45d5-bd0b-f3a53c58159c",
+    "timestamp": "2026-10-12T13:46:55.834Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -362.9,
+      "y": 70.2,
+      "z": -366.1
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "31273fd2-186f-440e-92b6-e97eacc5b76f",
+    "timestamp": "2026-10-12T13:46:55.782Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -365.5,
+      "y": 72,
+      "z": -377.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
+  },
+  {
+    "id": "6a78f7cb-9b8f-4dcb-8728-bc71cf5d5261",
+    "timestamp": "2026-10-12T13:46:55.672Z",
+    "reason": "threat_response",
+    "death_message": null,
+    "killer": null,
+    "damage_type": null,
+    "position": {
+      "x": -369.7,
+      "y": 72,
+      "z": -372.5
+    },
+    "dimension": "overworld",
+    "lost_items": []
   }
 ]

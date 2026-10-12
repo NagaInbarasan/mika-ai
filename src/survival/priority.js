@@ -154,9 +154,10 @@ export function evaluateThreatLevel(obs) {
  * @param {Object} obs - Current observation
  * @param {Object} [memoryStore=null] - Persistent mistake memory
  * @param {GoalExecutionTracker} [tracker=null] - Execution history & retry limiter
+ * @param {import('../tasks/task-manager.js').TaskManager} [taskManager=null] - Persistent task manager
  * @returns {{ goalId: string, tier: number, reason: string, plan: Array<string>, isFallback: boolean }}
  */
-export function selectContextualGoal(obs, memoryStore = null, tracker = null) {
+export function selectContextualGoal(obs, memoryStore = null, tracker = null, taskManager = null) {
   const health = obs?.agent?.health ?? 20;
   const food = obs?.agent?.food ?? 20;
   const threatInfo = evaluateThreatLevel(obs);
@@ -245,6 +246,20 @@ export function selectContextualGoal(obs, memoryStore = null, tracker = null) {
       tier: 3,
       reason: `Recovering items lost during last death ("${lostThings.metadata?.reason || 'death'}") at (${lostThings.position.x}, ${lostThings.position.z})`
     });
+  }
+
+  // Resumption of interrupted tasks once threats clear:
+  if (taskManager && typeof taskManager.hasInterruptedTasks === 'function' && taskManager.hasInterruptedTasks() && !threatInfo.hasThreat && !isNight) {
+    const topInterrupted = taskManager.interruptStack[taskManager.interruptStack.length - 1];
+    if (topInterrupted && canAttempt(topInterrupted.taskId)) {
+      candidateGoals.push({
+        goalId: topInterrupted.taskId,
+        tier: 3,
+        reason: `Resuming interrupted task '${topInterrupted.taskId}' from checkpoint after threat cleared: ${topInterrupted.reason}`,
+        isResumed: true,
+        checkpoint: topInterrupted.checkpoint
+      });
+    }
   }
 
   // -------------------------------------------------------------
@@ -414,6 +429,51 @@ export function selectContextualGoal(obs, memoryStore = null, tracker = null) {
         });
       }
     }
+    // 7. Base Shelter Construction (Permanent shelter with utilities)
+    else if (!obs?.known_locations?.shelter_base && canAttempt('BUILD_BASE_SHELTER')) {
+      const blocks = countAvailableBuildingBlocks(obs);
+      if (blocks >= 12) {
+        candidateGoals.push({
+          goalId: 'BUILD_BASE_SHELTER',
+          tier: 5,
+          reason: `Have ${blocks} building blocks; construct permanent base shelter`
+        });
+      }
+    }
+    // 8. Cook Food (Furnace food smelting)
+    else if (canAttempt('COOK_FOOD')) {
+      const inv = obs?.inventory || [];
+      const hasRaw = inv.some(i => ['raw_beef', 'raw_porkchop', 'raw_mutton', 'raw_chicken', 'potato'].includes(i.name));
+      const hasFuel = inv.some(i => ['coal', 'charcoal', 'stick', 'oak_planks', 'oak_log'].some(f => i.name.includes(f)));
+      if (hasRaw && hasFuel) {
+        candidateGoals.push({
+          goalId: 'COOK_FOOD',
+          tier: 5,
+          reason: 'Cook raw food in furnace to increase nutrition and saturation'
+        });
+      }
+    }
+    // 9. Craft and Place Bed
+    else if (canAttempt('CRAFT_AND_PLACE_BED')) {
+      const inv = obs?.inventory || [];
+      const hasBed = inv.some(i => i.name.includes('bed'));
+      const wool = inv.filter(i => i.name.includes('wool')).reduce((a, i) => a + (i.count || 1), 0);
+      if (hasBed || wool >= 3) {
+        candidateGoals.push({
+          goalId: 'CRAFT_AND_PLACE_BED',
+          tier: 5,
+          reason: hasBed ? 'Place bed inside shelter' : `Craft bed from ${wool} wool and place inside shelter`
+        });
+      }
+    }
+    // 10. Organize Storage (Deposit surplus into chests)
+    else if (hasChest && canAttempt('ORGANIZE_STORAGE')) {
+      candidateGoals.push({
+        goalId: 'ORGANIZE_STORAGE',
+        tier: 5,
+        reason: 'Organize personal inventory and deposit surplus into base chest'
+      });
+    }
   } else if (pickaxes === 0) {
     // We don't have any pickaxe yet! Follow wooden tool dependency ladder
     const logs = countWoodLogs(obs);
@@ -506,7 +566,9 @@ export function selectContextualGoal(obs, memoryStore = null, tracker = null) {
     tier: selected.tier,
     reason: selected.reason,
     plan: resolvedPlan.length > 0 ? resolvedPlan : [selected.goalId],
-    isFallback: selected.tier === 6
+    isFallback: selected.tier === 6,
+    isResumed: Boolean(selected.isResumed),
+    checkpoint: selected.checkpoint || null
   };
 }
 

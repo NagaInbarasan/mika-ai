@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-10-12T12:13:02.210Z",
+  "timestamp": "2026-10-12T13:46:40.092Z",
   "source_files": {
     "experiences": "data\\raw\\experiences.jsonl",
     "feedback": "data\\raw\\feedback.jsonl"
   },
   "metrics": {
-    "total_experience_lines_read": 2548,
-    "valid_clean_transitions": 2548,
+    "total_experience_lines_read": 3057,
+    "valid_clean_transitions": 3057,
     "invalid_records_rejected": 0,
     "syntax_errors_skipped": 0,
     "duplicate_records_skipped": 0,
@@ -15,21 +15,21 @@
     "contradictory_labels_found": 2,
     "missing_labels_found": 18,
     "metadata_corrections_applied": 187,
-    "passive_observations_filtered": 677
+    "passive_observations_filtered": 697
   },
   "specialized_datasets": {
-    "action_prediction_samples": 1871,
-    "outcome_prediction_samples": 1871,
-    "failure_recovery_samples": 786,
-    "sft_demonstration_samples": 1178,
+    "action_prediction_samples": 2360,
+    "outcome_prediction_samples": 2360,
+    "failure_recovery_samples": 949,
+    "sft_demonstration_samples": 1511,
     "dpo_preference_pairs": 18
   },
   "episode_split": {
-    "total_episodes": 40,
-    "train_episodes_count": 32,
-    "eval_episodes_count": 8,
-    "train_records_count": 1903,
-    "eval_records_count": 645,
+    "total_episodes": 44,
+    "train_episodes_count": 35,
+    "eval_episodes_count": 9,
+    "train_records_count": 2309,
+    "eval_records_count": 748,
     "train_episode_ids": [
       "run-1791722977560:episode-1",
       "run-1791724060426:episode-1",
@@ -54,6 +54,10 @@
       "run-1791733631905:episode-1",
       "run-1791733759492:episode-1",
       "run-1791734997197:episode-1",
+      "run-1791808591943:episode-1",
+      "run-1791808821034:episode-1",
+      "run-1791811205555:episode-1",
+      "run-1791812137970:episode-1",
       "swarm-1791737038906-bot-1:episode-1",
       "swarm-1791737040712-bot-2:episode-1",
       "swarm-1791737042231-bot-3:episode-1",
@@ -61,10 +65,10 @@
       "swarm-1791737864544-bot-1:episode-1",
       "swarm-1791737866321-bot-2:episode-1",
       "swarm-1791737867841-bot-3:episode-1",
-      "swarm-1791737869347-bot-4:episode-1",
-      "swarm-1791738644201-bot-1:episode-1"
+      "swarm-1791737869347-bot-4:episode-1"
     ],
     "eval_episode_ids": [
+      "swarm-1791738644201-bot-1:episode-1",
       "swarm-1791738646854-bot-2:episode-1",
       "swarm-1791738648361-bot-3:episode-1",
       "swarm-1791738649878-bot-4:episode-1",
@@ -75,10 +79,10 @@
       "swarm-1791739839988-bot-5:episode-1"
     ],
     "model_training_split": {
-      "train_action_samples": 1386,
-      "eval_action_samples": 485,
-      "train_sft_samples": 894,
-      "eval_sft_samples": 284
+      "train_action_samples": 1775,
+      "eval_action_samples": 585,
+      "train_sft_samples": 1155,
+      "eval_sft_samples": 356
     }
   },
   "anomalies": {
